@@ -14,6 +14,7 @@ import memagents.utils.Log;
 
 /**
  * Simulation leads the general processes and calculates results of agents' interaction.
+ * 
  * @author Vojtech Kopal
  *
  */

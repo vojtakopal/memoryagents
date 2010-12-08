@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                    %%%
+%%% (c) Vojtěch Kopal, 2011            %%%
+%%%                                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[12pt,notitlepage]{report}
+%\pagestyle{headings}
+\pagestyle{plain}
+
+\frenchspacing % aktivuje použití některých českých typografických pravidel
+
+\usepackage[utf8]{inputenc} % nastavuje použité kódování, uživatelé Windows zamění latin2 za cp1250
+\usepackage{czech}
+\usepackage{a4wide} % nastavuje standardní evropský formát stránek A4
+%\usepackage{index} % nutno použít v případě tvorby rejstříku balíčkem makeindex
+%\usepackage{fancybox} % umožňuje pokročilé rámečkování :-)
+\usepackage{graphicx} % nezbytné pro standardní vkládání obrázků do dokumentu
+
+\usepackage[left=4cm]{geometry} % nastavení dané velikosti okrajů
+
+%\newindex{default}{idx}{ind}{Rejstřík} % zavádí rejstřík v případě použití balíku index
+
+\title{Název práce}   % tyto dvě položky jsou zde v podstatě formálně, ve skutečnosti nejsou nikde 
+\author{Jméno autora} % dále v dokumentu použity
+
+%\date{}
+
+\begin{document}
+
+%\csprimeson % zapne jednoduché psaní českých uvozovek pomocí klasických znaků, ale potom pozor 
+             % na originální apostrofy, které budou chybně interpretovány!!!
+
+%%% Následuje první, úvodní, strana bakalářské práce. Jednotlivé položky nahraďte dle vlastních
+%%% údajů. Změnit podle konkrétní délky jednotlivých položek můžete i zalomení řádků.
+\begin{titlepage}
+\begin{center}
+\ \\
+
+\vspace{15mm}
+
+\large
+Univerzita Karlova v Praze\\
+Matematicko-fyzikální fakulta\\
+
+\vspace{5mm}
+
+{\Large\bf BAKALÁŘSKÁ PRÁCE}
+
+\vspace{10mm}
+
+%%% Aby vložní loga vše správně fungovalo, je třeba mít soubor logo.eps nahraný v pracovním adresáři,
+%%% tj. v adresáři, kde se nachází překládaný zdrojový soubor. Soubor logo.eps je možné získat např.
+%%% na adrese: http://www.mff.cuni.cz/fakulta/symboly/logo.eps
+\includegraphics[scale=0.3]{logo.eps} 
+
+\vspace{15mm}
+
+%\normalsize
+{\Large Jméno autora}\\ % doplňte vaše jméno
+\vspace{5mm}
+{\Large\bf Název práce (přesně podle zadání)}\\ % doplňte název práce
+\vspace{5mm}
+Název katedry či ústavu\\ % doplňte název katedry či ústavu
+\end{center}
+\vspace{15mm}
+
+\large
+\noindent Vedoucí bakalářské práce: Mgr. Ondřej Sýkora
+\vspace{1mm} 
+
+\noindent Studijní program: Informatika, obecná informatika
+
+\vspace{20mm}
+
+\begin{center}
+2011
+\end{center}
+
+\end{titlepage} % zde končí úvodní strana
+
+\normalsize % nastavení normální velikosti fontu
+\setcounter{page}{2} % nastavení číslování stránek
+\ \vspace{10mm} 
+
+\noindent Na tomto místě mohou být napsána případná poděkování (vedoucímu práce, konzultantovi, tomu, kdo půjčil software, literaturu, poskytl data apod.). % doplňte vlastní text
+
+\vspace{\fill} % nastavuje dynamické umístění následujícího textu do spodní části stránky
+\noindent Prohlašuji, že jsem svou bakalářskou práci napsal(a) samostatně a výhradně s použitím citovaných pramenů. Souhlasím se zapůjčováním práce a jejím zveřejňováním.
+
+\bigskip
+\noindent V Praze dne \hspace{\fill}Jméno Příjmení\\ % doplňte patřičné datum, jméno a příjmení
+
+%%%   Výtisk pak na tomto míste nezapomeňte PODEPSAT!
+%%%                                         *********
+
+\tableofcontents % vkládá automaticky generovaný obsah dokumentu
+
+\newpage % přechod na novou stránku
+
+%%% Následuje strana s abstrakty. Doplňte vlastní údaje.
+\noindent
+Název práce: Název bakalářské práce\\
+Autor: Jméno autora\\
+Katedra (ústav): Název katedry či ústavu\\
+Vedoucí bakalářské práce: Jméno se všemi tituly, event. pracoviště\\
+e-mail vedoucího: e-mailová adresa vedoucího\\
+
+\noindent Abstrakt:  V předložené práci studujeme ... Uvede se abstrakt v rozsahu 80 až 200 slov. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut sit amet sem. Mauris nec turpis ac sem mollis pretium. Suspendisse neque massa, suscipit id, dictum in, porta at, quam. Nunc suscipit, pede vel elementum pretium, nisl urna sodales velit, sit amet auctor elit quam id tellus. Nullam sollicitudin. Donec hendrerit. Aliquam ac nibh. Vivamus mi. Sed felis. Proin pretium elit in neque. Pellentesque at turpis. Maecenas convallis. Vestibulum id lectus. Fusce dictum augue ut nibh. Etiam non urna nec mi mattis volutpat. Curabitur in tortor at magna nonummy gravida. Mauris turpis quam, volutpat quis, porttitor ut, condimentum sit amet, felis.\\
+
+\noindent Klíčová slova: klíčová slova (3 až 5)
+
+\vspace{10mm}
+
+\noindent
+Title: Název bakalářské práce v angličtině\\
+Author: Jméno autora\\
+Department: Název katedry či ústavu v angličtině\\
+Supervisor: Jméno s tituly jako v české verzi, event. pracoviště\\
+Supervisor's e-mail address: e-mailová adresa vedoucího\\
+
+\noindent Abstract: In the present work we study ... Uvede se anglický abstrakt v rozsahu 80 až 200 slov. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut sit amet sem. Mauris nec turpis ac sem mollis pretium. Suspendisse neque massa, suscipit id, dictum in, porta at, quam. Nunc suscipit, pede vel elementum pretium, nisl urna sodales velit, sit amet auctor elit quam id tellus. Nullam sollicitudin. Donec hendrerit. Aliquam ac nibh. Vivamus mi. Sed felis. Proin pretium elit in neque. Pellentesque at turpis. Maecenas convallis. Vestibulum id lectus. Fusce dictum augue ut nibh. Etiam non urna nec mi mattis volutpat. Curabitur in tortor at magna nonummy gravida. Mauris turpis quam, volutpat quis, porttitor ut, condimentum sit amet, felis. \\
+
+\noindent Keywords: klíčová slova (3 až 5) v angličtině
+
+\newpage
+
+%%% Následuje text bakalářské práce členěný do kapitol, které se číslují, označí názvy a graficky oddělí.
+%%% Nedoporučuje se používat víc než dvě úrovně číslování kapitol, viz příklad níže.
+
+\chapter{Název první kapitoly}
+
+\section{Název první podkapitoly v první kapitole}
+
+\section{Název druhé podkapitoly v první kapitole}
+
+\chapter{Název druhé kapitoly}
+
+\section{Název první podkapitoly v druhé kapitole}
+
+\section{Název druhé podkapitoly v druhé kapitole}
+
+
+%%% Seznam literatury
+%%%
+%%% Literatura se řadí abecedně. Úvádí se pouze literatura, na kterou se v textu odkazuje.
+%%% Při odkazu na knihu se vždy uvádějí čísla stránek.
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{Literatura}
+ \bibitem{abraham-marsden}Abraham R., Marsden J. E.: {\em Foundations of Mechanics}, Addison-Wesley, Reading, 1985.
+ \bibitem{derbes}Derbes D.: {\em Reinventing the wheel: Hodographic solutions to the Kepler problems}, Am. J. Phys. {\bf 69} (2001) 481--489.
+ \bibitem{kvasnica}Kvasnica J.: {\em Teorie elektromagnetického pole}, Academia, Praha, 1985.
+\end{thebibliography}
+
+\end{document}

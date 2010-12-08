@@ -1,13 +1,13 @@
-init 0 4 5
-init 1 1 4
-init 2 7 7
-init 3 0 2
-init 4 5 5
-init 5 3 7
-init 6 2 8
-init 7 2 0
-init 8 9 1
-init 9 9 7
+init 0 3 1
+init 1 3 3
+init 2 9 1
+init 3 2 7
+init 4 0 5
+init 5 8 0
+init 6 9 9
+init 7 8 6
+init 8 5 6
+init 9 1 1
 nextday
 product 0 2 2
 product 0 4 2
@@ -15,342 +15,28 @@ product 0 2 4
 product 0 5 5
 product 0 3 8
 nextday
-move 0 4 5 4 4
-move 1 1 4 0 4
-move 2 7 7 8 7
-move 3 0 2 0 1
-memory 4 Product 5 5
-move 4 5 5 5 4
-move 5 3 7 4 7
-move 6 2 8 3 8
-move 7 2 0 3 0
-move 8 9 1 8 1
-move 9 9 7 8 7
-nextday
-nextday
-move 0 4 4 4 3
-move 1 0 4 1 4
-move 2 8 7 8 8
-move 3 0 1 0 0
-move 4 5 4 5 3
-move 5 4 7 4 6
-memory 6 Product 3 8
-move 6 3 8 3 7
-move 7 3 0 4 0
-move 8 8 1 9 1
-move 9 8 7 7 7
-nextday
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-move 0 4 3 5 3
-move 1 1 4 1 3
-move 2 8 8 9 8
-move 3 0 0 0 1
-move 4 5 3 5 4
-move 5 4 6 3 6
-move 6 3 7 3 8
-move 7 4 0 5 0
-move 8 9 1 9 2
-move 9 7 7 7 6
-nextday
-nextday
-move 0 5 3 4 3
-move 1 1 3 1 4
-move 2 9 8 9 7
-move 3 0 1 0 0
-move 4 5 4 5 3
-move 5 3 6 2 6
-memory 6 Product 3 8
-memory 6 Product 3 8
-move 6 3 8 3 7
-move 7 5 0 4 0
-move 8 9 2 8 2
-move 9 7 6 8 6
-nextday
-nextday
-move 0 4 3 3 3
-move 1 1 4 1 3
-move 2 9 7 8 7
-move 3 0 0 1 0
-move 4 5 3 5 4
-move 5 2 6 2 7
-move 6 3 7 4 7
-move 7 4 0 4 1
-move 8 8 2 8 3
-move 9 8 6 8 7
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-nextday
-move 0 3 3 4 3
-move 1 1 3 0 3
-move 2 8 7 8 6
-move 3 1 0 0 0
-move 4 5 4 4 4
-move 5 2 7 3 7
-move 6 4 7 5 7
-move 7 4 1 3 1
-move 8 8 3 8 4
-move 9 8 7 8 6
-nextday
-nextday
-move 0 4 3 5 3
-move 1 0 3 1 3
-move 2 8 6 8 7
-move 3 0 0 1 0
-move 4 4 4 3 4
-move 5 3 7 3 8
-move 6 5 7 5 8
-move 7 3 1 3 2
-move 8 8 4 9 4
-move 9 8 6 8 5
-nextday
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-move 0 5 3 4 3
-move 1 1 3 0 3
-move 2 8 7 7 7
-move 3 1 0 0 0
-move 4 3 4 2 4
-memory 5 Product 3 8
-memory 5 Product 3 8
-memory 5 Product 3 8
-memory 5 Product 3 8
-move 5 3 8 3 9
-move 6 5 8 6 8
-move 7 3 2 4 2
-move 8 9 4 8 4
-move 9 8 5 8 4
-nextday
-nextday
-move 0 4 3 4 4
-move 1 0 3 0 4
-move 2 7 7 7 8
-move 3 0 0 1 0
-memory 4 Product 2 4
-memory 4 Product 2 4
-memory 4 Product 2 4
-memory 4 Product 2 4
-move 4 2 4 2 5
-move 5 3 9 3 8
-move 6 6 8 6 9
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-move 7 4 2 3 2
-move 8 8 4 9 4
-move 9 8 4 8 3
-nextday
-nextday
-move 0 4 4 4 5
-move 1 0 4 1 4
-move 2 7 8 8 8
-move 3 1 0 0 0
-move 4 2 5 2 6
-memory 5 Product 3 8
-memory 5 Product 3 8
-memory 5 Product 3 8
-memory 5 Product 3 8
-move 5 3 8 3 9
-move 6 6 9 5 9
-move 7 3 2 4 2
-move 8 9 4 9 5
-move 9 8 3 8 4
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-nextday
-move 0 4 5 3 5
-move 1 1 4 0 4
-move 2 8 8 7 8
-move 3 0 0 1 0
-move 4 2 6 1 6
-move 5 3 9 2 9
-move 6 5 9 4 9
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-move 7 4 2 4 3
-move 8 9 5 9 6
-move 9 8 4 8 3
-nextday
-nextday
-move 0 3 5 4 5
-move 1 0 4 0 5
-move 2 7 8 6 8
-move 3 1 0 1 1
-move 4 1 6 1 7
-move 5 2 9 3 9
-move 6 4 9 5 9
-move 7 4 3 5 3
-move 8 9 6 9 7
-move 9 8 3 7 3
-nextday
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-move 0 4 5 4 4
-move 1 0 5 0 4
-move 2 6 8 7 8
-move 3 1 1 1 2
-move 4 1 7 1 6
-move 5 3 9 2 9
-move 6 5 9 5 8
-move 7 5 3 5 2
-move 8 9 7 9 6
-move 9 7 3 6 3
-nextday
-nextday
-move 0 4 4 5 4
-move 1 0 4 1 4
-move 2 7 8 7 7
-move 3 1 2 1 1
-move 4 1 6 1 5
-move 5 2 9 3 9
-move 6 5 8 6 8
-move 7 5 2 5 3
-move 8 9 6 8 6
-move 9 6 3 6 2
-nextday
-nextday
-move 0 5 4 6 4
-move 1 1 4 0 4
-move 2 7 7 6 7
-move 3 1 1 1 2
-move 4 1 5 0 5
-move 5 3 9 2 9
-move 6 6 8 5 8
-move 7 5 3 6 3
-move 8 8 6 8 5
-move 9 6 2 6 1
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-nextday
-move 0 6 4 6 5
-move 1 0 4 0 3
-move 2 6 7 6 6
-move 3 1 2 1 1
+move 0 3 1 3 0
+move 1 3 3 4 3
+move 2 9 1 9 2
+move 3 2 7 1 7
 move 4 0 5 1 5
-move 5 2 9 3 9
-move 6 5 8 5 7
-move 7 6 3 6 4
-move 8 8 5 8 4
-move 9 6 1 6 2
+move 5 8 0 8 1
+move 6 9 9 9 8
+move 7 8 6 8 7
+move 8 5 6 5 7
+move 9 1 1 0 1
 nextday
 nextday
-move 0 6 5 6 6
-move 1 0 3 0 2
-move 2 6 6 5 6
-move 3 1 1 0 1
-move 4 1 5 1 6
-move 5 3 9 2 9
-move 6 5 7 6 7
-move 7 6 4 7 4
-move 8 8 4 8 5
-move 9 6 2 6 3
-nextday
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-move 0 6 6 5 6
-move 1 0 2 0 1
-move 2 5 6 5 7
-move 3 0 1 0 2
-move 4 1 6 1 7
-move 5 2 9 2 8
-move 6 6 7 6 6
-move 7 7 4 6 4
-move 8 8 5 8 6
-move 9 6 3 5 3
-nextday
-nextday
-move 0 5 6 5 7
-move 1 0 1 1 1
-move 2 5 7 5 6
-move 3 0 2 0 1
-move 4 1 7 2 7
-move 5 2 8 1 8
-move 6 6 6 7 6
-move 7 6 4 6 3
-move 8 8 6 8 7
-move 9 5 3 5 2
-nextday
-nextday
-move 0 5 7 4 7
-move 1 1 1 2 1
-move 2 5 6 6 6
-move 3 0 1 0 2
-move 4 2 7 2 6
-move 5 1 8 2 8
-move 6 7 6 6 6
-move 7 6 3 6 2
-move 8 8 7 9 7
-move 9 5 2 4 2
-nextday
-product 0 2 2
-product 0 4 2
-product 0 2 4
-product 0 5 5
-product 0 3 8
-nextday
-move 0 4 7 3 7
-move 1 2 1 1 1
-move 2 6 6 6 5
-move 3 0 2 1 2
-move 4 2 6 2 7
-move 5 2 8 2 9
-move 6 6 6 6 7
-move 7 6 2 5 2
-move 8 9 7 8 7
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-move 9 4 2 3 2
-nextday
-nextday
-move 0 3 7 3 6
-move 1 1 1 0 1
-move 2 6 5 5 5
-move 3 1 2 2 2
-move 4 2 7 1 7
-move 5 2 9 2 8
-move 6 6 7 7 7
-move 7 5 2 4 2
-move 8 8 7 8 8
-move 9 3 2 3 3
+move 0 3 0 3 1
+move 1 4 3 4 2
+move 2 9 2 9 3
+move 3 1 7 1 6
+move 4 1 5 0 5
+move 5 8 1 7 1
+move 6 9 8 9 7
+move 7 8 7 7 7
+move 8 5 7 5 8
+move 9 0 1 0 0
 nextday
 nextday
 product 0 2 2
@@ -358,113 +44,240 @@ product 0 4 2
 product 0 2 4
 product 0 5 5
 product 0 3 8
-move 0 3 6 2 6
-move 1 0 1 0 2
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-move 2 5 5 4 5
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-move 3 2 2 1 2
-move 4 1 7 1 6
-move 5 2 8 2 7
-move 6 7 7 6 7
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-move 7 4 2 5 2
-move 8 8 8 9 8
-move 9 3 3 3 2
+move 0 3 1 4 1
+memory 1 Product 4 2
+memory 1 Product 4 2
+move 1 4 2 5 2
+move 2 9 3 9 2
+move 3 1 6 1 5
+move 4 0 5 0 6
+move 5 7 1 6 1
+move 6 9 7 9 8
+move 7 7 7 8 7
+move 8 5 8 4 8
+move 9 0 0 0 1
 nextday
 nextday
-move 0 2 6 3 6
-move 1 0 2 0 1
-move 2 4 5 5 5
-move 3 1 2 2 2
-move 4 1 6 1 7
-move 5 2 7 3 7
-move 6 6 7 7 7
-move 7 5 2 4 2
-move 8 9 8 9 9
-move 9 3 2 4 2
+move 0 4 1 4 0
+move 1 5 2 4 2
+move 2 9 2 9 3
+move 3 1 5 2 5
+move 4 0 6 1 6
+move 5 6 1 5 1
+move 6 9 8 8 8
+move 7 8 7 8 8
+move 8 4 8 4 9
+move 9 0 1 0 2
 nextday
 nextday
-move 0 3 6 3 7
-move 1 0 1 1 1
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-memory 2 Product 5 5
-move 2 5 5 6 5
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-memory 3 Product 2 2
-move 3 2 2 2 1
-move 4 1 7 1 6
-move 5 3 7 2 7
-move 6 7 7 6 7
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-memory 7 Product 4 2
-move 7 4 2 4 1
-move 8 9 9 9 8
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-memory 9 Product 4 2
-move 9 4 2 4 3
+move 0 4 0 4 1
+memory 1 Product 4 2
+memory 1 Product 4 2
+move 1 4 2 5 2
+move 2 9 3 9 2
+move 3 2 5 2 4
+move 4 1 6 2 6
+move 5 5 1 5 0
+move 6 8 8 7 8
+move 7 8 8 8 9
+move 8 4 9 4 8
+move 9 0 2 0 1
 nextday
 product 0 2 2
 product 0 4 2
 product 0 2 4
 product 0 5 5
 product 0 3 8
+nextday
+move 0 4 1 4 0
+move 1 5 2 5 1
+move 2 9 2 8 2
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+move 3 2 4 1 4
+move 4 2 6 1 6
+move 5 5 0 5 1
+move 6 7 8 7 9
+move 7 8 9 9 9
+move 8 4 8 4 7
+move 9 0 1 1 1
+nextday
+nextday
+move 0 4 0 3 0
+move 1 5 1 5 0
+move 2 8 2 9 2
+move 3 1 4 2 4
+move 4 1 6 2 6
+move 5 5 1 5 0
+move 6 7 9 6 9
+move 7 9 9 8 9
+move 8 4 7 4 8
+move 9 1 1 2 1
+nextday
+nextday
+product 0 2 2
+product 0 4 2
+product 0 2 4
+product 0 5 5
+product 0 3 8
+move 0 3 0 2 0
+move 1 5 0 4 0
+move 2 9 2 9 3
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+move 3 2 4 1 4
+move 4 2 6 3 6
+move 5 5 0 6 0
+move 6 6 9 7 9
+move 7 8 9 8 8
+move 8 4 8 4 7
+move 9 2 1 3 1
+nextday
+nextday
+move 0 2 0 3 0
+move 1 4 0 4 1
+move 2 9 3 9 2
+move 3 1 4 2 4
+move 4 3 6 2 6
+move 5 6 0 5 0
+move 6 7 9 7 8
+move 7 8 8 8 9
+move 8 4 7 3 7
+move 9 3 1 3 0
+nextday
+nextday
+move 0 3 0 3 1
+move 1 4 1 3 1
+move 2 9 2 8 2
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+move 3 2 4 1 4
+move 4 2 6 3 6
+move 5 5 0 6 0
+move 6 7 8 7 7
+move 7 8 9 7 9
+move 8 3 7 2 7
+move 9 3 0 2 0
+nextday
+product 0 2 2
+product 0 4 2
+product 0 2 4
+product 0 5 5
+product 0 3 8
+nextday
+move 0 3 1 2 1
+move 1 3 1 4 1
+move 2 8 2 8 1
+move 3 1 4 0 4
+move 4 3 6 3 5
+move 5 6 0 5 0
+move 6 7 7 8 7
+move 7 7 9 8 9
+move 8 2 7 1 7
+move 9 2 0 2 1
+nextday
+nextday
+move 0 2 1 3 1
+move 1 4 1 4 0
+move 2 8 1 8 2
+move 3 0 4 1 4
+move 4 3 5 2 5
+move 5 5 0 5 1
+move 6 8 7 8 6
+move 7 8 9 8 8
+move 8 1 7 1 6
+move 9 2 1 1 1
+nextday
+nextday
+product 0 2 2
+product 0 4 2
+product 0 2 4
+product 0 5 5
+product 0 3 8
+move 0 3 1 4 1
+move 1 4 0 3 0
+move 2 8 2 9 2
+move 3 1 4 2 4
+move 4 2 5 3 5
+move 5 5 1 5 0
+move 6 8 6 9 6
+move 7 8 8 8 7
+move 8 1 6 1 5
+move 9 1 1 1 2
+nextday
+nextday
+move 0 4 1 4 2
+move 1 3 0 3 1
+move 2 9 2 8 2
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+move 3 2 4 2 3
+move 4 3 5 4 5
+move 5 5 0 6 0
+move 6 9 6 9 7
+move 7 8 7 8 8
+move 8 1 5 0 5
+move 9 1 2 0 2
+nextday
+nextday
+memory 0 Product 4 2
+memory 0 Product 4 2
+memory 0 Product 4 2
+memory 0 Product 4 2
+memory 0 Product 4 2
+memory 0 Product 4 2
+move 0 4 2 5 2
+move 1 3 1 4 1
+move 2 8 2 7 2
+move 3 2 3 2 4
+move 4 4 5 4 6
+move 5 6 0 5 0
+move 6 9 7 8 7
+move 7 8 8 8 9
+move 8 0 5 0 4
+move 9 0 2 0 1
+nextday
+product 0 2 2
+product 0 4 2
+product 0 2 4
+product 0 5 5
+product 0 3 8
+nextday
+move 0 5 2 5 1
+move 1 4 1 5 1
+move 2 7 2 6 2
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+memory 3 Product 2 4
+move 3 2 4 3 4
+move 4 4 6 5 6
+move 5 5 0 6 0
+move 6 8 7 8 6
+move 7 8 9 7 9
+move 8 0 4 0 3
+move 9 0 1 0 0
+nextday
+nextday
+move 0 5 1 5 2
+move 1 5 1 6 1
+move 2 6 2 7 2
+move 3 3 4 3 3
+move 4 5 6 4 6
+move 5 6 0 5 0
+move 6 8 6 8 5
+move 7 7 9 7 8
+move 8 0 3 1 3
+move 9 0 0 1 0
