@@ -18,7 +18,7 @@ public class Resource
 	
 	public Resource(ArrayList<int[]> destinations)
 	{
-		init(destinations, 5);
+		init(destinations, 50);
 	}
 	
 	public Resource(ArrayList<int[]> destinations, int interval)
@@ -39,8 +39,10 @@ public class Resource
 		{
 			for ( int[] d : destinations )
 			{
-				Log.println("product 0 "+d[0]+" "+d[1]);
-				storageEnvironment.add(d[0], d[1], new Product());
+				if (Math.random() < 0.1) {
+					Log.println("product 0 "+d[0]+" "+d[1]);
+					storageEnvironment.add(d[0], d[1], new Product());
+				}
 			}
 		}
 		counter++;

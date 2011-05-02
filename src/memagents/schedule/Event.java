@@ -17,6 +17,10 @@ public class Event {
 		this.callback.callback();
 	}
 	
+	public void postprocess() {
+		this.callback.postcallback();
+	}
+	
 	public void chainEvent(Event event)
 	{
 		if (this.next == null)

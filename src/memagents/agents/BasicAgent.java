@@ -11,16 +11,16 @@ import memagents.utils.Log;
  * @author Vojtech Kopal
  *
  */
-public class BasicAgent extends EnvironmentObject implements IAgent 
+public class BasicAgent extends Agent 
 {
 	protected Simulation simulation;
-	protected int[] position;
 	protected int id;
 	
-	public BasicAgent(Simulation simulation, int[] position) 
+	public BasicAgent(Simulation simulation) 
 	{
+		super();
+		
 		this.simulation = simulation;
-		this.position = position;
 	}
 	
 	public void setId(int id)
@@ -42,12 +42,12 @@ public class BasicAgent extends EnvironmentObject implements IAgent
 	
 	private void move(int[] move)
 	{
-		Log.println("move " + id + " " + position[0] + " " + position[1] + " " + (position[0] + move[0]) + " " + (position[1] + move[1]));
+		Log.println("move " + id + " " + position.x + " " + position.y + " " + (position.x + move[0]) + " " + (position.y + move[1]));
 		
-		simulation.getEnvironment().remove(position[0], position[1], this);
-		simulation.getEnvironment().add(position[0] + move[0], position[1] + move[1], this);
-		position[0] += move[0];
-		position[1] += move[1];
+		//simulation.getEnvironment().remove(position[0], position[1], this);
+		//simulation.getEnvironment().add(position[0] + move[0], position[1] + move[1], this);
+		position.x += move[0];
+		position.y += move[1];
 	}
 	
 	public void live()

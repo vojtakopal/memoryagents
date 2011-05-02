@@ -2,6 +2,8 @@ package memagents.environment;
 
 import java.util.ArrayList;
 
+import memagents.agents.Position;
+
 /**
  * This class contains matrix where EnvironmentObjects are stored.
  * 
@@ -14,18 +16,18 @@ public class BasicEnvironment
 
 	protected Matrix<ArrayList<EnvironmentObject>> matrix;
 	
-	protected int WIDTH;
-	protected int HEIGHT;
+	protected int width;
+	protected int height;
 	
 	public BasicEnvironment(int width, int height)
 	{
-		WIDTH = width;
-		HEIGHT = height;
+		this.width = width;
+		this.height = height;
 		
 		matrix = new Matrix<ArrayList<EnvironmentObject>>(width, height);
 		
-		for (int i = 0; i < WIDTH; i++)
-			for (int j = 0; j < HEIGHT; j++)
+		for (int i = 0; i < this.width; i++)
+			for (int j = 0; j < this.height; j++)
 			{
 				matrix.set(i, j, new ArrayList<EnvironmentObject>());
 			}
@@ -74,6 +76,9 @@ public class BasicEnvironment
 		list.remove(list.indexOf(object));
 	} 
 	
+	public void removeAll(int i, int j) {
+		matrix.get(i, j).clear();
+	}
 	
 	/**
 	 * It provides a list of object at the given position.
@@ -103,16 +108,16 @@ public class BasicEnvironment
 	 * @param moves
 	 * @return ArrayList<int[]>
 	 */
-	public ArrayList<int[]> filterMoves(int[] position, ArrayList<int[]> moves)
+	public ArrayList<int[]> filterMoves(Position position, ArrayList<int[]> moves)
 	{
 		ArrayList<int[]> filtered = new ArrayList<int[]>();
 		
 		for (int[] move : moves)
 		{
-			int nx = move[0] + position[0];
-			int ny = move[1] + position[1];
+			int nx = move[0] + position.x;
+			int ny = move[1] + position.y;
 			
-			if (nx >= 0 && nx < WIDTH && ny >= 0 && ny < HEIGHT) 
+			if (nx >= 0 && nx < width && ny >= 0 && ny < height) 
 			{
 				//TODO: eventually check collisions
 			
