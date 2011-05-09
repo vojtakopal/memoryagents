@@ -1,37 +1,28 @@
 package memagents.ui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.management.timer.TimerMBean;
 import javax.swing.JFrame;
 
 import memagents.Simulation;
 import memagents.agents.Agent;
-import memagents.agents.MemoryAgent;
-import memagents.agents.TestAgent;
-import memagents.agents.memory.Chunk;
-import memagents.agents.memory.MemoryAgentMemories.BeliefType;
-import memagents.environment.Matrix;
+import memagents.agents.GNGAgent;
 
 public class MemoryVisualizer extends JFrame implements MouseListener {
 	private Simulation simulation = null;	
-	private MemoryAgent agent = null;
+	private Agent agent = null;
 	
 	private ArrayList<Agent> agents = null;
 	
-	private Timer timer = new Timer();
-	
 	private MVPanel panel = null;
 	
-	public MemoryVisualizer(MemoryAgent agent, Simulation simulation) {
+	public MemoryVisualizer(Agent agent, Simulation simulation) {
         super("MemoryVisualizer: #"+agent.getId());  
         
         this.agent = agent;
@@ -40,21 +31,15 @@ public class MemoryVisualizer extends JFrame implements MouseListener {
         
         setSize(300, 300);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        setVisible(true);  
         
         Container pane = getContentPane();
         pane.setLayout(new BorderLayout());
         
-        panel = new MVPanel(this);
+        panel = new MVPanel(this, agent);
         panel.addMouseListener(this);
         pane.add(panel, BorderLayout.CENTER);
-        
-        final MemoryVisualizer self = this;
-        timer.scheduleAtFixedRate(new TimerTask() {
-			public void run() {
-				self.run();
-			}
-		}, 0, 50);
+                
+        setVisible(true);  
         
         // set current situation
 //        for (int i = 0; i < TestAgent.MEMORY_SIZE; i++) {
@@ -66,32 +51,27 @@ public class MemoryVisualizer extends JFrame implements MouseListener {
 //        }
         
         // set random values
-		for (int i = 0; i < MemoryAgent.MEMORY_SIZE; i++) {
-			for (int j = 0; j < MemoryAgent.MEMORY_SIZE; j++) {
-				Chunk chunk = agent.getMemoryChunkAt(BeliefType.MRKEV, i, j);
-				chunk.amount = simulation.getEnvironment().get(i,j).size();
-				chunk.belief = Math.random();
-			}
- 		}
+//		for (int i = 0; i < MemoryAgent.MEMORY_SIZE; i++) {
+//			for (int j = 0; j < MemoryAgent.MEMORY_SIZE; j++) {
+//				Chunk chunk = agent.getMemoryChunkAt(BeliefType.MRKEV, i, j);
+//				chunk.amount = simulation.getEnvironment().get(i,j).size();
+//				chunk.belief = Math.random();
+//			}
+// 		}
 		
 		// set random position to agent
-		agent.setX((int)(Math.random() * MemoryAgent.MEMORY_SIZE));
-		agent.setY((int)(Math.random() * MemoryAgent.MEMORY_SIZE));
+//		agent.setX((int)(Math.random() * MemoryAgent.MEMORY_SIZE));
+//		agent.setY((int)(Math.random() * MemoryAgent.MEMORY_SIZE));
 	}
-	
-	public void run() {
 		
-		
-	}
-	
 	public int getValueAt(int x, int y) {
 		boolean agentThere = false;
 		boolean meThere = false;
 		
 		for (Agent otheragent : agents) {
-			if (otheragent instanceof MemoryAgent) {
-				MemoryAgent otherMemoryAgent = (MemoryAgent)otheragent;
-				if (otherMemoryAgent.getX() == x && otherMemoryAgent.getY() == y) {
+			if (otheragent instanceof Agent) {
+				Agent otherMemoryAgent = otheragent;
+				if (otherMemoryAgent.getPosition().x == x && otherMemoryAgent.getPosition().y == y) {
 					agentThere = true;
 					if (otheragent == agent) {
 						meThere = true;
@@ -107,41 +87,53 @@ public class MemoryVisualizer extends JFrame implements MouseListener {
 				return 0xffff00;
 			}
 		} else {
-			Chunk chunk = agent.getMemoryChunkAt(BeliefType.MRKEV, x, y);
-			if (chunk == null) return 0xffffff;
+//			return 0xffffff;
+			double alpha = 1;
+			int amount = 0;
+						
+			return 0xffffff;
 			
-			double alpha = chunk.belief;
-			
-			int R = (int)(alpha * 255 * chunk.amount);
-			int G = 0 + (int)(255 * (1 - alpha));
-			int B = 125 + (int)(130 * (1 - alpha));
-			
-			int finalcolor = (R << 16) + (G << 8) + (B);
-			
-			return finalcolor;
+//			int R = (int)(alpha * 255 * amount);
+//			int G = 0 + (int)(255 * (1 - alpha));
+//			int B = 125 + (int)(130 * (1 - alpha));
+//			
+//			int finalcolor = (R << 16) + (G << 8) + (B);
+//			return finalcolor; 
+//			Chunk chunk = agent.getMemoryChunkAt(BeliefType.MRKEV, x, y);
+//			if (chunk == null) return 0xffffff;
+//			
+//			double alpha = chunk.belief;
+//			
+//			int R = (int)(alpha * 255 * chunk.amount);
+//			int G = 0 + (int)(255 * (1 - alpha));
+//			int B = 125 + (int)(130 * (1 - alpha));
+//			
+//			int finalcolor = (R << 16) + (G << 8) + (B);
+//			
+//			return finalcolor;
 		}
 	}
 	
 	public void touch(int x, int y) {
-		int effectiveDistance = 10;
-		for (int i = 0; i < effectiveDistance*2; i++) {
-			for (int j = 0; j < effectiveDistance*2; j++) {
-				int matrixX = x + i - effectiveDistance;
-				int matrixY = y + j - effectiveDistance;
-				
-				if (matrixX < 0 || matrixX >= TestAgent.MEMORY_SIZE) continue;
-				if (matrixY < 0 || matrixY >= TestAgent.MEMORY_SIZE) continue;
-				
-				double distance = Math.sqrt((i-effectiveDistance)*(i-effectiveDistance)+(j-effectiveDistance)*(j-effectiveDistance));
-				
-				if (distance < effectiveDistance) {
-					//memory[x+i-effectiveDistance][y+j-effectiveDistance] += 0.02;
-					Chunk chunk = agent.getMemoryChunkAt(BeliefType.MRKEV, matrixX, matrixY);
-					chunk.amount = simulation.getEnvironment().get(matrixX,	matrixY).size();
-					chunk.belief = 1;
-				}
-			}
-		}
+//		int effectiveDistance = 10;
+//		for (int i = 0; i < effectiveDistance*2; i++) {
+//			for (int j = 0; j < effectiveDistance*2; j++) {
+//				int matrixX = x + i - effectiveDistance;
+//				int matrixY = y + j - effectiveDistance;
+//				
+//				if (matrixX < 0 || matrixX >= Agent.MEMORY_SIZE) continue;
+//				if (matrixY < 0 || matrixY >= Agent.MEMORY_SIZE) continue;
+//				
+//				double distance = Math.sqrt((i-effectiveDistance)*(i-effectiveDistance)+(j-effectiveDistance)*(j-effectiveDistance));
+//				
+//				if (distance < effectiveDistance) {
+//					//memory[x+i-effectiveDistance][y+j-effectiveDistance] += 0.02;
+//					Chunk chunk = agent.getMemoryChunkAt(BeliefType.MRKEV, matrixX, matrixY);
+//					chunk.amount = simulation.getEnvironment().get(matrixX,	matrixY).size();
+//					chunk.belief = 1;
+//				}
+//			}
+//		}
 	}
 	
 	public int getCols() {

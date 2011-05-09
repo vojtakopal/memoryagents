@@ -1,0 +1,352 @@
+#Exited after 100 steps in 110ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 7.487941677161238E-5
+0.0 0.0 0.0 0.0050 600 4 7.487941677161238E-5
+
+
+#Exited after 100 steps in 122ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 3.5498606796556265E-4
+0.0 0.0 0.0 0.0050 600 8 3.5498606796556265E-4
+
+
+#Exited after 100 steps in 117ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 2.2315141129319795E-4
+0.0 0.0 0.0 6.0E-4 600 4 2.2315141129319795E-4
+
+
+#Exited after 100 steps in 101ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 4.314010663940109E-5
+0.0 0.0 0.0 6.0E-4 600 8 4.314010663940109E-5
+
+
+#Exited after 100 steps in 102ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 4.575406484578835E-4
+0.0 0.0 0.0010 0.0050 600 4 4.575406484578835E-4
+
+
+#Exited after 100 steps in 196ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 2.257640849873446E-4
+0.0 0.0 0.0010 0.0050 600 8 2.257640849873446E-4
+
+
+#Exited after 100 steps in 102ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 4.404184509465256E-4
+0.0 0.0 0.0010 6.0E-4 600 4 4.404184509465256E-4
+
+
+#Exited after 100 steps in 103ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 5.058297416531254E-5
+0.0 0.0 0.0010 6.0E-4 600 8 5.058297416531254E-5
+
+
+#Exited after 100 steps in 102ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 4.636533285636288E-5
+0.0 1.0E-5 0.0 0.0050 600 4 4.636533285636288E-5
+
+
+#Exited after 100 steps in 105ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 1.1296158486987588E-4
+0.0 1.0E-5 0.0 0.0050 600 8 1.1296158486987588E-4
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 3.053833568784033E-5
+0.0 1.0E-5 0.0 6.0E-4 600 4 3.053833568784033E-5
+
+
+#Exited after 100 steps in 111ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 5.622195796957104E-5
+0.0 1.0E-5 0.0 6.0E-4 600 8 5.622195796957104E-5
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 6.662783722644229E-5
+0.0 1.0E-5 0.0010 0.0050 600 4 6.662783722644229E-5
+
+
+#Exited after 100 steps in 113ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 3.8273776694394224E-4
+0.0 1.0E-5 0.0010 0.0050 600 8 3.8273776694394224E-4
+
+
+#Exited after 100 steps in 102ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 0.0011217370711889773
+0.0 1.0E-5 0.0010 6.0E-4 600 4 0.0011217370711889773
+
+
+#Exited after 100 steps in 101ms with params:
+#	alpha = 0.0
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 3.6229721836946794E-4
+0.0 1.0E-5 0.0010 6.0E-4 600 8 3.6229721836946794E-4
+
+
+#Exited after 100 steps in 114ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 4.4568703316536824E-4
+0.2 0.0 0.0 0.0050 600 4 4.4568703316536824E-4
+
+
+#Exited after 100 steps in 101ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 1.6915743945649547E-4
+0.2 0.0 0.0 0.0050 600 8 1.6915743945649547E-4
+
+
+#Exited after 100 steps in 101ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 2.4524064712455574E-4
+0.2 0.0 0.0 6.0E-4 600 4 2.4524064712455574E-4
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 1.332634423255565E-4
+0.2 0.0 0.0 6.0E-4 600 8 1.332634423255565E-4
+
+
+#Exited after 100 steps in 101ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 8.475000905085307E-6
+0.2 0.0 0.0010 0.0050 600 4 8.475000905085307E-6
+
+
+#Exited after 100 steps in 101ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 2.1341470045152782E-4
+0.2 0.0 0.0010 0.0050 600 8 2.1341470045152782E-4
+
+
+#Exited after 100 steps in 103ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 7.84824460905926E-5
+0.2 0.0 0.0010 6.0E-4 600 4 7.84824460905926E-5
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.2
+#	beta = 0.0
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 1.9269626481479623E-5
+0.2 0.0 0.0010 6.0E-4 600 8 1.9269626481479623E-5
+
+
+#Exited after 100 steps in 111ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 2.5514495017448386E-4
+0.2 1.0E-5 0.0 0.0050 600 4 2.5514495017448386E-4
+
+
+#Exited after 100 steps in 102ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 4.85225510371045E-5
+0.2 1.0E-5 0.0 0.0050 600 8 4.85225510371045E-5
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 2.819692478142669E-4
+0.2 1.0E-5 0.0 6.0E-4 600 4 2.819692478142669E-4
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 2.7871872763667136E-4
+0.2 1.0E-5 0.0 6.0E-4 600 8 2.7871872763667136E-4
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 1.846950054841721E-4
+0.2 1.0E-5 0.0010 0.0050 600 4 1.846950054841721E-4
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 1.7480153004727724E-4
+0.2 1.0E-5 0.0010 0.0050 600 8 1.7480153004727724E-4
+
+
+#Exited after 100 steps in 107ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 5.78848451870345E-5
+0.2 1.0E-5 0.0010 6.0E-4 600 4 5.78848451870345E-5
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.2
+#	beta = 1.0E-5
+#	epsilon = 0.0010
+#	epsilon2 = 6.0E-4
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 1.1014264389024165E-4
+0.2 1.0E-5 0.0010 6.0E-4 600 8 1.1014264389024165E-4
+
+

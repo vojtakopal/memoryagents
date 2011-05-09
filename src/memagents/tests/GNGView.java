@@ -20,9 +20,6 @@ import javax.swing.JTextField;
 
 import demogng.ComputeGNG;
 
-import memagents.agents.MemoryAgent;
-import memagents.agents.memory.Chunk;
-import memagents.agents.memory.MemoryAgentMemories.BeliefType;
 import memagents.ui.MVPanel;
 import memagents.ui.MemoryVisualizer;
 
@@ -47,7 +44,14 @@ public class GNGView extends JFrame implements MouseListener  {
         pane.setLayout(new BorderLayout());
         
         DynamicComputeGNG compute = new DynamicComputeGNG();
-		
+//        #	alpha = 0.8
+//        #	beta = 1.0E-4
+//        #	epsilon = 0.0050
+//        #	epsilon2 = 6.0E-4
+//        #	numNewNode = 600
+//        #	maxNodes = 8
+		compute.setParams(0.8f, 1.0E-5f, 0.005f, 6.0E-4f, 600, 88, 8);
+        
         pane.add(compute);
         
         setVisible(true);  

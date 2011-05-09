@@ -204,7 +204,7 @@ public class ComputeGNG extends Panel implements Runnable {
    */
   protected boolean vd[] = new boolean[MAX_V_LINES];
 
-  Thread relaxer;
+  protected Thread relaxer;
   GraphGNG errorGraph;
 
   /**

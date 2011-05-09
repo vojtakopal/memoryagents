@@ -1,0 +1,22 @@
+#Exited after 100 steps in 101ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 4
+#Result = 1.8139925198349326E-5
+0.0 0.0 0.0 0.0050 600 4 1.8139925198349326E-5
+
+
+#Exited after 100 steps in 100ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0050
+#	numNewNode = 600
+#	maxNodes = 8
+#Result = 2.0432951312210357E-4
+0.0 0.0 0.0 0.0050 600 8 2.0432951312210357E-4
+
+

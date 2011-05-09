@@ -7,16 +7,20 @@ import java.util.TimerTask;
 
 import javax.swing.JPanel;
 
+import memagents.agents.Agent;
+
 public class MVPanel extends JPanel {
 	
 	private MemoryVisualizer _viz;
 	
+	private Agent _agent;
+	
 	private Timer _timer;
 	
-	public MVPanel(MemoryVisualizer viz) {
+	public MVPanel(MemoryVisualizer viz, Agent agent) {
 		super.setDoubleBuffered(true);
 		this._viz = viz;
-		this._timer = new Timer();
+		this._timer = new Timer("Timer (MemoryVisualizer)");
 		
 		final MVPanel self = this;
 		this._timer.scheduleAtFixedRate(new TimerTask() {
@@ -24,6 +28,8 @@ public class MVPanel extends JPanel {
 				self.repaint();
 			}
 		}, 0, 10);
+		
+		this._agent = agent;
 	}
 		
 	public void paintComponent(Graphics g) {
@@ -41,6 +47,8 @@ public class MVPanel extends JPanel {
 				g.fillRect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
 			}
 		}
+		
+		_agent.draw(g, getWidth(), getHeight());
 		
 		g.dispose();
 		

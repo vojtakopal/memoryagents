@@ -37,7 +37,7 @@ package demogng;
  * A class representing a float point in the plane.
  *
  */
-class FPoint {
+public class FPoint {
   /**
    * The x coordinate
    */

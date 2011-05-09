@@ -1,0 +1,44 @@
+#Exited after 100 steps in 1011ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0
+#	numNewNode = 600
+#	maxNodes = 250
+#Result = 0.0023062657535000103
+0.0 0.0 0.0 0.0 600 250 0.0023062657535000103
+
+
+#Exited after 200 steps in 2023ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0
+#	numNewNode = 600
+#	maxNodes = 250
+#Result = 0.004865319744111319
+0.0 0.0 0.0 0.0 600 250 0.004865319744111319
+
+
+#Exited after 300 steps in 3012ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0
+#	numNewNode = 600
+#	maxNodes = 250
+#Result = 0.0023147193674504588
+0.0 0.0 0.0 0.0 600 250 0.0023147193674504588
+
+
+#Exited after 400 steps in 4059ms with params:
+#	alpha = 0.0
+#	beta = 0.0
+#	epsilon = 0.0
+#	epsilon2 = 0.0
+#	numNewNode = 600
+#	maxNodes = 250
+#Result = 0.0031290430432003545
+0.0 0.0 0.0 0.0 600 250 0.0031290430432003545
+
+

@@ -1,0 +1,48 @@
+<settings runs="5000">
+  <alpha>0.0</alpha>
+  <alpha>0.2</alpha>
+  <!--alpha>0.4</alpha>
+  <alpha>0.5</alpha>
+  <alpha>0.6</alpha>
+  <alpha>0.8</alpha>
+  <alpha>1.0</alpha-->
+  
+  <beta>0.0f</beta>
+  <beta>0.00001f</beta>
+  <!--beta>0.00005f</beta>
+  <beta>0.0001f</beta>
+  <beta>0.001f</beta>
+  <beta>0.005f</beta>
+  <beta>00.01f</beta>
+  <beta>00.05f</beta>
+  <beta>00.1f</beta>
+  <beta>00.5f</beta>
+  <beta>01.0f</beta-->
+  
+  <epsilon>0.0f</epsilon>
+  <epsilon>0.001f</epsilon>
+  <!--epsilon>0.005f</epsilon>
+  <epsilon>0.01f</epsilon>
+  <epsilon>0.1f</epsilon>
+  <epsilon>0.2f</epsilon>
+  <epsilon>0.5f</epsilon>
+  <epsilon>1.0f</epsilon-->
+  
+  <epsilon2>0.005</epsilon2>
+  <epsilon2>0.0006f</epsilon2>
+  <!--epsilon2>0.0f</epsilon2>
+  <epsilon2>0.0001f</epsilon2>
+  <epsilon2>0.001f</epsilon2>
+  <epsilon2>0.05f</epsilon2>
+  <epsilon2>0.1f</epsilon2>
+  <epsilon2>0.2f</epsilon2-->
+    
+  <numNewNode>600</numNewNode>
+  
+  <maxEdgeAge>88</maxEdgeAge>
+  
+  <maxNodes>4</maxNodes>
+  <maxNodes>8</maxNodes>
+  <!--maxNodes>16</maxNodes>
+  <maxNodes>32</maxNodes-->
+</settings>

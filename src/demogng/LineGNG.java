@@ -37,7 +37,7 @@ package demogng;
  * A class representing a Voronoi line. 
  *
  */
-class LineGNG {
+public class LineGNG {
   /**
    * The first point (x) of the line
    */

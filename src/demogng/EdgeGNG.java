@@ -44,7 +44,7 @@ package demogng;
  * </pre>
  *
  */
-class EdgeGNG {
+public class EdgeGNG {
   /**
    * The starting point of the edge
    * @see EdgeGNG

@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Timer;
@@ -13,6 +15,9 @@ import demogng.ComputeGNG;
 import demogng.NodeGNG;
 
 public class DynamicComputeGNG extends ComputeGNG {
+	
+	public static int threadCounter = 0;
+	public static int idCounter = 0;
 	
 	protected int MAX_KNOWN_SPOTS = 100;
 	
@@ -46,7 +51,7 @@ public class DynamicComputeGNG extends ComputeGNG {
 		
 		algo = 0;
 		distribution = 7;
-		speed = 10;
+		speed = 1;
 		
 		// optimalizujeme tyto hodnoty
 		alphaGNG = 0.5f; // 0, 1 (0.5)
@@ -64,9 +69,9 @@ public class DynamicComputeGNG extends ComputeGNG {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			public void run() {
 				recountDiscreteSignals();
-				computeExpectedDistribution();
+				//computeExpectedDistribution();
 			}
-		}, 0, 10);
+		}, 0, 1);
 	}
 	
 	public void setParams(float alpha, float beta, float epsilon, float epsilon2, int numNewNode, int maxEdgeAge, int maxNodes) {
@@ -79,9 +84,17 @@ public class DynamicComputeGNG extends ComputeGNG {
 		this.maxNodes = maxNodes;
 	}
 	
+	public void learn() {
+		super.learn();
+	}
+	
 	public void start(int maxSteps) {
 		this.maxSteps = maxSteps;
-		start();
+
+	    relaxer = new Thread(this, "ComputeGNG #"+(++idCounter));
+	    relaxer.start();
+	    
+	    threadCounter++;
 	}
 	
 	public void run() {
@@ -103,16 +116,23 @@ public class DynamicComputeGNG extends ComputeGNG {
 	    }
 		long endTime = Calendar.getInstance().getTimeInMillis();
 	    
-	    System.out.println("Exited after "+String.valueOf(maxSteps)+" steps in "+String.valueOf(endTime-startTime)+"ms with params:");
-	    System.out.println("	alpha = "+String.valueOf(alphaGNG));
-	    System.out.println("	beta = "+String.valueOf(betaGNG));
-	    System.out.println("	epsilon = "+String.valueOf(epsilonGNG));
-	    System.out.println("	epsilon2 = "+String.valueOf(epsilonGNG2));
-	    System.out.println("	numNewNode = "+String.valueOf(NUM_NEW_NODE));
-	    System.out.println("	maxNodes = "+String.valueOf(MAX_NODES));
-	    System.out.println("Result = "+String.valueOf(totalScore));
-	    System.out.println();
-	    
+		synchronized (this) {
+		    System.out.println("#Exited after "+String.valueOf(maxSteps)+" steps in "+String.valueOf(endTime-startTime)+"ms with params:");
+		    System.out.println("#	alpha = "+String.valueOf(alphaGNG));
+		    System.out.println("#	beta = "+String.valueOf(betaGNG));
+		    System.out.println("#	epsilon = "+String.valueOf(epsilonGNG));
+		    System.out.println("#	epsilon2 = "+String.valueOf(epsilonGNG2));
+		    System.out.println("#	numNewNode = "+String.valueOf(NUM_NEW_NODE));
+		    System.out.println("#	maxNodes = "+String.valueOf(maxNodes));
+		    System.out.println("#Result = "+String.valueOf(totalScore));
+		    System.out.println(String.valueOf(alphaGNG)+" "+String.valueOf(betaGNG)+" "+String.valueOf(epsilonGNG)+" "+String.valueOf(epsilonGNG2)+" "+String.valueOf(NUM_NEW_NODE)+" "+String.valueOf(maxNodes)+" "+String.valueOf(totalScore));
+		    System.out.println();
+		    System.out.println();
+		    System.out.flush();
+		    threadCounter--;
+		}	    
+		
+		timer.cancel();
 	}
 
 	public Dimension size() {
@@ -133,6 +153,14 @@ public class DynamicComputeGNG extends ComputeGNG {
 	
 	protected double getVariance() {
 		return INIT_WIDTH / 10;
+	}
+	
+	public void setDescreteSignals(ArrayList<Point> signals) {
+		MAX_KNOWN_SPOTS = signals.size();
+		for (int i = 0; i < MAX_KNOWN_SPOTS; i++) {
+			discreteSignalsX[i] = signals.get(i).x;
+			discreteSignalsY[i] = signals.get(i).y;
+		}
 	}
 	
 	protected void recountDiscreteSignals() {
@@ -177,6 +205,18 @@ public class DynamicComputeGNG extends ComputeGNG {
 //		System.out.print(' ');
 //		System.out.print(SignalY);
 //		System.out.println();
+	}
+
+	public double getExpectedValueX() {
+		return expectedValueX;
+	}
+	
+	public double getExpectedValueY() {
+		return expectedValueY;
+	}
+	
+	public double getExpectedVariance() {
+		return expectedVariance;
 	}
 	
 	public void computeExpectedDistribution() {		

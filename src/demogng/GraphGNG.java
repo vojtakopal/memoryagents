@@ -39,7 +39,7 @@ import java.awt.*;
  * A class implementing the error graph.
  *
  */
-class GraphGNG extends Frame {
+public class GraphGNG extends Frame {
   DemoGNG demo;
   SelGraphics graph;
   TextField error;
