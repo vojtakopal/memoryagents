@@ -18,7 +18,7 @@ public class Environment
 	
 	protected int height;
 			
-	protected Matrix<ArrayList<Agent>> agents;
+//	protected Matrix<ArrayList<Agent>> agents;
 	
 	protected Matrix<HashMap<Integer, Integer>> food;
 	
@@ -27,75 +27,75 @@ public class Environment
 		this.width = width;
 		this.height = height;
 		
-		agents = new Matrix<ArrayList<Agent>>(width, height);
+//		agents = new Matrix<ArrayList<Agent>>(width, height);
 		food = new Matrix<HashMap<Integer,Integer>>(width, height);
 		
 		for (int i = 0; i < this.width; i++)
 			for (int j = 0; j < this.height; j++)
 			{
-				agents.set(i, j, new ArrayList<Agent>());
+//				agents.set(i, j, new ArrayList<Agent>());
 				food.set(i, j, new HashMap<Integer,Integer>());
 			}
 		
 	}
 	
 		
-	/**
-	 * Returns a list of object at the given position.
-	 * 
-	 * @param x position
-	 * @param y position
-	 * @return ArrayList<EnvironmentObject>
-	 */
-	public ArrayList<Agent> getAgents(int i, int j)
-	{
-		return agents.get(i, j);
-	}
-	
-	
-	/**
-	 * Add an object to the given position.
-	 * 
-	 * @param x position
-	 * @param y position
-	 * @param new object
-	 */
-	public void addAgent(int i, int j, Agent agent)
-	{		
-		agents.get(i, j).add(agent);
-	}
-	
-	
-	/**
-	 * Remove an object from the list at the given position.
-	 * 
-	 * @param x position
-	 * @param y position
-	 * @param object to be removed
-	 */
-	public void removeAgent(int i, int j, Agent agent)
-	{
-		ArrayList<Agent> list = agents.get(i, j);
-		
-		if (list == null) return;
-		
-		list.remove(list.indexOf(agent));
-	} 
-	
-	public void removeAll(int i, int j) {
-		agents.get(i, j).clear();
-	}
-	
-	/**
-	 * It provides a list of object at the given position.
-	 * 
-	 * @param position
-	 * @return ArrayList<EnvironmentObject>
-	 */
-	public ArrayList<Agent> getNeighbours(Point position)
-	{
-		return agents.get(position.x, position.y);
-	}
+//	/**
+//	 * Returns a list of object at the given position.
+//	 * 
+//	 * @param x position
+//	 * @param y position
+//	 * @return ArrayList<EnvironmentObject>
+//	 */
+//	public ArrayList<Agent> getAgents(int i, int j)
+//	{
+//		return agents.get(i, j);
+//	}
+//	
+//	
+//	/**
+//	 * Add an object to the given position.
+//	 * 
+//	 * @param x position
+//	 * @param y position
+//	 * @param new object
+//	 */
+//	public void addAgent(int i, int j, Agent agent)
+//	{		
+//		agents.get(i, j).add(agent);
+//	}
+//	
+//	
+//	/**
+//	 * Remove an object from the list at the given position.
+//	 * 
+//	 * @param x position
+//	 * @param y position
+//	 * @param object to be removed
+//	 */
+//	public void removeAgent(int i, int j, Agent agent)
+//	{
+//		ArrayList<Agent> list = agents.get(i, j);
+//		
+//		if (list == null) return;
+//		
+//		list.remove(list.indexOf(agent));
+//	} 
+//	
+//	public void removeAll(int i, int j) {
+//		agents.get(i, j).clear();
+//	}
+//	
+//	/**
+//	 * It provides a list of object at the given position.
+//	 * 
+//	 * @param position
+//	 * @return ArrayList<EnvironmentObject>
+//	 */
+//	public ArrayList<Agent> getNeighbours(Point position)
+//	{
+//		return agents.get(position.x, position.y);
+//	}
 	
 	/**
 	 * Adds food at specified position in environment.
@@ -131,9 +131,13 @@ public class Environment
 		return food.get(x, y);
 	}
 	
-	public void eatFoodAt(int x, int y, int foodKind) {
-		if (isOutOfBounds(x, y)) return;
-		food.get(x, y).put(foodKind, 0);
+	public boolean eatFoodAt(int x, int y, int foodKind) {
+		if (isOutOfBounds(x, y)) return false;
+		if (food.get(x, y).get(foodKind) > 0) {
+			food.get(x, y).put(foodKind, 0);
+			return true;
+		}
+		return false;
 	}
 		
 	/**

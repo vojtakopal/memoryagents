@@ -7,6 +7,24 @@ import java.io.PrintStream;
 public class Log {
 	static PrintStream output;
 	
+	static public void print(String str) {
+		if (output == null) 
+		{
+			output = System.out;
+		}
+		
+		output.print(str);
+	}
+	
+	static public void println() {
+		if (output == null) 
+		{
+			output = System.out;
+		}
+		
+		output.println();
+	}
+	
 	static public void println(String line)
 	{
 		if (output == null) 

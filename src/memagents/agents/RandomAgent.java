@@ -43,7 +43,7 @@ public class RandomAgent extends Agent
 	
 	protected void move(Point move)
 	{
-		Log.println("move " + id + " " + position.x + " " + position.y + " " + (position.x + move.x) + " " + (position.y + move.y));
+		//Log.println("move " + id + " " + position.x + " " + position.y + " " + (position.x + move.x) + " " + (position.y + move.y));
 		
 		//simulation.getEnvironment().remove(position[0], position[1], this);
 		//simulation.getEnvironment().add(position[0] + move[0], position[1] + move[1], this);
@@ -71,6 +71,10 @@ public class RandomAgent extends Agent
 			}			
 		}
 		*/
+	}
+	
+	public Point[] whereIs(int foodKind) {
+		return null;
 	}
 	
 	public void draw(Graphics g, int width, int height) {

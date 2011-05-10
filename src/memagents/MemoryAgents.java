@@ -24,6 +24,10 @@ public class MemoryAgents
 		new MemoryVisualizer(simulation.addAgent(new GNGAgent(simulation)), simulation);
 		new MemoryVisualizer(simulation.addAgent(new GNGAgent(simulation)), simulation);
 		new MemoryVisualizer(simulation.addAgent(new GNGAgent(simulation)), simulation);
+		new MemoryVisualizer(simulation.addAgent(new GNGAgent(simulation)), simulation);
+		new MemoryVisualizer(simulation.addAgent(new GNGAgent(simulation)), simulation);
+		new MemoryVisualizer(simulation.addAgent(new GNGAgent(simulation)), simulation);
+		new MemoryVisualizer(simulation.addAgent(new GNGAgent(simulation)), simulation);
 //		new MemoryVisualizer(simulation.addAgent(new MemoryAgent(simulation)), simulation);
 //		new MemoryVisualizer(simulation.addAgent(new MemoryAgent(simulation)), simulation);
 //		new MemoryVisualizer(simulation.addAgent(new MemoryAgent(simulation)), simulation);

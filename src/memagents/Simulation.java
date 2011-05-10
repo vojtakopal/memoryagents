@@ -38,7 +38,7 @@ public class Simulation
 	 *	Number of food generators in the simulation. 
 	 *
 	 */
-	public static int NUM_FOODGENERATORS = 3;
+	public static int NUM_FOODGENERATORS = 6;
 	
 	protected Environment environment;
 	protected Scheduler scheduler;

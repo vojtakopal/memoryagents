@@ -13,6 +13,7 @@ import memagents.food.FoodGenerator;
 import memagents.memory.GNGMemory;
 import memagents.memory.gng.LineGNG;
 import memagents.memory.gng.NodeGNG;
+import memagents.utils.Log;
 
 /**
  * 
@@ -78,58 +79,30 @@ public class GNGAgent extends RandomAgent
 	synchronized public void live() 
 	{
 		Environment env = (Environment) this.simulation.getEnvironment();
-				
-		knownPoints.clear();
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			knownPoints.put(foodKind, new ArrayList<Point>());
-		}
-		for (int i = Math.max(getX() - sight, 0); i < Math.min(getX() + sight, MEMORY_SIZE); i++) {
-			for (int j = Math.max(getY() - sight, 0); j < Math.min(getY() + sight, MEMORY_SIZE); j++) {
-				double distanceSquare = ((i - getX()) * (i - getX()) + (j - getY()) * (j - getY()));
-				if (distanceSquare < sight * sight) {
-					HashMap<Integer, Integer> location = env.getAllFoodAt(i, j);
-					if (location == null) continue;
-					
-					for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-						if (false == location.containsKey(foodKind)) {
-							location.put(foodKind, 0);
-						}
-						
-						int amount = location.get(foodKind);
-						if (amount > 0) {
-							knownPoints.get(foodKind).add(new Point(i, j));
-						}
-					}
-				}
-			}
-		}
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			memory.learn(foodKind, knownPoints.get(foodKind));
-		}
 		
-		// 
-		int mostDeservedFood = -1;
-		double mostDeservedFoodNeed = 0;
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			double foodNeed = this.getNeed(foodKind);
-			if (simulation.getGenerator(foodKind).isOverThreshold(foodNeed)) {
-				if (foodNeed > mostDeservedFoodNeed) {
-					mostDeservedFoodNeed = foodNeed;
-					mostDeservedFood = foodKind;
-				}
-			}
-		}
+		int mostDeservedFood = findMostDeservedFood();
+		learn(mostDeservedFood);
 		
 		if (mostDeservedFood != -1) {
 			// find the food!
 			Point[] sample = memory.getSample(mostDeservedFood);
 			Point[] points = null;
+			boolean dontKnowWhereToGo = false;
 			
 			int knownPointsSize = knownPoints.get(mostDeservedFood).size();
 			if (knownPointsSize > 0) {
 				points = knownPoints.get(mostDeservedFood).toArray(new Point[knownPointsSize]);
 			} else {
-				points = new Point[] { memory.getExpectedCenter(mostDeservedFood) };
+				Point expectedCenter = memory.getExpectedCenter(mostDeservedFood);
+				float qDistance = (expectedCenter.x - getX())*(expectedCenter.x - getX()) + (expectedCenter.y - getY())*(expectedCenter.y - getY());
+				if (qDistance > sight*sight) {
+					points = new Point[] { expectedCenter };
+				} else {
+					// don't know where to go
+					//ArrayList<Point> allAnsweredPoints
+					
+					points = new Point[] {};
+				}
 			}
 			
 			// nearest?
@@ -161,22 +134,35 @@ public class GNGAgent extends RandomAgent
 				if (bestMove != null) {
 					move(bestMove);
 				} else {
-					super.live();
+					// dont't know where to go
+					dontKnowWhereToGo = true;
 				}
-			} else 
-			if ( leastQDistance == 0 ) {
-				// eat it!
-				this.simulation.getEnvironment().eatFoodAt(getX(), getY(), mostDeservedFood);
+			} else {
+				// dont't know where to go
+				dontKnowWhereToGo = true;
+			}
+			
+			if (dontKnowWhereToGo) {
+				super.live();				
+			}
+						
+		} else {
+			// random, no needs
+			super.live();
+		}
+		
+		// 
+		if ( mostDeservedFood != -1 ) {
+			
+			// eat it!
+			if (this.simulation.getEnvironment().eatFoodAt(getX(), getY(), mostDeservedFood)) {
 				float value = needs.get(mostDeservedFood);
 				value -= 5;
 				if (value < 0) value = 0;
 				needs.put(mostDeservedFood, value);
 			}
-			
-		} else {
-			// random
-			super.live();
 		}
+		
 		// put information about products into memory
 //		for ( EnvironmentObject object : env.getNeighbours(this.position) )
 //		{
@@ -289,7 +275,93 @@ public class GNGAgent extends RandomAgent
 		
 		*/
 	}
+	
+	private void learn(int mostDeservedFood) {
+		Environment env = (Environment) this.simulation.getEnvironment();
+		boolean knowPointFor_MostDeservedFood = false;
+		
+		/// reset what agents sees
+		///
+		knownPoints.clear();
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+			knownPoints.put(foodKind, new ArrayList<Point>());
+		}
+		
+		/// learn new things i see
+		///
+		for (int i = Math.max(getX() - sight, 0); i < Math.min(getX() + sight, MEMORY_SIZE); i++) {
+			for (int j = Math.max(getY() - sight, 0); j < Math.min(getY() + sight, MEMORY_SIZE); j++) {
+				/// can I see it?
+				///
+				double distanceSquare = ((i - getX()) * (i - getX()) + (j - getY()) * (j - getY()));				
+				if (distanceSquare < sight * sight) {
+					HashMap<Integer, Integer> location = env.getAllFoodAt(i, j);
+					if (location == null) continue;
+					
+					for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+						if (false == location.containsKey(foodKind)) {
+							location.put(foodKind, 0);
+						}
+						
+						int amount = location.get(foodKind);
+						if (amount > 0) {
+							knownPoints.get(foodKind).add(new Point(i, j));
+							if (foodKind == mostDeservedFood) {
+								knowPointFor_MostDeservedFood = true;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		/// do i need food and dont know any point
+		///
+		if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
+			for (Agent agent : this.simulation.getAgents()) {
+				double qDistanceToAgent = (agent.getPosition().getX() - getX())*(agent.getPosition().getX() - getX()) + (agent.getPosition().getY() - getY())*(agent.getPosition().getY() - getY()); 
+				if (qDistanceToAgent < audition*audition) {
+					Point[] answeredPoints = agent.whereIs(mostDeservedFood);
+					for (Point point : answeredPoints) {
+						knownPoints.get(mostDeservedFood).add(point);
+					}
+				}
+			} 
+		}
+		
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+			memory.learn(foodKind, knownPoints.get(foodKind));
+		}
+	}
 
+	private int findMostDeservedFood() {
+		int mostDeservedFood = -1;
+		double mostDeservedFoodNeed = 0;
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+			double foodNeed = this.getNeed(foodKind);
+			if (simulation.getGenerator(foodKind).isOverThreshold(foodNeed)) {
+				if (foodNeed > mostDeservedFoodNeed) {
+					mostDeservedFoodNeed = foodNeed;
+					mostDeservedFood = foodKind;
+				}
+			}
+		}
+		return mostDeservedFood;
+	}
+	
+	public Point[] whereIs(int foodKind) {
+		Point[] points = memory.getSample(foodKind);
+		Log.print("agent " + id + " asked about " + foodKind + " and anwsered ");
+		
+		for (Point point : points) {
+			Log.print(" " + point.x + "," + point.y);
+		}
+		
+		Log.println();
+		
+		return points;
+	}
+	
 	synchronized public void draw(Graphics g, int width, int height) {
 
 		double xV = width / (double)memory.getWidth();

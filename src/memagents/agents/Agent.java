@@ -38,6 +38,7 @@ public abstract class Agent {
 		needs.put(foodKind, amount);
 	}
 	
+	public abstract Point[] whereIs(int foodKind);	
 	public abstract void live();	
 	public abstract void draw(Graphics g, int width, int height);
 }
