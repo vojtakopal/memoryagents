@@ -3,6 +3,7 @@ package memagents.food;
 import java.awt.Color;
 import java.util.Random;
 
+import memagents.Simulation;
 import memagents.environment.Environment;
 
 public class FoodGenerator {
@@ -20,16 +21,19 @@ public class FoodGenerator {
 	
 	protected int timeLife = 0;
 	
+	protected Simulation simulation = null;
+	
 	/**
 	 * Amount of food generated at one time.
 	 * 
 	 */
 	protected int deltaAmount = 1;
 	
-	public FoodGenerator(int centerX, int centerY) {
+	public FoodGenerator(int centerX, int centerY, Simulation simulation) {
 		this.id = idCounter++;
 		this.x = centerX;
 		this.y = centerY;
+		this.simulation = simulation;
 	}
 		
 	public void seed(Environment environment) {
@@ -39,7 +43,7 @@ public class FoodGenerator {
 		int newX = 0;
 		int newY = 0;
 		
-		Random rand = new Random();
+		Random rand = simulation.getRandom();
 
 		newX = (int)(x + range*rand.nextGaussian());
 		newY = (int)(y + range*rand.nextGaussian());

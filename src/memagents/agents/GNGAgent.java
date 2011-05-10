@@ -11,8 +11,9 @@ import memagents.Simulation;
 import memagents.environment.Environment;
 import memagents.food.FoodGenerator;
 import memagents.memory.GNGMemory;
-import memagents.memory.gng.LineGNG;
+import memagents.memory.gng.EdgeGNG;
 import memagents.memory.gng.NodeGNG;
+import memagents.memory.gng.NodePair;
 import memagents.utils.Log;
 
 /**
@@ -61,7 +62,7 @@ public class GNGAgent extends RandomAgent
 	{
 		super(simulation);
 		
-		memory = new GNGMemory(MEMORY_SIZE, MEMORY_SIZE);
+		memory = new GNGMemory(MEMORY_SIZE, MEMORY_SIZE, simulation);
 		position.x = 50;
 		position.y = 50;
 	}
@@ -85,16 +86,14 @@ public class GNGAgent extends RandomAgent
 		
 		if (mostDeservedFood != -1) {
 			// find the food!
-			Point[] sample = memory.getSample(mostDeservedFood);
 			Point[] points = null;
-			boolean dontKnowWhereToGo = false;
 			
 			int knownPointsSize = knownPoints.get(mostDeservedFood).size();
 			if (knownPointsSize > 0) {
 				points = knownPoints.get(mostDeservedFood).toArray(new Point[knownPointsSize]);
 			} else {
 				Point expectedCenter = memory.getExpectedCenter(mostDeservedFood);
-				float qDistance = (expectedCenter.x - getX())*(expectedCenter.x - getX()) + (expectedCenter.y - getY())*(expectedCenter.y - getY());
+				float qDistance = getQDistance(position, expectedCenter);
 				if (qDistance > sight*sight) {
 					points = new Point[] { expectedCenter };
 				} else {
@@ -106,44 +105,19 @@ public class GNGAgent extends RandomAgent
 			}
 			
 			// nearest?
-			Point nearestPoint = null;
-			float leastQDistance = Float.MAX_VALUE;
-			for (Point point : points) {
-				float qDistance = ((point.x - (float)getX())*(point.x - (float)getX())+(point.y - (float)getY())*(point.y - (float)getY()));
-				if (qDistance < leastQDistance) {
-					leastQDistance = qDistance;
-					nearestPoint = point;
-				}
-			}
-		
-			if (nearestPoint != null && leastQDistance > 0) {
-				// move there
-				leastQDistance = Float.MAX_VALUE;
-				Point bestMove = null;
+			Point nearestPoint = getNearestPoint(position, points);	
+			
+			if (nearestPoint != null) {
+				// moves are relative, e.g. [(1,1), (-1,0), ...]
 				ArrayList<Point> moves = simulation.getEnvironment().filterMoves(position, availableMoves());
-				for (Point move : moves) {
-					float newX = move.x + position.x;
-					float newY = move.y + position.y;
-					float qDistance = ((newX - nearestPoint.x)*(newX - nearestPoint.x)+(newY - nearestPoint.y)*(newY - nearestPoint.y));
-					if (qDistance < leastQDistance) {
-						leastQDistance = qDistance;
-						bestMove = move;
-					}
-				}
+				Point bestMove = getNearestPoint(new Point(nearestPoint.x - position.x, nearestPoint.y - position.y), moves);
 				
 				if (bestMove != null) {
 					move(bestMove);
 				} else {
 					// dont't know where to go
-					dontKnowWhereToGo = true;
+					super.live();				
 				}
-			} else {
-				// dont't know where to go
-				dontKnowWhereToGo = true;
-			}
-			
-			if (dontKnowWhereToGo) {
-				super.live();				
 			}
 						
 		} else {
@@ -162,118 +136,13 @@ public class GNGAgent extends RandomAgent
 				needs.put(mostDeservedFood, value);
 			}
 		}
-		
-		// put information about products into memory
-//		for ( EnvironmentObject object : env.getNeighbours(this.position) )
-//		{
-//			if ( object instanceof Product )
-//			{
-//				// remember it
-//				Log.println("memory "+this.id+" Product "+this.position[0]+" "+this.position[1]);
-//				memory.add(new MemoryItem(this.position, (Product) object));
-//			}
-//		}
-		
-		// and move
-		// super.live();
-		
-		// fade out
-//		memories.doAge();
-				
-//		// agents around
-//		for (Agent otheragent : simulation.getAgents()) {
-//			if (otheragent instanceof MemoryAgent && otheragent != this) {
-//				MemoryAgent otherMemoryAgent = (MemoryAgent)otheragent;
-//				double distance = Math.sqrt((otherMemoryAgent.getX() - this.getX())*(otherMemoryAgent.getX() - this.getX()) + (otherMemoryAgent.getY() - this.getY())*(otherMemoryAgent.getY() - this.getY()));
-//				if (distance <= audition) { 
-//					memories.beInfluenced(otherMemoryAgent.memories);
-//				} 
-//			}
-//		}
-//
-//		// learn new information
-//		for (int i = Math.max(getX() - sight, 0); i < Math.min(getX() + sight, TestAgent.MEMORY_SIZE); i++) {
-//			for (int j = Math.max(getY() - sight, 0); j < Math.min(getY() + sight, TestAgent.MEMORY_SIZE); j++) {
-//				double distanceSquare = ((i - getX()) * (i - getX()) + (j - getY()) * (j - getY()));
-//				if (distanceSquare < sight * sight) {
-//					int value = simulation.getEnvironment().get(i, j).size();
-//					memories.doLearn(BeliefType.MRKEV, i, j, value);
-//				}
-//			}
-//		}
-//		
+
 //		// agent moves
 //		// TODO: doplnit nahodny pohyb, pokud neni uspokojující zradlo v dosahu
 //		// mit to jako moznost
-//		ArrayList<double[]> whereToGo = new ArrayList<double[]>();
-//		double distanceImportance = 0.01;
-//		
-//		for (int i = 0; i < Agent.MEMORY_SIZE; i++) {
-//			for (int j = 0; j < TestAgent.MEMORY_SIZE; j++) {
-//				double distance = Math.sqrt((i - this.getX())*(i - this.getX()) + (j - this.getY())*(j - this.getY()));
-//				//if (distance <= sight) {
-//					Chunk chunk = memories.getBeliefChunkAt(BeliefType.MRKEV, i, j);
-//					if (chunk.amount > 0) {
-//						double value = chunk.belief * chunk.amount * chunk.amount - distance * distanceImportance;
-//						whereToGo.add(new double[] {i, j, value});
-//					}
-//				//}
-//			}
-//		}
-//		
-//		double bestX = -1;
-//		double bestY = -1;
-//		double bestValue = 0;
-//		
-//		for (double[] spot : whereToGo) {
-//			if (spot[2] > bestValue) {
-//				bestValue = spot[2];
-//				bestX = spot[0];
-//				bestY = spot[1];
-//			}
-//		}
-//		
-//		// move there
-//		if (bestX > -1 && bestY > -1) {
-//			// find closest cell 
-//			int closestY = this.getY();
-//			int closestX = this.getX();
-//			double closestDistance = Double.MAX_VALUE;
-//			for (int i = -1; i < 2; i++) {
-//				for (int j = -1; j < 2; j++) {
-//					int X = this.getX() + i;
-//					int Y = this.getY() + j;
-//					double distance = Math.sqrt((X - bestX)*(X - bestX) + (Y - bestY)*(Y - bestY));
-//					
-//					if (distance < closestDistance) {
-//						closestDistance = distance;
-//						closestX = X;
-//						closestY = Y;
-//					}
-//				}
-//			}
-//			
-//			this.setX(closestX);
-//			this.setY(closestY);		
-//			
-//			simulation.getEnvironment().removeAll(closestX, closestY);
-//			Chunk chunk = memories.getBeliefChunkAt(BeliefType.MRKEV, closestX, closestY);
-//			chunk.amount = 0;
-//			chunk.belief = 1;
-//		} else {
-//			if (simulation.getSettings().useRandomMovement) {
-//				super.live();
-//			}
-//		}
-		
-		/*
 
-		int randX = (int)(Math.random()*getCols());
-		int randY = (int)(Math.random()*getRows());
 		
-		touch(randX, randY);
-		
-		*/
+
 	}
 	
 	private void learn(int mostDeservedFood) {
@@ -315,7 +184,7 @@ public class GNGAgent extends RandomAgent
 			}
 		}
 		
-		/// do i need food and dont know any point
+		/// do i need food and dont know any point where it is
 		///
 		if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
 			for (Agent agent : this.simulation.getAgents()) {
@@ -374,9 +243,9 @@ public class GNGAgent extends RandomAgent
 			}
 		}
 		
-		for (LineGNG line : memory.getLines()) {
+		for (NodePair edge : memory.getEdges()) {
 			g.setColor(Color.GRAY);
-			g.drawLine((int)(xV*line.getX1()), (int)(yV*line.getY1()), (int)(xV*line.getX2()), (int)(yV*line.getY2()));
+			g.drawLine((int)(xV*edge.first.getX()), (int)(yV*edge.first.getY()), (int)(xV*edge.second.getX()), (int)(yV*edge.second.getY()));
 		}
 		
 		for (int foodKind : memory.getNodes().keySet()) {

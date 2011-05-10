@@ -3,6 +3,7 @@ package memagents.memory;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import memagents.Simulation;
 import memagents.food.FoodGenerator;
 
 abstract public class Memory {
@@ -15,9 +16,12 @@ abstract public class Memory {
 	protected int height;
 	public int getHeight() { return height; }
 	
-	public Memory(int width, int height) {
+	protected Simulation simulation;
+	
+	public Memory(int width, int height, Simulation simulation) {
 		this.width = width;
 		this.height = height;
+		this.simulation = simulation;
 	}
 	
 	abstract public void learn(int foodKind, ArrayList<Point> food);

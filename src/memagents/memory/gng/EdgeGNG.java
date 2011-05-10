@@ -76,4 +76,7 @@ public class EdgeGNG {
     if (to == old)
       to = newN;
   }
+  
+  public int getTo() { return to; }
+  public int getFrom() { return from; }
 }

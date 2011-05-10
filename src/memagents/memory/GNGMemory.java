@@ -5,23 +5,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import memagents.Simulation;
 import memagents.food.FoodGenerator;
-import memagents.memory.gng.LineGNG;
+import memagents.memory.gng.EdgeGNG;
 import memagents.memory.gng.MAComputeGNG;
 import memagents.memory.gng.NodeGNG;
+import memagents.memory.gng.NodePair;
 
 public class GNGMemory extends Memory implements Runnable {
 	
 	protected HashMap<Integer, MAComputeGNG> gngEngines;
 	protected Thread thread;
 	
-	public GNGMemory(int width, int height) {
-		super(width, height);
+	public GNGMemory(int width, int height, Simulation simulation) {
+		super(width, height, simulation);
 		
-		gngEngines = new HashMap<Integer, MAComputeGNG>();
+		this.gngEngines = new HashMap<Integer, MAComputeGNG>();
 		
 		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			MAComputeGNG gngEngine = new MAComputeGNG();
+			MAComputeGNG gngEngine = new MAComputeGNG(this);
 			// default: 0.8 1.0E-5 0.0050 6.0E-4 600 8
 			gngEngine.setParams(0.8f, 1.0E-5f, 0.005f, 6.0E-4f, 600, 88, 8);
 			gngEngines.put(foodKind, gngEngine);
@@ -40,7 +42,7 @@ public class GNGMemory extends Memory implements Runnable {
 		MAComputeGNG gngEngine = gngEngines.get(foodKind);
 		gngEngine.computeExpectedDistribution();
 		Point[] sample = new Point[NUM_SAMPLES];
-		Random random = new Random();
+		Random random = simulation.getRandom(); 
 		int randomX = 0;
 		int randomY = 0;
 		
@@ -52,6 +54,10 @@ public class GNGMemory extends Memory implements Runnable {
 		}
 		
 		return sample;
+	}
+	
+	public Random getRandom() {
+		return simulation.getRandom();
 	}
 	
 	public HashMap<Integer, NodeGNG[]> getNodes() {
@@ -66,14 +72,17 @@ public class GNGMemory extends Memory implements Runnable {
 		return nodes;
 	}
 	
-	public ArrayList<LineGNG> getLines() {
-		ArrayList<LineGNG> lines = new ArrayList<LineGNG>();
+	public ArrayList<NodePair> getEdges() {
+		ArrayList<NodePair> lines = new ArrayList<NodePair>();
 		
 		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
 			MAComputeGNG gngEngine = gngEngines.get(foodKind);
-			LineGNG[] n = gngEngine.getLines();
-			for (int i = 0; i < gngEngine.getNumLines(); i++) {
-				lines.add(n[i]);
+			EdgeGNG[] n = gngEngine.getEdges();
+			for (int i = 0; i < gngEngine.getNumEdges(); i++) {
+				NodeGNG n1 = gngEngine.getNodeAt(n[i].getFrom());
+				NodeGNG n2 = gngEngine.getNodeAt(n[i].getTo());
+				
+				lines.add(new NodePair(n1, n2));
 			}
 		} 
 		

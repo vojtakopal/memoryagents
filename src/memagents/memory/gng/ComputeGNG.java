@@ -185,18 +185,6 @@ public class ComputeGNG implements Runnable {
 	 * The array of the actual used edges.
 	 */
 	protected EdgeGNG edges[] = new EdgeGNG[MAX_EDGES];
-	/**
-	 * The actual number of Voronoi lines.
-	 */
-	protected int nlines = 0;
-	/**
-	 * The array of the actual used lines.
-	 */
-	protected LineGNG lines[] = new LineGNG[MAX_V_LINES];
-	/**
-	 * The array of boolean to distinguish between Voronoi and Delaunay lines.
-	 */
-	protected boolean vd[] = new boolean[MAX_V_LINES];
 
 	//protected Thread relaxer;
 

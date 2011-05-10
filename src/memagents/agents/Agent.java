@@ -2,6 +2,7 @@ package memagents.agents;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import memagents.food.FoodGenerator;
@@ -37,6 +38,65 @@ public abstract class Agent {
 	public void setNeed(int foodKind, float amount) {
 		needs.put(foodKind, amount);
 	}
+	
+	/**
+	 * Returns square of distance between points p1 and p2.
+	 * 
+	 * @param p1
+	 * @param p2
+	 * @return
+	 */
+	public int getQDistance(Point p1, Point p2) {
+		int qDistance = (p1.x - p2.x)*(p1.x - p2.x) + (p1.y - p2.y)*(p1.y - p2.y);
+		return qDistance;
+	}
+	
+	/**
+	 * Returns the nearest point to toPoint chosen from array fromPoints
+	 * 
+	 * @param fromPoint
+	 * @param toPoints
+	 * @return
+	 */
+	public Point getNearestPoint(Point toPoint, Point[] fromPoints) {
+		Point nearestPoint = null;
+		int leastQDistance = Integer.MAX_VALUE;
+		int qDistance = 0;
+		
+		for (Point point : fromPoints) {
+			qDistance = getQDistance(point, toPoint);
+			if (qDistance < leastQDistance) {
+				leastQDistance = qDistance;
+				nearestPoint = point;
+			}
+		}
+		
+		return nearestPoint;
+	}
+	
+	/**
+	 * Returns the nearest point to toPoint chosen from arraylist fromPoints
+	 * 
+	 * @param fromPoint
+	 * @param toPoints
+	 * @return
+	 */
+	public Point getNearestPoint(Point toPoint, ArrayList<Point> fromPoints) {
+		Point nearestPoint = null;
+		int leastQDistance = Integer.MAX_VALUE;
+		int qDistance = 0;
+		
+		for (Point point : fromPoints) {
+			qDistance = getQDistance(point, toPoint);
+			if (qDistance < leastQDistance) {
+				leastQDistance = qDistance;
+				nearestPoint = point;
+			}
+		}
+		
+		return nearestPoint;
+	}
+	
 	
 	public abstract Point[] whereIs(int foodKind);	
 	public abstract void live();	

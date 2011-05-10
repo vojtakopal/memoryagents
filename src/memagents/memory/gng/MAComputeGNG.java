@@ -11,6 +11,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import memagents.memory.GNGMemory;
+
 public class MAComputeGNG extends ComputeGNG {
 	
 	public static int threadCounter = 0;
@@ -35,7 +37,9 @@ public class MAComputeGNG extends ComputeGNG {
 		
 	int maxSteps = 0;
 	
-	public MAComputeGNG() {
+	GNGMemory memory;
+	
+	public MAComputeGNG(GNGMemory memory) {
 					
 		algo = 0;
 		distribution = 7;
@@ -52,6 +56,8 @@ public class MAComputeGNG extends ComputeGNG {
 		NUM_NEW_NODE = 600; // 10, 2000 (600)
 		MAX_EDGE_AGE = 88; // 10, 800 (88)
 		maxNodes = 16;
+		
+		this.memory = memory;
 		
 		initDiscreteSignals();
 		addNode(new Dimension(width, height));
@@ -112,7 +118,7 @@ public class MAComputeGNG extends ComputeGNG {
 	
 	public void getSignal(int distribution) {
 		if (MAX_KNOWN_SPOTS == 0) {
-			Random random = new Random();
+			Random random = memory.getRandom();
 			
 			SignalX = random.nextInt(width);
 			SignalY = random.nextInt(height);
@@ -128,16 +134,20 @@ public class MAComputeGNG extends ComputeGNG {
 		return nodes;
 	}
 	
-	public LineGNG[] getLines() {
-		return lines;
+	public NodeGNG getNodeAt(int index) {
+		return nodes[index];
+	}
+	
+	public EdgeGNG[] getEdges() {
+		return edges;
 	}
 	
 	public int getNumNodes() {
 		return nnodes;
 	}
 	
-	public int getNumLines() {
-		return nlines;
+	public int getNumEdges() {
+		return nedges;
 	}
 	
 	public double getExpectedValueX() {

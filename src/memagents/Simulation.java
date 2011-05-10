@@ -45,6 +45,8 @@ public class Simulation
 	protected ArrayList<Agent> agents;
 	protected ArrayList<FoodGenerator> generators;
 	protected SimulationSettings settings = new SimulationSettings();
+	protected Random random = null;
+	public Random getRandom() { return random; }
 	
 	public Simulation() 
 	{
@@ -57,15 +59,14 @@ public class Simulation
 	 */
 	private void init()
 	{
+		random = new Random(); random.setSeed(123456789);
 		environment = new Environment(SIZE, SIZE);
 		agents = new ArrayList<Agent>();
 		scheduler = new Scheduler();
 		generators = new ArrayList<FoodGenerator>();
 		
-		
-		Random random = new Random();
 		for (int i = 0; i < NUM_FOODGENERATORS; i++) {
-			generators.add(new FoodGenerator(random.nextInt(SIZE), random.nextInt(SIZE)));
+			generators.add(new FoodGenerator(random.nextInt(SIZE), random.nextInt(SIZE), this));
 		}
 		
 		System.out.println("Simulation initialized.");
@@ -76,9 +77,8 @@ public class Simulation
 	 */
 	public Agent addAgent(final Agent agent) {
 		
-		Random rand = new Random();
-		int agentX = rand.nextInt(SIZE);
-		int agentY = rand.nextInt(SIZE);
+		int agentX = random.nextInt(SIZE);
+		int agentY = random.nextInt(SIZE);
 		
 		agents.add(agent);	
 		
