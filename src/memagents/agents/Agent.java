@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import memagents.food.FoodGenerator;
+import memagents.utils.Monitor;
 
 /**
  * 
@@ -23,6 +24,8 @@ public abstract class Agent {
 	public int getId() { return id; }
 	public Point getPosition() { return position; }
 	
+	ArrayList<Monitor> monitors = new ArrayList<Monitor>();
+	
 	protected HashMap<Integer, Float> needs = new HashMap<Integer, Float>();
 	public float getNeed(int foodKind) {
 		float need = 0;
@@ -37,6 +40,11 @@ public abstract class Agent {
 	} 
 	public void setNeed(int foodKind, float amount) {
 		needs.put(foodKind, amount);
+	}
+	public void multiplyNeed(int foodKind, float multiplier) {
+		float need = getNeed(foodKind);
+		need *= multiplier;
+		setNeed(foodKind, need);
 	}
 	
 	/**
@@ -97,6 +105,16 @@ public abstract class Agent {
 		return nearestPoint;
 	}
 	
+	
+	public void addMonitor(Monitor monitor) {
+		monitors.add(monitor);
+	}
+	
+	public void processMonitors() {
+		for (Monitor monitor : monitors) {
+			monitor.monitor(this);
+		}
+	}
 	
 	public abstract Point[] whereIs(int foodKind);	
 	public abstract void live();	

@@ -63,8 +63,8 @@ public class GNGAgent extends RandomAgent
 		super(simulation);
 		
 		memory = new GNGMemory(MEMORY_SIZE, MEMORY_SIZE, simulation);
-		position.x = 50;
-		position.y = 50;
+		position.x = simulation.getRandom().nextInt(100);
+		position.y = simulation.getRandom().nextInt(100);
 	}
 	
 	public int getX() { return position.x; }
@@ -131,7 +131,7 @@ public class GNGAgent extends RandomAgent
 			// eat it!
 			if (this.simulation.getEnvironment().eatFoodAt(getX(), getY(), mostDeservedFood)) {
 				float value = needs.get(mostDeservedFood);
-				value -= 5;
+				value -= 0.5;
 				if (value < 0) value = 0;
 				needs.put(mostDeservedFood, value);
 			}
@@ -283,7 +283,7 @@ public class GNGAgent extends RandomAgent
 			
 			float value = this.getNeed(foodKind);
 			g.setColor(simulation.getGenerator(foodKind).getColor());			
-			g.fillRect(0 + w*foodKind, 0, w, (int)(value*50));
+			g.fillRect(0 + w*foodKind, 0, w, (int)(value*150));
 			
 		}
 		

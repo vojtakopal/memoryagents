@@ -2,6 +2,7 @@ package memagents.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class MemoryVisualizer extends JFrame implements MouseListener {
         this.agents = simulation.getAgents();
         this.simulation = simulation;
         
-        setSize(300, 300);  
+        setSize(250, 250);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         
         Container pane = getContentPane();
@@ -40,6 +41,11 @@ public class MemoryVisualizer extends JFrame implements MouseListener {
         pane.add(panel, BorderLayout.CENTER);
                 
         setVisible(true);  
+        
+        Point currLoc = getLocation();
+        int xLoc = agent.getId() % 5;
+        int yLoc = agent.getId() / 5;
+        setLocation(currLoc.x + 250*xLoc, currLoc.y + 250*yLoc);
         
         // set current situation
 //        for (int i = 0; i < TestAgent.MEMORY_SIZE; i++) {

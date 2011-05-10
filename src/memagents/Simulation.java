@@ -9,9 +9,6 @@ import sun.misc.Regexp;
 import memagents.agents.Agent;
 import memagents.environment.Environment;
 import memagents.food.FoodGenerator;
-import memagents.schedule.Event;
-import memagents.schedule.IEventer;
-import memagents.schedule.Scheduler;
 import memagents.utils.Log;
 
 /**
@@ -26,22 +23,27 @@ public class Simulation
 	 *	Size of simulation stands for width and height of 2D matrix. 
 	 *
 	 */
-	public static int SIZE = 100;
+	public static final int SIZE = 100;
 	
 	/**
 	 *	The number of agents in the simulation. 
 	 *
 	 */
-	public static int NUM_AGENTS = 3;
+	public static final int NUM_AGENTS = 15;
 	
 	/**
 	 *	Number of food generators in the simulation. 
 	 *
 	 */
-	public static int NUM_FOODGENERATORS = 6;
+	public static final int NUM_FOODGENERATORS = 6;
+	
+	/**
+	 * 	Speed of simulation (sleep in ms)
+	 * 
+	 */
+	public static final int SPEED = 10; 
 	
 	protected Environment environment;
-	protected Scheduler scheduler;
 	protected ArrayList<Agent> agents;
 	protected ArrayList<FoodGenerator> generators;
 	protected SimulationSettings settings = new SimulationSettings();
@@ -62,7 +64,6 @@ public class Simulation
 		random = new Random(); random.setSeed(123456789);
 		environment = new Environment(SIZE, SIZE);
 		agents = new ArrayList<Agent>();
-		scheduler = new Scheduler();
 		generators = new ArrayList<FoodGenerator>();
 		
 		for (int i = 0; i < NUM_FOODGENERATORS; i++) {
@@ -88,23 +89,7 @@ public class Simulation
 		Log.println("init " + (agents.size() - 1) + " " + agentX + " " + agentY);
 		
 		//agent.setId(agents.size()-1);
-		
-		/// Each agent schedules living event.
-		scheduler.scheduleRepeatedEvent(new IEventer() {
-			public void callback() {
-				// agent live
-				agent.live();
-				
-				// agent hunger
-				// adds 0.01 to all needs
-				for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-					float amount = agent.getNeed(foodKind);
-					amount += 0.01;
-					agent.setNeed(foodKind, amount);
-				}
-			}
-		}, 1);
-		
+	
 		return agent;
 	}
 	
@@ -161,24 +146,25 @@ public class Simulation
 	 */
 	public void run() 
 	{
-		while (!scheduler.empty())
+		while (true)
 		{
 			Log.println("nextday");
 			environment.initNextDay();
 			
-			ArrayList<Event> currentEvents = new ArrayList<Event>();
-			
-			Event currentEvent = scheduler.dequeue();
-					
-			// calling processes
-			while (currentEvent != null)
-			{
-				currentEvents.add(currentEvent);
-				currentEvent.process();				
-				currentEvent = currentEvent.getNext();
+			for (Agent agent : agents) {
+				// agent live
+				agent.live();
+				
+				// agent hunger
+				// adds 0.01 to all needs
+				for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+					float amount = agent.getNeed(foodKind);
+					amount += 0.001;
+					agent.setNeed(foodKind, amount);
+				}
+				
+				agent.processMonitors();
 			}
-			
-			currentEvents.clear();
 			
 			// foooood, hungryyy!!!
 			for (FoodGenerator generator : generators) {
@@ -186,7 +172,7 @@ public class Simulation
 			}
 			
 			try {
-				Thread.sleep(10);
+				Thread.sleep(SPEED);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
