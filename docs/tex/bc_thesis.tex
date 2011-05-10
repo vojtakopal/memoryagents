@@ -9,10 +9,9 @@
 %\pagestyle{headings}
 \pagestyle{plain}
 
-\frenchspacing % aktivuje použití některých českých typografických pravidel
+%\frenchspacing % aktivuje použití některých českých typografických pravidel
 
 \usepackage[utf8]{inputenc} % nastavuje použité kódování, uživatelé Windows zamění latin2 za cp1250
-\usepackage{czech}
 \usepackage{a4wide} % nastavuje standardní evropský formát stránek A4
 %\usepackage{index} % nutno použít v případě tvorby rejstříku balíčkem makeindex
 %\usepackage{fancybox} % umožňuje pokročilé rámečkování :-)
@@ -22,8 +21,8 @@
 
 %\newindex{default}{idx}{ind}{Rejstřík} % zavádí rejstřík v případě použití balíku index
 
-\title{Název práce}   % tyto dvě položky jsou zde v podstatě formálně, ve skutečnosti nejsou nikde 
-\author{Jméno autora} % dále v dokumentu použity
+\title{Komunikace a paměť pro plausibilní agenty}   % tyto dvě položky jsou zde v podstatě formálně, ve skutečnosti nejsou nikde 
+\author{Vojtěch Kopal} % dále v dokumentu použity
 
 %\date{}
 
@@ -41,12 +40,12 @@
 \vspace{15mm}
 
 \large
-Univerzita Karlova v Praze\\
-Matematicko-fyzikální fakulta\\
+Charles University in Prague\\
+Faculty of Mathematics and Physics\\
 
 \vspace{5mm}
-
-{\Large\bf BAKALÁŘSKÁ PRÁCE}
+   
+{\Large\bf BACHELOR THESIS}
 
 \vspace{10mm}
 
@@ -58,19 +57,21 @@ Matematicko-fyzikální fakulta\\
 \vspace{15mm}
 
 %\normalsize
-{\Large Jméno autora}\\ % doplňte vaše jméno
+{\Large Vojtěch Kopal}\\ % doplňte vaše jméno
 \vspace{5mm}
-{\Large\bf Název práce (přesně podle zadání)}\\ % doplňte název práce
+{\Large\bf Komunikace a paměť pro plausibilní agenty}\\ % doplňte název práce       
+\vspace{3mm}
+{\Large\bf Communication and memory in plausible agents}\\ % doplňte název práce     
 \vspace{5mm}
-Název katedry či ústavu\\ % doplňte název katedry či ústavu
+{\Large Department of Theoretical Computer Science and Mathematical Logic}\\
 \end{center}
-\vspace{15mm}
+\vspace{10mm}
 
 \large
-\noindent Vedoucí bakalářské práce: Mgr. Ondřej Sýkora
+\noindent Supervisor: Mgr. Ondřej Sýkora
 \vspace{1mm} 
 
-\noindent Studijní program: Informatika, obecná informatika
+\noindent Study programme: General Computer Science
 
 \vspace{20mm}
 
@@ -129,17 +130,11 @@ Supervisor's e-mail address: e-mailová adresa vedoucího\\
 %%% Následuje text bakalářské práce členěný do kapitol, které se číslují, označí názvy a graficky oddělí.
 %%% Nedoporučuje se používat víc než dvě úrovně číslování kapitol, viz příklad níže.
 
-\chapter{Název první kapitoly}
+\include{chapters/introduction}
 
-\section{Název první podkapitoly v první kapitole}
+\include{chapters/relatedwork}
 
-\section{Název druhé podkapitoly v první kapitole}
-
-\chapter{Název druhé kapitoly}
-
-\section{Název první podkapitoly v druhé kapitole}
-
-\section{Název druhé podkapitoly v druhé kapitole}
+\include{chapters/usedalgorithms}
 
 
 %%% Seznam literatury

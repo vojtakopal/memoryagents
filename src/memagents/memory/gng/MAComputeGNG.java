@@ -58,6 +58,7 @@ public class MAComputeGNG extends ComputeGNG {
 		maxNodes = 16;
 		
 		this.memory = memory;
+		this.random = memory.getRandom();
 		
 		initDiscreteSignals();
 		addNode(new Dimension(width, height));
@@ -117,13 +118,11 @@ public class MAComputeGNG extends ComputeGNG {
 	}
 	
 	public void getSignal(int distribution) {
-		if (MAX_KNOWN_SPOTS == 0) {
-			Random random = memory.getRandom();
-			
+		if (MAX_KNOWN_SPOTS == 0) {			
 			SignalX = random.nextInt(width);
 			SignalY = random.nextInt(height);
 		} else {
-			int index = (int)(Math.random() * MAX_KNOWN_SPOTS);
+			int index = (int)(random.nextDouble() * MAX_KNOWN_SPOTS);
 	
 			SignalX = discreteSignalsX[index];
 			SignalY = discreteSignalsY[index];

@@ -1,0 +1,30 @@
+\chapter{Used algorithms}
+
+In previous chapter you have been familiarized with several kinds of agents, how they can be used and also what a spatial memory is. I have briefly prepaired you for the next chapters, where I will explain my contribution to this area. This chapter is going to cover the used algorithms and computational methods I have studied and implemented in my work. 
+
+The first subsection disserts on the implementations of agents' memory and in detail describes fundamental parts. Both the Growing Neural Gas and the Quad..blah are used as memory storages to handle spatial information about the environment with bounded resources.
+
+\section{Growing Neural Gas}
+
+\subsection{Topology learning}
+
+[Explain topology learning]
+
+Based on competitive Hebbian learning (CHL) method (Martinetz, 1993) and Neural Gas (NG) (Maritnetz and Schulten, 1991) Bern Fritzke suggested earlier mentioned Growing Neural Gas, an unsupervised learning method for finding a topological structure which reflects the topology of the data distribution [A growing neural gas network...]Although the combination of both CHL and NG is an effective method for topology learning, there are some flaws in practical application as it requires an initial setup of number of nodes/centers that are used. This fact prevents the method from adequately describing the topology, when a different number of nodes would work better.
+
+As Fritzke described in (...) the algorithm uses a set of nodes and edges that connects the nodes. A simplified describtion of algorithm in context of two-dimensional space follows:
+
+\begin{enumerate}
+\item Add two nodes at random position onto canvas
+\item Generate input signal based on the data distribution (its probability density)
+\item Find the nearest node $n_1$ and second nearest node $n_2$ to the signal
+\item Increment the age of all edges leading from node $n_2$
+\item Moved node $n_1$ and its topological neighbors towards the signal (according to parametres $epsilon_{winner}$ and $epsilon_{neighbour}$)
+\item Remove all edges with an age larger than $a_{max}$
+\item Generate new nodes
+\item Go to 1.
+\end{enumerate}
+
+For the purpose of this work I want to use this algorithm to learn a topology of dynamically changing data availability. In following subsection I am going to introduce you to the experimenting with this algorithm.
+
+\subsection{Experiments on dynamic data}

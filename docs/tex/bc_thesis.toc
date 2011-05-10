@@ -1,0 +1,9 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}
+\contentsline {chapter}{\numberline {2}Related work}{7}
+\contentsline {section}{\numberline {2.1}Agents}{7}
+\contentsline {section}{\numberline {2.2}Spatial resource-bounded memory}{7}
+\contentsline {chapter}{\numberline {3}Used algorithms}{8}
+\contentsline {section}{\numberline {3.1}Growing Neural Gas}{8}
+\contentsline {subsection}{\numberline {3.1.1}Topology learning}{8}
+\contentsline {subsection}{\numberline {3.1.2}Experiments on dynamic data}{9}
+\contentsline {chapter}{Literatura}{10}

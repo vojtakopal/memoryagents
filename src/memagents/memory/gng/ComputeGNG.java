@@ -39,6 +39,7 @@ package memagents.memory.gng;
 //=====;
 
 import java.awt.*;
+import java.util.Random;
 
 /**
  * A class which implements the algorithms. This class is an overkill. It
@@ -458,6 +459,11 @@ public class ComputeGNG implements Runnable {
 	protected String fineTuningS = "";
 
 	/**
+	 * Random instance.
+	 */
+	protected Random random = null;
+	
+	/**
 	 * The constructor.
 	 * 
 	 * @param graph
@@ -481,8 +487,8 @@ public class ComputeGNG implements Runnable {
 		NodeGNG n = new NodeGNG();
 
 		if (rndInitB) {
-			n.x = (float) (10 + (d.width - 20) * Math.random());
-			n.y = (float) (10 + (d.height - 20) * Math.random());
+			n.x = (float) (10 + (d.width - 20) * random.nextDouble());
+			n.y = (float) (10 + (d.height - 20) * random.nextDouble());
 		} else {
 			getSignal(distribution);
 			n.x = SignalX;
