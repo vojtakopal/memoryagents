@@ -19,8 +19,6 @@ public class FoodGenerator {
 	
 	protected int range = 10;
 	
-	protected int timeLife = 0;
-	
 	protected Simulation simulation = null;
 	
 	/**
@@ -35,11 +33,12 @@ public class FoodGenerator {
 		this.y = centerY;
 		this.simulation = simulation;
 	}
+	
+	public void setRange(int value) {
+		this.range = value;
+	}
 		
-	public void seed(Environment environment) {
-		timeLife++;
-		if ((timeLife % 10) != 0) return;
-		
+	public void seed(Environment environment) {		
 		int newX = 0;
 		int newY = 0;
 		

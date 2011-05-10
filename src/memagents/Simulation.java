@@ -9,6 +9,7 @@ import sun.misc.Regexp;
 import memagents.agents.Agent;
 import memagents.environment.Environment;
 import memagents.food.FoodGenerator;
+import memagents.memory.Memory;
 import memagents.utils.Log;
 
 /**
@@ -35,13 +36,42 @@ public class Simulation
 	 *	Number of food generators in the simulation. 
 	 *
 	 */
-	public static final int NUM_FOODGENERATORS = 6;
+	public static final int FOOD_NUM = 6;
 	
 	/**
 	 * 	Speed of simulation (sleep in ms)
 	 * 
 	 */
 	public static final int SPEED = 10; 
+	
+	/**
+	 *	Speed of food growing (number of ticks).	
+	 *
+	 */
+	public static final int FOOD_SPEED = 10; 
+	
+	/**
+	 * 
+	 * 
+	 */
+	public static final int FOOD_MAXRANGE = 10;
+	
+	/**
+	 * 
+	 * 
+	 */
+	public static final int FOOD_MINRANGE = 3;
+	
+	public static final int FOOD_ADDITION_PER_UNIT = 1;
+	
+	/**
+	 * 
+	 */
+	public static final int AGENT_LEARNING_SPEED = 1;
+	
+	public static final int AGENT_SIGHT = 10;
+	
+	public static final int AGENT_AUDITION = 5;
 	
 	protected Environment environment;
 	protected ArrayList<Agent> agents;
@@ -66,8 +96,16 @@ public class Simulation
 		agents = new ArrayList<Agent>();
 		generators = new ArrayList<FoodGenerator>();
 		
-		for (int i = 0; i < NUM_FOODGENERATORS; i++) {
-			generators.add(new FoodGenerator(random.nextInt(SIZE), random.nextInt(SIZE), this));
+		for (int i = 0; i < FOOD_NUM; i++) {
+			int range = FOOD_MINRANGE;
+			if (FOOD_MAXRANGE > FOOD_MINRANGE) {
+				range += random.nextInt(FOOD_MAXRANGE - FOOD_MINRANGE);
+			}
+			int x = random.nextInt(SIZE - range*2) + range;
+			int y = random.nextInt(SIZE - range*2) + range;
+			FoodGenerator generator = new FoodGenerator(x, y, this);
+			generator.setRange(range);
+			generators.add(generator);
 		}
 		
 		System.out.println("Simulation initialized.");
@@ -77,6 +115,9 @@ public class Simulation
 	 * 
 	 */
 	public Agent addAgent(final Agent agent) {
+		
+		agent.setAudition(AGENT_AUDITION);
+		agent.setSight(AGENT_SIGHT);
 		
 		int agentX = random.nextInt(SIZE);
 		int agentY = random.nextInt(SIZE);
@@ -146,9 +187,10 @@ public class Simulation
 	 */
 	public void run() 
 	{
+		int simulationTime = 0;
 		while (true)
 		{
-			Log.println("nextday");
+			//Log.println("nextday");
 			environment.initNextDay();
 			
 			for (Agent agent : agents) {
@@ -164,12 +206,21 @@ public class Simulation
 				}
 				
 				agent.processMonitors();
+				
+				Memory memory = agent.getMemory();
+				if (memory != null) {
+					memory.run();
+				}
 			}
 			
-			// foooood, hungryyy!!!
-			for (FoodGenerator generator : generators) {
-				generator.seed(environment);
+			if ((simulationTime % FOOD_SPEED) == 0) {
+				// foooood, hungryyy!!!
+				for (FoodGenerator generator : generators) {
+					generator.seed(environment);
+				}
 			}
+			
+			simulationTime++;
 			
 			try {
 				Thread.sleep(SPEED);
@@ -177,6 +228,28 @@ public class Simulation
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public String toString() {
+		String ret = null;
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Simulation\n================\n");
+		sb.append("SIZE="); 				sb.append(Simulation.SIZE);sb.append("\n");
+		sb.append("SPEED="); 				sb.append(Simulation.SPEED);sb.append("\n");
+		sb.append("NUM_AGENTS="); 			sb.append(Simulation.NUM_AGENTS);sb.append("\n");
+		sb.append("AGENT_AUDITION"); 		sb.append(Simulation.AGENT_AUDITION);sb.append("\n");
+		sb.append("AGENT_LEARNING_SPEED="); sb.append(Simulation.AGENT_LEARNING_SPEED);sb.append("\n");
+		sb.append("AGENT_SIGHT="); 			sb.append(Simulation.AGENT_SIGHT);sb.append("\n");
+		sb.append("FOOD_ADDITION_PER_UNIT="); sb.append(Simulation.FOOD_ADDITION_PER_UNIT);sb.append("\n");
+		sb.append("FOOD_MAXRANGE="); 		sb.append(Simulation.FOOD_MAXRANGE);sb.append("\n");
+		sb.append("FOOD_MINRANGE="); 		sb.append(Simulation.FOOD_MINRANGE);sb.append("\n");
+		sb.append("FOOD_NUM=");	 			sb.append(Simulation.FOOD_NUM);sb.append("\n");
+		sb.append("FOOD_SPEED="); 			sb.append(Simulation.FOOD_SPEED);sb.append("\n");
+		sb.append("\n");
+		
+		ret = sb.toString();
+		return ret;
 	}
 
 }

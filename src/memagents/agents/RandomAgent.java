@@ -5,6 +5,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import memagents.Simulation;
+import memagents.memory.Memory;
 import memagents.utils.Log;
 
 /**
@@ -57,7 +58,7 @@ public class RandomAgent extends Agent
 		// System.out.println("Agent lives");
 		
 		ArrayList<Point> moves = simulation.getEnvironment().filterMoves(position, availableMoves());
-		int rand = (int)(moves.size() * Math.random());
+		int rand = (int)(moves.size() * simulation.getRandom().nextDouble());
 		
 		move(moves.get(rand));
 		
@@ -74,6 +75,10 @@ public class RandomAgent extends Agent
 	}
 	
 	public Point[] whereIs(int foodKind) {
+		return null;
+	}
+	
+	public Memory getMemory() {
 		return null;
 	}
 	

@@ -11,6 +11,7 @@ import memagents.Simulation;
 import memagents.environment.Environment;
 import memagents.food.FoodGenerator;
 import memagents.memory.GNGMemory;
+import memagents.memory.Memory;
 import memagents.memory.gng.EdgeGNG;
 import memagents.memory.gng.NodeGNG;
 import memagents.memory.gng.NodePair;
@@ -27,18 +28,7 @@ import memagents.utils.Log;
 public class GNGAgent extends RandomAgent
 {
 	public static int MEMORY_SIZE = 100;
-	
-	/**
-	 * 	Audition is a quality of an agent. It is a distance in which the agent hears world around him.
-	 * 
-	 */
-	protected int audition = 30;
 
-	/**
-	 * 	Sight is a quality of an agent. It is a distance in which the agent sees world around him.
-	 * 
-	 */
-	protected int sight = 30;
 	
 	/**
 	 *	Memory is represented by two-dimensional array of double.
@@ -79,6 +69,8 @@ public class GNGAgent extends RandomAgent
 	
 	synchronized public void live() 
 	{
+		if (isDead()) return;
+		
 		Environment env = (Environment) this.simulation.getEnvironment();
 		
 		int mostDeservedFood = findMostDeservedFood();
@@ -142,7 +134,7 @@ public class GNGAgent extends RandomAgent
 //		// mit to jako moznost
 
 		
-
+		
 	}
 	
 	private void learn(int mostDeservedFood) {
@@ -220,7 +212,7 @@ public class GNGAgent extends RandomAgent
 	
 	public Point[] whereIs(int foodKind) {
 		Point[] points = memory.getSample(foodKind);
-		Log.print("agent " + id + " asked about " + foodKind + " and anwsered ");
+		//Log.print("agent " + id + " asked about " + foodKind + " and anwsered ");
 		
 		for (Point point : points) {
 			Log.print(" " + point.x + "," + point.y);
@@ -231,15 +223,25 @@ public class GNGAgent extends RandomAgent
 		return points;
 	}
 	
+	public Memory getMemory() {
+		return memory;
+	}
+	
 	synchronized public void draw(Graphics g, int width, int height) {
 
+		if (isDead()) {
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 0, width, height);
+			return;
+		}
+		
 		double xV = width / (double)memory.getWidth();
 		double yV = height / (double)memory.getHeight();
 		Set<Integer> keys = knownPoints.keySet();
 		for (Integer foodKind : keys) {
 			for (Point p : knownPoints.get(foodKind)) {
 				g.setColor(simulation.getGenerator(foodKind).getColor());
-				g.fillOval((int)(xV*p.x - 1), (int)(yV*p.y - 1), 2, 2);
+				g.fillOval((int)(xV*p.x - 1), (int)(yV*p.y - 1), (int)(xV*2), (int)(yV*2));
 			}
 		}
 		
@@ -267,14 +269,20 @@ public class GNGAgent extends RandomAgent
 				}
 			}
 		}
+
+		HashMap<Integer, Point> centers = memory.getExpectedCenters();
+		HashMap<Integer, Double> variances = memory.getExpectedVariances();
 		
-		for (Point center : memory.getExpectedCenters()) {
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
 			// draw expectations
+			Point center = centers.get(foodKind);
+			double var = variances.get(foodKind);
+			
 			g.setColor(Color.RED);
-			g.drawOval((int)(xV*(center.x - 10)), 
-					   (int)(yV*(center.y - 10)), 
-					   (int)xV*20, 
-					   (int)yV*20);
+			g.drawOval((int)(xV*(center.x - var/2)), 
+					   (int)(yV*(center.y - var/2)), 
+					   (int)(xV*var), 
+					   (int)(yV*var));
 		}
 		
 		// draw bars
@@ -283,7 +291,7 @@ public class GNGAgent extends RandomAgent
 			
 			float value = this.getNeed(foodKind);
 			g.setColor(simulation.getGenerator(foodKind).getColor());			
-			g.fillRect(0 + w*foodKind, 0, w, (int)(value*150));
+			g.fillRect(0 + w*foodKind, 0, w, (int)(value*height));
 			
 		}
 		

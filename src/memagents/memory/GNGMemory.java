@@ -12,7 +12,7 @@ import memagents.memory.gng.MAComputeGNG;
 import memagents.memory.gng.NodeGNG;
 import memagents.memory.gng.NodePair;
 
-public class GNGMemory extends Memory implements Runnable {
+public class GNGMemory extends Memory {
 	
 	protected HashMap<Integer, MAComputeGNG> gngEngines;
 	protected Thread thread;
@@ -30,8 +30,8 @@ public class GNGMemory extends Memory implements Runnable {
 		}
 		
 
-		thread = new Thread(this, "GNGMemory");
-		thread.start();
+//		thread = new Thread(this, "GNGMemory");
+//		thread.start();
 	}
 	
 	public void learn(int foodKind, ArrayList<Point> food) {
@@ -89,15 +89,20 @@ public class GNGMemory extends Memory implements Runnable {
 		return lines;
 	}
 	
-	public Point[] getExpectedCenters() {
-		Point[] centers = new Point[FoodGenerator.getSize()];
-		int i = 0;
+	public HashMap<Integer, Point> getExpectedCenters() {
+		HashMap<Integer, Point> centers = new HashMap<Integer, Point>();
 		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			gngEngines.get(foodKind).computeExpectedDistribution();
-			centers[i] = new Point((int)gngEngines.get(foodKind).getExpectedValueX(), (int)gngEngines.get(foodKind).getExpectedValueY());
-			i++;
+			centers.put(foodKind, new Point((int)gngEngines.get(foodKind).getExpectedValueX(), (int)gngEngines.get(foodKind).getExpectedValueY()));
 		}
 		return centers;
+	}
+	
+	public HashMap<Integer, Double> getExpectedVariances() {
+		HashMap<Integer, Double> centers = new HashMap<Integer, Double>();
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+			centers.put(foodKind, gngEngines.get(foodKind).getExpectedVariance());
+		}
+		return centers;		
 	}
 	
 	public Point getExpectedCenter(int foodKind) {
@@ -106,16 +111,16 @@ public class GNGMemory extends Memory implements Runnable {
 	}
 	
 	public void run() {
-		while (true) {
+//		while (true) {
 			for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
 				gngEngines.get(foodKind).learn();
 			}
 			
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				
-			}
-		}
+//			try {
+//				Thread.sleep(10);
+//			} catch (InterruptedException e) {
+//				
+//			}
+//		}
 	}
 }

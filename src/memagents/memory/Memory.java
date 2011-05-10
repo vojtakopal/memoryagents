@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import memagents.Simulation;
 import memagents.food.FoodGenerator;
 
-abstract public class Memory {
+abstract public class Memory implements Runnable {
 
 	static public final int NUM_SAMPLES = 5;
 	

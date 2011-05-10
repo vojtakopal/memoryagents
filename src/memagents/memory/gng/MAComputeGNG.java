@@ -183,13 +183,13 @@ public class MAComputeGNG extends ComputeGNG {
 			}
 		}
 		
-		double distance2 = (expectedValueX - getRealValueX())*(expectedValueX - getRealValueX()) + (expectedValueY - getRealValueY())*(expectedValueY - getRealValueY());
-		double pomer = 1; //getVariance() / expectedVariance;
+//		double distance2 = (expectedValueX - getRealValueX())*(expectedValueX - getRealValueX()) + (expectedValueY - getRealValueY())*(expectedValueY - getRealValueY());
+//		double pomer = 1; //getVariance() / expectedVariance;
 		
-		if (expectedVariance > getVariance()) pomer = getVariance() / expectedVariance;
-		else pomer = expectedVariance / getVariance();
+//		if (expectedVariance > getVariance()) pomer = getVariance() / expectedVariance;
+//		else pomer = expectedVariance / getVariance();
 		
-		score = distance2 / ((getVariance() + expectedVariance)*(getVariance() + expectedVariance));
+//		score = distance2 / ((getVariance() + expectedVariance)*(getVariance() + expectedVariance));
 		
 		//System.out.println("Score: "+score);
 	}

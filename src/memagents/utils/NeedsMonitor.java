@@ -5,18 +5,29 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import memagents.Simulation;
 import memagents.agents.Agent;
 import memagents.food.FoodGenerator;
 
 public class NeedsMonitor implements Monitor {
-	FileWriter writer;
-	public NeedsMonitor() {
+	protected FileWriter writer;
+	protected Simulation simulation;
+	public NeedsMonitor(Simulation simulation) {
+		this.simulation = simulation;
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		String logname = "NM-"+sdf.format(Calendar.getInstance().getTime())+".txt";
 		
 		try {
 			writer = new FileWriter(logname);
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			writer.append(simulation.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

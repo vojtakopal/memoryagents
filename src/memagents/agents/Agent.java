@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import memagents.food.FoodGenerator;
+import memagents.memory.Memory;
 import memagents.utils.Monitor;
 
 /**
@@ -18,15 +19,51 @@ public abstract class Agent {
 	static protected int getNextId() { return nextId++; }
 	
 	private int id;
+	
+	private boolean dead = false;
+	
 	protected Point position = new Point();
-		
-	public Agent() { this.id = getNextId(); }
-	public int getId() { return id; }
-	public Point getPosition() { return position; }
-	
-	ArrayList<Monitor> monitors = new ArrayList<Monitor>();
-	
+
 	protected HashMap<Integer, Float> needs = new HashMap<Integer, Float>();
+	
+	protected ArrayList<Monitor> monitors = new ArrayList<Monitor>();
+		
+	/**
+	 * 	Audition is a quality of an agent. It is a distance in which the agent hears world around him.
+	 * 
+	 */
+	protected int audition = 30;
+
+	/**
+	 * 	Sight is a quality of an agent. It is a distance in which the agent sees world around him.
+	 * 
+	 */
+	protected int sight = 30;
+	
+	public Agent() { 
+		this.id = getNextId(); 
+	}
+	
+	public int getId() { 
+		return id; 
+	}
+	
+	public boolean isDead() {
+		return dead;
+	}
+	
+	public Point getPosition() { 
+		return position; 
+	}
+	
+	public void setAudition(int value) {
+		this.audition = value;
+	}
+	
+	public void setSight(int value) {
+		this.sight = sight;
+	}
+	
 	public float getNeed(int foodKind) {
 		float need = 0;
 		
@@ -35,16 +72,25 @@ public abstract class Agent {
 		} else {
 			needs.put(foodKind, 0.0f);
 		}
-		
+
+		if (need > 1) kill();
 		return need;
 	} 
+	
 	public void setNeed(int foodKind, float amount) {
 		needs.put(foodKind, amount);
+		if (amount > 1) kill();
 	}
+	
 	public void multiplyNeed(int foodKind, float multiplier) {
 		float need = getNeed(foodKind);
 		need *= multiplier;
 		setNeed(foodKind, need);
+		if (need > 1) kill();
+	}
+	
+	public void kill() {
+		dead = true;
 	}
 	
 	/**
@@ -119,4 +165,5 @@ public abstract class Agent {
 	public abstract Point[] whereIs(int foodKind);	
 	public abstract void live();	
 	public abstract void draw(Graphics g, int width, int height);
+	public abstract Memory getMemory();
 }

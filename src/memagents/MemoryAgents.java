@@ -21,7 +21,7 @@ public class MemoryAgents
 		
 		// simulation instance
 		Simulation simulation = new Simulation();
-		NeedsMonitor monitor = new NeedsMonitor();
+		NeedsMonitor monitor = new NeedsMonitor(simulation);
 		
 		for (int i = 0; i < Simulation.NUM_AGENTS; i++) {
 			GNGAgent agent = new GNGAgent(simulation);
