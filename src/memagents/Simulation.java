@@ -24,7 +24,7 @@ public class Simulation
 	 *	Size of simulation stands for width and height of 2D matrix. 
 	 *
 	 */
-	public static final int SIZE = 100;
+	public static final int SIZE = 64;
 	
 	/**
 	 *	The number of agents in the simulation. 
@@ -48,7 +48,7 @@ public class Simulation
 	 *	Speed of food growing (number of ticks).	
 	 *
 	 */
-	public static final int FOOD_SPEED = 10; 
+	public static final int FOOD_SPEED = 50; 
 	
 	/**
 	 * 
@@ -71,7 +71,9 @@ public class Simulation
 	
 	public static final int AGENT_SIGHT = 10;
 	
-	public static final int AGENT_AUDITION = 5;
+	public static final int AGENT_AUDITION = 15;
+	
+	public static final int ANSWER_SAMPLE = 2;
 	
 	protected Environment environment;
 	protected ArrayList<Agent> agents;
@@ -246,6 +248,7 @@ public class Simulation
 		sb.append("FOOD_MINRANGE="); 		sb.append(Simulation.FOOD_MINRANGE);sb.append("\n");
 		sb.append("FOOD_NUM=");	 			sb.append(Simulation.FOOD_NUM);sb.append("\n");
 		sb.append("FOOD_SPEED="); 			sb.append(Simulation.FOOD_SPEED);sb.append("\n");
+		sb.append("ANSWER_SAMPLE="); 		sb.append(Simulation.ANSWER_SAMPLE);sb.append("\n");
 		sb.append("\n");
 		
 		ret = sb.toString();

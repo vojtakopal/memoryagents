@@ -60,7 +60,9 @@ public class RandomAgent extends Agent
 		ArrayList<Point> moves = simulation.getEnvironment().filterMoves(position, availableMoves());
 		int rand = (int)(moves.size() * simulation.getRandom().nextDouble());
 		
-		move(moves.get(rand));
+		if (moves.size() > 0) {
+			move(moves.get(rand));
+		}
 		
 		/*
 		// met someone?

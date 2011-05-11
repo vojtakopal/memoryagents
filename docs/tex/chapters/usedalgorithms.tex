@@ -8,7 +8,7 @@ The first subsection disserts on the implementations of agents' memory and in de
 
 \subsection{Topology learning}
 
-Having an enormous spatial data about an environment it is computationaly demanding to process them when for example we want to navigate in the environment. A topology learning or recognition can help us to create a representation such as topological map which can be viewed as a graph and which makes reasoning in that environment much easier. Rather complex understanding of topology in an indoor space using Bayesian programming has been shown in \cite{Tapus:topologylearning}. It goes much farther than I need to. 
+Processing an enormous spatial data about an environment is computationaly demanding when for example we want to navigate in that environment. A topology learning or recognition can help us to create a representation such as topological map which can be viewed as a graph and which makes reasoning in that environment much easier. Rather complex understanding of topology in an indoor space using Bayesian programming has been shown in \cite{Tapus:topologylearning}. It goes much farther than I need to. 
 
 Based on competitive Hebbian learning (CHL) method \cite{Martinetz:chl} and Neural Gas (NG) \cite{Martinetz:ng} Bern Fritzke suggested earlier mentioned Growing Neural Gas \cite{Fritzke:gng}, an unsupervised learning method for finding a topological structure which reflects the topology of the data distribution. Although the combination of both CHL and NG is an effective method for topology learning, there are some flaws in practical application as it requires an initial setup of number of nodes/centers that are used. This fact prevents the method from adequately describing the topology, when a different number of nodes would work better.
 
@@ -25,7 +25,7 @@ As Fritzke described the algorithm uses a set of nodes and edges that connects t
 \item Go to 1.
 \end{enumerate}
 
-For the purpose of this work I want to use this algorithm to learn a topology of dynamically changing data availability. In following subsection I am going to introduce you to the experimenting with this algorithm.
+For the purpose of this work I want to use this algorithm to learn a topology of data which dynamically changes through the time. In following subsection I am going to introduce you to the experimenting with this algorithm.
 
 \subsection{Experiments on dynamic data}
 

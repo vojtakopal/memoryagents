@@ -26,10 +26,7 @@ import memagents.utils.Log;
  *
  */
 public class GNGAgent extends RandomAgent
-{
-	public static int MEMORY_SIZE = 100;
-
-	
+{	
 	/**
 	 *	Memory is represented by two-dimensional array of double.
 	 *
@@ -52,9 +49,9 @@ public class GNGAgent extends RandomAgent
 	{
 		super(simulation);
 		
-		memory = new GNGMemory(MEMORY_SIZE, MEMORY_SIZE, simulation);
-		position.x = simulation.getRandom().nextInt(100);
-		position.y = simulation.getRandom().nextInt(100);
+		memory = new GNGMemory(Simulation.SIZE, Simulation.SIZE, simulation);
+		position.x = simulation.getRandom().nextInt(Simulation.SIZE);
+		position.y = simulation.getRandom().nextInt(Simulation.SIZE);
 	}
 	
 	public int getX() { return position.x; }
@@ -150,8 +147,8 @@ public class GNGAgent extends RandomAgent
 		
 		/// learn new things i see
 		///
-		for (int i = Math.max(getX() - sight, 0); i < Math.min(getX() + sight, MEMORY_SIZE); i++) {
-			for (int j = Math.max(getY() - sight, 0); j < Math.min(getY() + sight, MEMORY_SIZE); j++) {
+		for (int i = Math.max(getX() - sight, 0); i < Math.min(getX() + sight, Simulation.SIZE); i++) {
+			for (int j = Math.max(getY() - sight, 0); j < Math.min(getY() + sight, Simulation.SIZE); j++) {
 				/// can I see it?
 				///
 				double distanceSquare = ((i - getX()) * (i - getX()) + (j - getY()) * (j - getY()));				

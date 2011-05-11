@@ -25,7 +25,7 @@ public class GNGMemory extends Memory {
 		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
 			MAComputeGNG gngEngine = new MAComputeGNG(this);
 			// default: 0.8 1.0E-5 0.0050 6.0E-4 600 8
-			gngEngine.setParams(0.8f, 1.0E-5f, 0.005f, 6.0E-4f, 600, 88, 8);
+			gngEngine.setParams(0.8f, 1.0E-5f, 0.005f, 6.0E-4f, 600, 88, 5);
 			gngEngines.put(foodKind, gngEngine);
 		}
 		
@@ -41,12 +41,12 @@ public class GNGMemory extends Memory {
 	public Point[] getSample(int foodKind) {
 		MAComputeGNG gngEngine = gngEngines.get(foodKind);
 		gngEngine.computeExpectedDistribution();
-		Point[] sample = new Point[NUM_SAMPLES];
+		Point[] sample = new Point[numSamples];
 		Random random = simulation.getRandom(); 
 		int randomX = 0;
 		int randomY = 0;
 		
-		for (int i = 0; i < NUM_SAMPLES; i++) {
+		for (int i = 0; i < numSamples; i++) {
 			randomX = (int)(gngEngine.getExpectedValueX() + random.nextGaussian() * gngEngine.getExpectedVariance());
 			randomY = (int)(gngEngine.getExpectedValueY() + random.nextGaussian() * gngEngine.getExpectedVariance());
 			

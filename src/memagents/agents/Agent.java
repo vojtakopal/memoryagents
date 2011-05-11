@@ -61,7 +61,7 @@ public abstract class Agent {
 	}
 	
 	public void setSight(int value) {
-		this.sight = sight;
+		this.sight = value;
 	}
 	
 	public float getNeed(int foodKind) {
