@@ -1,0 +1,56 @@
+\begin{thebibliography}{1}
+
+\bibitem{Brom:placeandobjects}
+Cyril Brom, Tom\'{a}\v{s} Korenko, and Ji\v{r}\'{\i} Lukavsk\'{y}.
+\newblock How do place and objects combine? "what-where" memory for human-like
+  agents.
+\newblock In {\em Proceedings of the 9th International Conference on
+  Intelligent Virtual Agents}, IVA '09, pages 42--48, Berlin, Heidelberg, 2009.
+  Springer-Verlag.
+
+\bibitem{Finkel:quadtrees}
+R.~A. Finkel and J.~L. Bentley.
+\newblock Quad trees a data structure for retrieval on composite keys.
+\newblock {\em Acta Informatica}, 4:1--9, 1974.
+\newblock 10.1007/BF00288933.
+
+\bibitem{Fritzke:gng}
+Bernd Fritzke.
+\newblock A growing neural gas network learns topologies.
+\newblock In {\em Advances in Neural Information Processing Systems 7}, pages
+  625--632. MIT Press, 1995.
+
+\bibitem{Ho:memoryarchitectures}
+Wan~Ching Ho, Kerstin Dautenhahn, and Chrystopher~L. Nehaniv.
+\newblock Computational memory architectures for autobiographic agents
+  interacting in a complex virtual environment: a working model.
+\newblock {\em Connect. Sci}, 20:21--65, March 2008.
+
+\bibitem{Martinetz:ng}
+T.~M. Martinetz and K.~J. Shulten.
+\newblock {A "neural-gas" network learns topologies"}.
+\newblock In T.~Kohonen, K.~M\"akisara, O.~Simula, and J.~Kangas, editors, {\em
+  Artificial Neural Networks}, pages 397--402. North-Holland, Amsterdam, 1991.
+
+\bibitem{Martinetz:chl}
+Thomas Martinetz.
+\newblock {Competitive Hebbian Learning Rule Forms Perfectly Topology
+  Preserving Maps}.
+\newblock In Stan Gielen and Bert Kappen, editors, {\em Proc. ICANN'93, Int.
+  Conf. on Artificial Neural Networks}, pages 427--434, London, UK, 1993.
+  Springer.
+
+\bibitem{russel2003ai}
+Stuart Russell and Peter Norvig.
+\newblock {\em {Artificial Intelligence: A Modern Approach (3rd Edition)}}.
+\newblock Prentice Hall, 3 edition, December 2009.
+
+\bibitem{Tapus:topologylearning}
+A.~Tapus, G.~Ramel, L.~Dobler, and R.~Siegwart.
+\newblock Topology learning and recognition using bayesian programming for
+  mobile robot navigation.
+\newblock In {\em Intelligent Robots and Systems, 2004. (IROS 2004).
+  Proceedings. 2004 IEEE/RSJ International Conference on}, volume~4, pages 3139
+  -- 3144 vol.4, sept.-2 oct. 2004.
+
+\end{thebibliography}

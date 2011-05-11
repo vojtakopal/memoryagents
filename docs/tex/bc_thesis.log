@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  10 MAY 2011 23:29
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  11 MAY 2011 18:40
 entering extended mode
 **bc_thesis.tex
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -306,23 +306,26 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks17
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+\c@definition=\count91
+\c@example=\count92
+
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
 x))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -362,13 +365,13 @@ File: logo.eps Graphic file (type eps)
 <logo.eps> [1
 
 ] [2]
-Overfull \hbox (32.95616pt too wide) in paragraph at lines 91--92
+Overfull \hbox (32.95616pt too wide) in paragraph at lines 94--95
 \OT1/cmr/m/n/12 pouzitm cito-vanych pra-menu. Souh-lasm se zapujcovan
 m prace a jejm zverejnovanm. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
@@ -385,22 +388,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 104--110
+Underfull \hbox (badness 10000) in paragraph at lines 107--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--123
+Underfull \hbox (badness 10000) in paragraph at lines 120--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
@@ -413,34 +416,40 @@ Chapter 1.
 ]) [6]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.tex
 Chapter 2.
-) [7
+[7
 
 
 
-]
+]) [8]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.te
 x
 Chapter 3.
-[8
+[9
 
-
-
-]) [9] [10
 
 
 ]
-(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
+File: diagrams/usedalgorithms/quadtree-circle.eps Graphic file (type eps)
+ <diagrams/usedalgorithms/quadtree-circle.eps> [10]
+File: diagrams/usedalgorithms/quadtree-treeview.eps Graphic file (type eps)
+
+<diagrams/usedalgorithms/quadtree-treeview.eps>) [11]
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl [12
+
+
+])
+[13] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
 x)) ) 
 Here is how much of TeX's memory you used:
- 1328 strings out of 494054
- 18815 string characters out of 3146208
- 75314 words of memory out of 3000000
- 4605 multiletter control sequences out of 15000+200000
+ 1356 strings out of 494054
+ 19387 string characters out of 3146208
+ 75567 words of memory out of 3000000
+ 4627 multiletter control sequences out of 15000+200000
  8847 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 25i,4n,19p,785b,240s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 25i,5n,19p,785b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (11 pages, 15808 bytes).
+Output written on bc_thesis.dvi (14 pages, 21064 bytes).

@@ -21,6 +21,9 @@
 
 %\newindex{default}{idx}{ind}{Rejstřík} % zavádí rejstřík v případě použití balíku index
 
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
 \title{Komunikace a paměť pro plausibilní agenty}   % tyto dvě položky jsou zde v podstatě formálně, ve skutečnosti nejsou nikde 
 \author{Vojtěch Kopal} % dále v dokumentu použity
 
@@ -142,11 +145,8 @@ Supervisor's e-mail address: e-mailová adresa vedoucího\\
 %%% Literatura se řadí abecedně. Úvádí se pouze literatura, na kterou se v textu odkazuje.
 %%% Při odkazu na knihu se vždy uvádějí čísla stránek.
 
-\begin{thebibliography}{99}
-\addcontentsline{toc}{chapter}{Literatura}
- \bibitem{abraham-marsden}Abraham R., Marsden J. E.: {\em Foundations of Mechanics}, Addison-Wesley, Reading, 1985.
- \bibitem{derbes}Derbes D.: {\em Reinventing the wheel: Hodographic solutions to the Kepler problems}, Am. J. Phys. {\bf 69} (2001) 481--489.
- \bibitem{kvasnica}Kvasnica J.: {\em Teorie elektromagnetického pole}, Academia, Praha, 1985.
-\end{thebibliography}
-
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{plain}
+\bibliography{bc_thesis}
+  
 \end{document}
