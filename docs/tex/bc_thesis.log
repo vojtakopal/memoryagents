@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  16 MAY 2011 16:38
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  17 MAY 2011 00:10
 entering extended mode
 **bc_thesis.tex
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -478,40 +478,42 @@ Chapter 3.
 ] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 38.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 40.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 38.
- [14]) [15]
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 40.
+File: images/gng/experimental_setup.eps Graphic file (type eps)
+
+<images/gng/experimental_setup.eps> [14] [15] [16]) [17]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.tex
 Chapter 4.
-[16
+[18
 
 
 
-]) [17]
+]) [19]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.te
 x
 Chapter 5.
-) [18
+) [20
 
 
 
 ]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.tex
 Chapter 6.
-[19
-
-
-
-]) [20] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl
 [21
 
 
-]) [22] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
+
+]) [22] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl
+[23
+
+
+]) [24] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
@@ -521,12 +523,12 @@ x)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.aux))
  ) 
 Here is how much of TeX's memory you used:
- 3146 strings out of 494054
- 44144 string characters out of 3146208
- 126850 words of memory out of 3000000
- 6372 multiletter control sequences out of 15000+200000
+ 3153 strings out of 494054
+ 44324 string characters out of 3146208
+ 129026 words of memory out of 3000000
+ 6377 multiletter control sequences out of 15000+200000
  8847 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 29i,5n,44p,1013b,1427s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,9n,44p,9024b,1417s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (22 pages, 45412 bytes).
+Output written on bc_thesis.dvi (24 pages, 48816 bytes).

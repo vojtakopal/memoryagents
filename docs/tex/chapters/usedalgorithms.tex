@@ -12,16 +12,19 @@ Processing an enormous spatial data about an environment is computationaly deman
 
 Based on competitive Hebbian learning (CHL) method \cite{Martinetz:chl} and Neural Gas (NG) \cite{Martinetz:ng} Bern Fritzke suggested earlier mentioned Growing Neural Gas \cite{Fritzke:gng}, an unsupervised learning method for finding a topological structure which reflects the topology of the data distribution. Although the combination of both CHL and NG is an effective method for topology learning, there are some flaws in practical application as it requires an initial setup of number of nodes/centers that are used. This fact prevents the method from adequately describing the topology, when a different number of nodes would work better.
 
-As Fritzke described the algorithm uses a set of nodes and edges that connects the nodes. A simplified describtion of algorithm in context of two-dimensional space follows:
+As Fritzke described the algorithm uses a set of nodes and edges that connects the nodes. A simplified describtion of algorithm from \cite{Fritzke:gng} in context of two-dimensional space follows:
 
 \begin{enumerate}
 \item Add two nodes at random position onto canvas
 \item Generate input signal based on the data distribution (its probability density)
 \item Find the nearest node $n_1$ and second nearest node $n_2$ to the signal
 \item Increment the age of all edges leading from node $n_2$
+\item Add the squared distance between the input signal and the nearest unit in
+input space to a local counter variable $\Delta error(n_{1})$
 \item Moved node $n_1$ and its topological neighbors towards the signal (according to parametres $epsilon_{winner}$ and $epsilon_{neighbour}$)
 \item Remove all edges with an age larger than $a_{max}$
-\item Generate new nodes
+\item Generate new nodes (see \cite{Fritzke:gng}) using variable $alpha$
+\item Decrease all error variables by multiplying them with a constant $beta$
 \item Go to 1.
 \end{enumerate}
 
@@ -29,10 +32,9 @@ For the purpose of this work I want to use this algorithm to learn a topology of
 
 \subsection{Experiments on dynamic data}
 
-As I have mentioned previously I had to setup the variables so as to be able to use Growing Neural Gas method properly. To attain this goal I have made a Java programm which tested various combinations of variables' values. It has sequently run the algorithm for a given number of steps and measured the {\emph score} (see \ref{usedalgo:scoremethod}).
+As I have mentioned previously I had to setup the variables so as to be able to use Growing Neural Gas method properly. To attain this goal I have made a Java programm which tests various combinations of variables' values and finds the best one. It has sequently run the algorithm for a given number of steps and measured the {\emph score} (see \ref{usedalgo:scoremethod}).
 
 \begin{figure}
-\caption{The {\emph SCORE} method}
 \begin{lstlisting}[language=Pascal]
 procedure Score()
   (px, py, pvar) <- GetProbableGauss()
@@ -45,9 +47,52 @@ procedure Score()
   
   return score
 end
-\end{lstlisting}    
+\end{lstlisting}       
+\caption{The {\emph SCORE} method}
 \label{usedalgo:scoremethod}
 \end{figure}
+       
+\begin{figure}      
+\begin{center}
+\includegraphics[scale=0.75]{images/gng/experimental_setup.eps}    
+\caption{Screenshot showing the process of searching optimal variable values. The visualization has been made for testing purposes in the first place, but it nicely shows what had been lately paralelly computed. The bottom part of the picture shows the SCORE value throughout the simulation. {\emph (Red color means $SCORE > 0.05$, orange is $SCORE > 0.001$ and green is $SCORE <= 0.001$)} }
+\end{center}                          
+\label{usedalgo:gngexperimentscreen}
+\end{figure}
+
+\begin{figure}          
+\begin{itemize}
+\item $alpha \in \{0.0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0\}$
+\item $beta \in \{0.0, 0.00001, 0.00005, 0.0001, 0.001, 0.005, 0.01, 0.5, 0.1, 0.5, 1.0\}$
+\item $epsilon_{winner} \in \{0.0, 0.001, 0.005, 0.01, 0.1, 0.2, 0.5, 1.0\}$
+\item $epsilon_{neighbour} \in \{0.0, 0.0001, 0.0006, 0.001, 0.005, 0.05, 0.1, 0.2\}$
+\item $maxNodes \in \{4, 8, 16, 32\}$
+\end{itemize}
+\caption{Domains of variables for the experimental learning of best values.}
+\label{usedalgo:gngexperimentdomains}
+\end{figure}
+
+A total number of possible combinations is equal to 19712. For each such a combination I have run 10000 steps of GNG learning sequence and measured the average score. Each sequence took aproximately 108 seconds and all the experiment was computed paralelly using 30 threads.
+
+The best results which were avarage SCORE below $10^{-11}$ is shown in a table \ref{usedalgo:gngexperimentresults}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ccccc|c}
+
+$alpha$ & $beta$ & $epsilon_{winner}$ & $epsilon_{neighbour}$ & $numNodes$ & $SCORE$ \\
+\hline
+0.0 & 1.0 & 0.0050 & 0.0 & 16 & $3.8*10^{-12}$ \\
+0.5 & 0.0 & 0.01 & 1.0E-4 & 8 & $5.1*10^{-12}$ \\   
+0.5 & 0.0010 & 0.1 & 0.0010 & 8 & $8.8*10^{-12}$ \\ 
+0.5 & 1.0 & 0.0 & 1.0E-4 & 8 & $3.1*10^{-12}$ \\     
+0.8 & 1.0E-5 & 0.0010 & 1.0E-4 & 32 & $7.4*10^{-12}$ \\
+0.8 & 1.0E-5 & 0.0050 & 6.0E-4 & 8 & $4.3*10^{-12}$ \\
+
+\end{tabular}      
+\caption{\label{usedalgo:gngexperimentresults}Variable values with best average SCOREs}
+\end{center}
+\end{table}
 
 \section{Grid}
 

@@ -6,6 +6,8 @@ latex bc_thesis.tex
 
 latex bc_thesis.tex
 
+#pdflatex bc_thesis.tex
+
 dvips bc_thesis.dvi
 
 ps2pdf bc_thesis.ps
