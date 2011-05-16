@@ -1,4 +1,7 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Loyall:believableagents}
+PhD thesis.
 
 \bibitem{Brom:placeandobjects}
 Cyril Brom, Tom\'{a}\v{s} Korenko, and Ji\v{r}\'{\i} Lukavsk\'{y}.
@@ -52,5 +55,11 @@ A.~Tapus, G.~Ramel, L.~Dobler, and R.~Siegwart.
 \newblock In {\em Intelligent Robots and Systems, 2004. (IROS 2004).
   Proceedings. 2004 IEEE/RSJ International Conference on}, volume~4, pages 3139
   -- 3144 vol.4, sept.-2 oct. 2004.
+
+\bibitem{Varian:micro}
+Hal~R. Varian.
+\newblock {\em Intermediate microeconomics : a modern approach / Hal R.
+  Varian}.
+\newblock W.W. Norton, New York :, 1987.
 
 \end{thebibliography}

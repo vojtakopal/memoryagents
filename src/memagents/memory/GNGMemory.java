@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import memagents.Simulation;
+import memagents.agents.Agent;
 import memagents.food.FoodGenerator;
 import memagents.memory.gng.EdgeGNG;
 import memagents.memory.gng.MAComputeGNG;
@@ -17,8 +18,8 @@ public class GNGMemory extends Memory {
 	protected HashMap<Integer, MAComputeGNG> gngEngines;
 	protected Thread thread;
 	
-	public GNGMemory(int width, int height, Simulation simulation) {
-		super(width, height, simulation);
+	public GNGMemory(int width, int height, Simulation simulation, Agent agent) {
+		super(width, height, simulation, agent);
 		
 		this.gngEngines = new HashMap<Integer, MAComputeGNG>();
 		
@@ -89,21 +90,21 @@ public class GNGMemory extends Memory {
 		return lines;
 	}
 	
-	public HashMap<Integer, Point> getExpectedCenters() {
-		HashMap<Integer, Point> centers = new HashMap<Integer, Point>();
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			centers.put(foodKind, new Point((int)gngEngines.get(foodKind).getExpectedValueX(), (int)gngEngines.get(foodKind).getExpectedValueY()));
-		}
-		return centers;
-	}
-	
-	public HashMap<Integer, Double> getExpectedVariances() {
-		HashMap<Integer, Double> centers = new HashMap<Integer, Double>();
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			centers.put(foodKind, gngEngines.get(foodKind).getExpectedVariance());
-		}
-		return centers;		
-	}
+//	public HashMap<Integer, Point> getExpectedCenters() {
+//		HashMap<Integer, Point> centers = new HashMap<Integer, Point>();
+//		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+//			centers.put(foodKind, new Point((int)gngEngines.get(foodKind).getExpectedValueX(), (int)gngEngines.get(foodKind).getExpectedValueY()));
+//		}
+//		return centers;
+//	}
+//	
+//	public HashMap<Integer, Double> getExpectedVariances() {
+//		HashMap<Integer, Double> centers = new HashMap<Integer, Double>();
+//		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+//			centers.put(foodKind, gngEngines.get(foodKind).getExpectedVariance());
+//		}
+//		return centers;		
+//	}
 	
 	public Point getExpectedCenter(int foodKind) {
 		gngEngines.get(foodKind).computeExpectedDistribution();
@@ -122,5 +123,17 @@ public class GNGMemory extends Memory {
 //				
 //			}
 //		}
+	}
+
+	public HashMap<Integer, ExpectedGauss> getExpectedGausses() {
+		HashMap<Integer, ExpectedGauss> gausses = new HashMap<Integer, ExpectedGauss>();
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+			ExpectedGauss gauss = new ExpectedGauss();
+			gauss.x = (int)gngEngines.get(foodKind).getExpectedValueX();
+			gauss.y = (int)gngEngines.get(foodKind).getExpectedValueY();
+			gauss.var = gngEngines.get(foodKind).getExpectedVariance();
+			gausses.put(foodKind, gauss);
+		}
+		return gausses;		
 	}
 }

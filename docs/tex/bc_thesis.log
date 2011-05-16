@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  11 MAY 2011 18:40
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  16 MAY 2011 00:36
 entering extended mode
 **bc_thesis.tex
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -313,7 +313,10 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
-x))
+x) (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.aux)
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.au
+x)
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
@@ -326,7 +329,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
@@ -364,7 +366,7 @@ LaTeX Font Info:    ... okay on input line 32.
 File: logo.eps Graphic file (type eps)
 <logo.eps> [1
 
-] [2]
+]
 Overfull \hbox (32.95616pt too wide) in paragraph at lines 94--95
 \OT1/cmr/m/n/12 pouzitm cito-vanych pra-menu. Souh-lasm se zapujcovan
 m prace a jejm zverejnovanm. 
@@ -382,12 +384,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-)
+ [3
+
+])
 \tf@toc=\write3
 
-[3
-
-]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 107--113
 
  []
@@ -407,49 +409,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-[4]
+[5]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.tex
 Chapter 1.
-[5
+) [6
 
 
-]) [6]
+]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.tex
 Chapter 2.
 [7
 
 
 
-]) [8]
+] [8]) [9] [10]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.te
 x
 Chapter 3.
-[9
+[11
 
 
 
 ]
 File: diagrams/usedalgorithms/quadtree-circle.eps Graphic file (type eps)
- <diagrams/usedalgorithms/quadtree-circle.eps> [10]
+ <diagrams/usedalgorithms/quadtree-circle.eps> [12]
 File: diagrams/usedalgorithms/quadtree-treeview.eps Graphic file (type eps)
 
-<diagrams/usedalgorithms/quadtree-treeview.eps>) [11]
-(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl [12
+<diagrams/usedalgorithms/quadtree-treeview.eps>) [13]
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.tex
+Chapter 4.
+[14
 
 
-])
-[13] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
+
+]) [15]
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.te
+x
+Chapter 5.
+) [16
+
+
+
+]
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.tex
+Chapter 6.
+[17
+
+
+
+]) [18] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl
+[19
+
+
+]) [20] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
-x)) ) 
+x) (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.aux)
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.au
+x)
+(c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.aux))
+ ) 
 Here is how much of TeX's memory you used:
- 1356 strings out of 494054
- 19387 string characters out of 3146208
- 75567 words of memory out of 3000000
- 4627 multiletter control sequences out of 15000+200000
+ 1382 strings out of 494054
+ 20896 string characters out of 3146208
+ 76418 words of memory out of 3000000
+ 4632 multiletter control sequences out of 15000+200000
  8847 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 25i,5n,19p,785b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 25i,5n,19p,1013b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (14 pages, 21064 bytes).
+Output written on bc_thesis.dvi (20 pages, 35388 bytes).

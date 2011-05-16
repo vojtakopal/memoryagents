@@ -30,7 +30,7 @@ public class Simulation
 	 *	The number of agents in the simulation. 
 	 *
 	 */
-	public static final int NUM_AGENTS = 15;
+	public static final int NUM_AGENTS = 4;
 	
 	/**
 	 *	Number of food generators in the simulation. 
@@ -54,13 +54,13 @@ public class Simulation
 	 * 
 	 * 
 	 */
-	public static final int FOOD_MAXRANGE = 10;
+	public static final int FOOD_MAXRANGE = 12;
 	
 	/**
 	 * 
 	 * 
 	 */
-	public static final int FOOD_MINRANGE = 3;
+	public static final int FOOD_MINRANGE = 8;
 	
 	public static final int FOOD_ADDITION_PER_UNIT = 1;
 	
@@ -69,11 +69,11 @@ public class Simulation
 	 */
 	public static final int AGENT_LEARNING_SPEED = 1;
 	
-	public static final int AGENT_SIGHT = 10;
+	public static final int AGENT_SIGHT = 20;
 	
 	public static final int AGENT_AUDITION = 15;
 	
-	public static final int ANSWER_SAMPLE = 2;
+	public static final int ANSWER_SAMPLE = 5;
 	
 	protected Environment environment;
 	protected ArrayList<Agent> agents;

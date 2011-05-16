@@ -15,76 +15,13 @@ import memagents.utils.Log;
  */
 public class RandomAgent extends Agent 
 {
-	protected Simulation simulation;
-	protected int id;
-	
 	public RandomAgent(Simulation simulation) 
 	{
-		super();
+		super(simulation);
 		
-		this.simulation = simulation;
 	}
-	
-	public void setId(int id)
-	{
-		this.id = id;
-	}
-	
-	protected ArrayList<Point> availableMoves()
-	{
-		ArrayList<Point> moves = new ArrayList<Point>();
 		
-		moves.add(new Point(-1, 0));
-		moves.add(new Point( 1, 0));
-		moves.add(new Point( 0,-1));
-		moves.add(new Point( 0, 1));
-		
-		return moves;
-	}
-	
-	protected void move(Point move)
-	{
-		//Log.println("move " + id + " " + position.x + " " + position.y + " " + (position.x + move.x) + " " + (position.y + move.y));
-		
-		//simulation.getEnvironment().remove(position[0], position[1], this);
-		//simulation.getEnvironment().add(position[0] + move[0], position[1] + move[1], this);
-		position.x += move.x;
-		position.y += move.y;
-	}
-	
-	public void live()
-	{
-		// do something
-		// System.out.println("Agent lives");
-		
-		ArrayList<Point> moves = simulation.getEnvironment().filterMoves(position, availableMoves());
-		int rand = (int)(moves.size() * simulation.getRandom().nextDouble());
-		
-		if (moves.size() > 0) {
-			move(moves.get(rand));
-		}
-		
-		/*
-		// met someone?
-		for (int i : simulation.getEnvitonment().getNeighbours(position))
-		{
-			if (i != id)
-			{
-				Log.println(id + " met " + i);
-			}			
-		}
-		*/
-	}
-	
-	public Point[] whereIs(int foodKind) {
-		return null;
-	}
-	
 	public Memory getMemory() {
 		return null;
-	}
-	
-	public void draw(Graphics g, int width, int height) {
-		
 	}
 }

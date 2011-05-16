@@ -1,7 +1,5 @@
 package memagents.memory.quad;
 
-import java.awt.Point;
-
 public class QuadNode {
 	
 	protected QuadNode[] children = null;
@@ -10,20 +8,34 @@ public class QuadNode {
 	
 	protected long negative;
 	
-	public QuadNode(int x, int y, int width, int height) {
+	public QuadNode() {
 		
 	}
 	
-	public void learn(Point[] points) {
-		positive += points.length;
-		
-		if (children != null) {
-			for (QuadNode node : children) {
-				
-			}
-		} else {
-			
+	public void incPositive() {
+		positive++;
+	}
+	
+	public void incNegative() {
+		negative++;
+	}
+
+	public long getPositive() {
+		return positive;
+	}
+	
+	public long getNegative() {
+		return negative;
+	}
+	
+	public long containsFood() {
+		if (getPositive() > 0 && getNegative() < getPositive()) {
+			long p = getPositive();
+			if (p > 255) p = 255;
+			return p;
 		}
+		
+		return 0;
 	}
 	
 }

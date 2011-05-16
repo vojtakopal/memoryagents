@@ -1,0 +1,23 @@
+\chapter{Experiments}
+
+\section{Notes}
+
+The fact is the more an agent actually sees the more successful he is in staying alive.
+
+Too much communication might lead to disorientation of an agent which is subsequently followed by agent's death.
+
+Use 7+-2.
+
+\section{Experimental settings and methodology}
+
+All following experiments are run using a default setup as it is described in this section. Each of the experiments is run on a quadcore {\emph Intel Core i5 with 2,4 GHz and 6 GB RAM}. 
+
+Environment is set to be a square matrix with {\emph 64 x 64 dimension}. All agents start in the middle of the environment. There are {\emph six kinds of food} which are randomly positioned in the environment and which generate a piece of food each {\emph 50 steps}.
+
+Since an environment contains of six food kinds, an agent has six internal variable for each such food kind. Defaultly they are set to 0 and are increased by {\emph 0.001 each step} in simulation. When they are equal to 1, the agent dies.  
+
+\section{Homogeneus agent set comparision}
+
+In this experiment I will compare avarage life span and efficiency of groups which contains of agents with only one type of memory. Thereby you can see which of the used memory implementation works better in homogeneus memory environment.
+
+\section{}

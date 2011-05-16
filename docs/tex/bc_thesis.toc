@@ -1,10 +1,25 @@
-\contentsline {chapter}{\numberline {1}Introduction}{5}
+\contentsline {chapter}{\numberline {1}Introduction}{6}
 \contentsline {chapter}{\numberline {2}Related work}{7}
 \contentsline {section}{\numberline {2.1}Agents}{7}
 \contentsline {section}{\numberline {2.2}Spatial resource-bounded memory}{8}
-\contentsline {chapter}{\numberline {3}Used algorithms}{9}
-\contentsline {section}{\numberline {3.1}Growing Neural Gas}{9}
-\contentsline {subsection}{\numberline {3.1.1}Topology learning}{9}
-\contentsline {subsection}{\numberline {3.1.2}Experiments on dynamic data}{10}
-\contentsline {section}{\numberline {3.2}Quad}{10}
-\contentsline {chapter}{Bibliography}{12}
+\contentsline {subsection}{\numberline {2.2.1}Short-term and long-term memories}{9}
+\contentsline {subsection}{\numberline {2.2.2}Computational memory architectures}{9}
+\contentsline {subsection}{\numberline {2.2.3}Inspirations for my work}{10}
+\contentsline {chapter}{\numberline {3}Used methods and algorithms}{11}
+\contentsline {section}{\numberline {3.1}Growing Neural Gas}{11}
+\contentsline {subsection}{\numberline {3.1.1}Topology learning}{11}
+\contentsline {subsection}{\numberline {3.1.2}Experiments on dynamic data}{12}
+\contentsline {section}{\numberline {3.2}Quad}{12}
+\contentsline {section}{\numberline {3.3}Notes}{13}
+\contentsline {chapter}{\numberline {4}Simulation and used memory architectures}{14}
+\contentsline {section}{\numberline {4.1}Simulation}{14}
+\contentsline {section}{\numberline {4.2}Environment}{14}
+\contentsline {section}{\numberline {4.3}Agent}{14}
+\contentsline {section}{\numberline {4.4}Memories}{15}
+\contentsline {chapter}{\numberline {5}Implementation}{16}
+\contentsline {chapter}{\numberline {6}Experiments}{17}
+\contentsline {section}{\numberline {6.1}Notes}{17}
+\contentsline {section}{\numberline {6.2}Experimental settings and methodology}{17}
+\contentsline {section}{\numberline {6.3}Homogeneus agent set comparision}{18}
+\contentsline {section}{\numberline {6.4}}{18}
+\contentsline {chapter}{Bibliography}{19}
