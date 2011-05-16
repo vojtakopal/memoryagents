@@ -3,6 +3,23 @@
 \bibitem{Loyall:believableagents}
 PhD thesis.
 
+\bibitem{Atkinson:humanmemory}
+R.~C. Atkinson and R.~M. Shiffrin.
+\newblock Human memory: A proposed system and its control processes.
+\newblock {\em In K. W. Spence and J. T. Spence (Eds.), The Psychology of
+  learning and motivation: Advances in research and theory (vol. 2).}, pages 89
+  -- 105, 1968.
+
+\bibitem{Atkinson:controlofrtm}
+Richard~C Atkinson and Richard~M Shiffrin.
+\newblock The control of short-term memory.
+\newblock {\em Scientific American}, 225(2), 1971.
+
+\bibitem{Bratman:practicalreasoning}
+Michael~E. Bratman, David~J. Israel, and Martha~E. Pollack.
+\newblock {Plans and resource-bounded practical reasoning}.
+\newblock {\em Computational Intelligence}, 4(3):349--355, 1988.
+
 \bibitem{Brom:placeandobjects}
 Cyril Brom, Tom\'{a}\v{s} Korenko, and Ji\v{r}\'{\i} Lukavsk\'{y}.
 \newblock How do place and objects combine? "what-where" memory for human-like
@@ -10,12 +27,6 @@ Cyril Brom, Tom\'{a}\v{s} Korenko, and Ji\v{r}\'{\i} Lukavsk\'{y}.
 \newblock In {\em Proceedings of the 9th International Conference on
   Intelligent Virtual Agents}, IVA '09, pages 42--48, Berlin, Heidelberg, 2009.
   Springer-Verlag.
-
-\bibitem{Finkel:quadtrees}
-R.~A. Finkel and J.~L. Bentley.
-\newblock Quad trees a data structure for retrieval on composite keys.
-\newblock {\em Acta Informatica}, 4:1--9, 1974.
-\newblock 10.1007/BF00288933.
 
 \bibitem{Fritzke:gng}
 Bernd Fritzke.
@@ -47,6 +58,11 @@ Thomas Martinetz.
 Stuart Russell and Peter Norvig.
 \newblock {\em {Artificial Intelligence: A Modern Approach (3rd Edition)}}.
 \newblock Prentice Hall, 3 edition, December 2009.
+
+\bibitem{Sternberg:congitivepsychology}
+Robert~J. Sternberg.
+\newblock {\em {Cognitive Psychology}}.
+\newblock {Wadsworth Publishing}, August 2002.
 
 \bibitem{Tapus:topologylearning}
 A.~Tapus, G.~Ramel, L.~Dobler, and R.~Siegwart.

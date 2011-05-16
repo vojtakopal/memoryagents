@@ -8,6 +8,8 @@ public class QuadNode {
 	
 	protected long negative;
 	
+	public static double ALPHA = 2;
+	
 	public QuadNode() {
 		
 	}
@@ -29,13 +31,17 @@ public class QuadNode {
 	}
 	
 	public long containsFood() {
-		if (getPositive() > 0 && getNegative() < getPositive()) {
-			long p = getPositive();
-			if (p > 255) p = 255;
-			return p;
-		}
+		long result = 0;
 		
-		return 0;
+		result = (long)(ALPHA * getPositive() - getNegative());
+		
+//		if (getPositive() > 0 && getNegative() < getPositive()) {
+//			long p = getPositive();
+//			if (p > 255) p = 255;
+//			return p;
+//		}
+
+		return result;
 	}
 	
 }

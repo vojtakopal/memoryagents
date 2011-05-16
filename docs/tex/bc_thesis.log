@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  16 MAY 2011 00:36
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  16 MAY 2011 16:38
 entering extended mode
 **bc_thesis.tex
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -278,6 +278,35 @@ File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks17
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count88
+\lst@gtempboxa=\box26
+\lst@token=\toks18
+\lst@length=\count89
+\lst@currlwidth=\dimen105
+\lst@column=\count90
+\lst@pos=\count91
+\lst@lostspace=\dimen106
+\lst@width=\dimen107
+\lst@newlines=\count92
+\lst@lineno=\count93
+\lst@maxwidth=\dimen108
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count94
+\lst@skipnumbers=\count95
+\lst@framebox=\box27
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -292,22 +321,22 @@ Package ifvtex Info: VTeX not detected.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count88
-\Gm@cntv=\count89
-\c@Gm@tempcnt=\count90
-\Gm@bindingoffset=\dimen105
-\Gm@wd@mp=\dimen106
-\Gm@odd@mp=\dimen107
-\Gm@even@mp=\dimen108
-\Gm@layoutwidth=\dimen109
-\Gm@layoutheight=\dimen110
-\Gm@layouthoffset=\dimen111
-\Gm@layoutvoffset=\dimen112
-\Gm@dimlist=\toks17
+\Gm@cnth=\count96
+\Gm@cntv=\count97
+\c@Gm@tempcnt=\count98
+\Gm@bindingoffset=\dimen109
+\Gm@wd@mp=\dimen110
+\Gm@odd@mp=\dimen111
+\Gm@even@mp=\dimen112
+\Gm@layoutwidth=\dimen113
+\Gm@layoutheight=\dimen114
+\Gm@layouthoffset=\dimen115
+\Gm@layoutvoffset=\dimen116
+\Gm@dimlist=\toks19
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-\c@definition=\count91
-\c@example=\count92
+\c@definition=\count99
+\c@example=\count100
 
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
@@ -317,18 +346,19 @@ x) (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.au
 x)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+\c@lstlisting=\count101
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
@@ -367,13 +397,13 @@ File: logo.eps Graphic file (type eps)
 <logo.eps> [1
 
 ]
-Overfull \hbox (32.95616pt too wide) in paragraph at lines 94--95
+Overfull \hbox (32.95616pt too wide) in paragraph at lines 95--96
 \OT1/cmr/m/n/12 pouzitm cito-vanych pra-menu. Souh-lasm se zapujcovan
 m prace a jejm zverejnovanm. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
@@ -390,22 +420,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 107--113
+Underfull \hbox (badness 10000) in paragraph at lines 108--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--126
+Underfull \hbox (badness 10000) in paragraph at lines 121--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
@@ -422,46 +452,66 @@ Chapter 2.
 
 
 
-] [8]) [9] [10]
+]
+Overfull \hbox (4.78204pt too wide) in paragraph at lines 29--30
+[]\OT1/cmr/m/n/12 Belief-Desire-Intention (BDI) agency model im-ple-ments the t
+hree parts agent's
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+ [8] [9]
+File: diagrams/usedalgorithms/atkinson-memory.eps Graphic file (type eps)
+
+<diagrams/usedalgorithms/atkinson-memory.eps> [10] [11]) [12]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.te
 x
 Chapter 3.
-[11
+[13
 
 
 
-]
-File: diagrams/usedalgorithms/quadtree-circle.eps Graphic file (type eps)
- <diagrams/usedalgorithms/quadtree-circle.eps> [12]
-File: diagrams/usedalgorithms/quadtree-treeview.eps Graphic file (type eps)
+] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 38.
 
-<diagrams/usedalgorithms/quadtree-treeview.eps>) [13]
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
+File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 38.
+ [14]) [15]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.tex
 Chapter 4.
-[14
+[16
 
 
 
-]) [15]
+]) [17]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.te
 x
 Chapter 5.
-) [16
+) [18
 
 
 
 ]
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.tex
 Chapter 6.
-[17
-
-
-
-]) [18] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl
 [19
 
 
-]) [20] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
+
+]) [20] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl
+[21
+
+
+]) [22] (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
@@ -471,12 +521,12 @@ x)
 (c:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.aux))
  ) 
 Here is how much of TeX's memory you used:
- 1382 strings out of 494054
- 20896 string characters out of 3146208
- 76418 words of memory out of 3000000
- 4632 multiletter control sequences out of 15000+200000
+ 3146 strings out of 494054
+ 44144 string characters out of 3146208
+ 126850 words of memory out of 3000000
+ 6372 multiletter control sequences out of 15000+200000
  8847 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 25i,5n,19p,1013b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,5n,44p,1013b,1427s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (20 pages, 35388 bytes).
+Output written on bc_thesis.dvi (22 pages, 45412 bytes).

@@ -25,39 +25,39 @@ As Fritzke described the algorithm uses a set of nodes and edges that connects t
 \item Go to 1.
 \end{enumerate}
 
-For the purpose of this work I want to use this algorithm to learn a topology of data which dynamically changes through the time. In following subsection I am going to introduce you to the experimenting with this algorithm.
+For the purpose of this work I want to use this algorithm to learn a topology of data which dynamically changes through the time. We have to setup the variables for this agorithm $alpha$, $beta$, $epsilon_{winner}$, $epsilon_{neighbour}$ and maximal number of nodes. In following subsection I am going to introduce you to the experimenting with this algorithm.
 
 \subsection{Experiments on dynamic data}
 
-\section{Quad}
-
-The idea for this data structure representing resource-bounded memory is based on \cite{Brom:placeandobjects}. What differs in my work from their observed environment is agents in my simulation act in a homogeneous space which cannot be differentiated in a way the mentioned simulation does. To solve this issue I have found inspiration in Quad-tree structures \cite{Finkel:quadtrees} which are used, among others, for storaging more dimensional objects.
-
-\begin{definition}The {\bf quadtree} is a tree structure where each node has exaclty four children. 
-\end{definition}
-                  
-In \ref{usedalgorithms:qtc} and \ref{usedalgorithms:qtc} you can se an example how is a two-dimensional object such as a circle is stored in quadtree.               
-                  
-\begin{figure}
-  \centering                                      
-  \includegraphics[scale=1]{diagrams/usedalgorithms/quadtree-circle.eps} 
-  \caption{Example of a circle in two-dimensional space}      
-  \label{usedalgorithms:qtc}
-\end{figure}
+As I have mentioned previously I had to setup the variables so as to be able to use Growing Neural Gas method properly. To attain this goal I have made a Java programm which tested various combinations of variables' values. It has sequently run the algorithm for a given number of steps and measured the {\emph score} (see \ref{usedalgo:scoremethod}).
 
 \begin{figure}
-  \centering                                
-  \includegraphics[scale=.8]{diagrams/usedalgorithms/quadtree-treeview.eps} 
-  \caption{Quadtree structure of \ref{usedalgorithms:qtc}}
-  \label{usedalgorithms:qttv}
+\caption{The {\emph SCORE} method}
+\begin{lstlisting}[language=Pascal]
+procedure Score()
+  (px, py, pvar) <- GetProbableGauss()
+  (rx, ry, rvar) <- GetRealGauss()
+  
+  sqDistance <- (px - rx)*(px - rx) + (py - ry)*(py - ry)
+  sqSize <- (pvar + rvar)*(pvar + rvar)
+  
+  score <- sqDistance / sqSize
+  
+  return score
+end
+\end{lstlisting}    
+\label{usedalgo:scoremethod}
 \end{figure}
+
+\section{Grid}
+
+The idea for this data structure representing resource-bounded memory is based on \cite{Brom:placeandobjects}. What differs in my work from their observed environment is agents in my simulation act in a homogeneous space which cannot be differentiated in a way the mentioned simulation does. To solve this issue I have simply differentiated the environment into grid 4x4, where each cell works as the place in \cite{Brom:placeandobjects}. 
+
+Each cell is given two variables {\emph positive} and {\emph negative} both of which are set to zero and increased throughout the simulation. When an agent sees at least half of that area determined by the cell, if he sees any food, he increase the {\emph positive} variable. If the agent search for food and he cannot see any, he increase the {\emph negative} variable.
+
+When the grid is later asked whether there is food at specific cell, it answers according to this method with parametr {\emph a} to be found:
+
+\begin{equation} ANSWER = a.positive - negative 
+\end{equation}
  
 Similary I will use this structure to keep spatial information about the environment in the simulation.
-
-\section{Notes}
-
-The tricky think is to determine the negative variable.
-
-I had to realize that an agent listened to an answer about locations which he could see.
-
-Now I had to implement
