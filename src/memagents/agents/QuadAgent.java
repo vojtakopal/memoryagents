@@ -10,7 +10,7 @@ import memagents.memory.Memory;
 import memagents.memory.QuadMemory;
 import memagents.memory.quad.QuadNode;
 
-public class QuadAgent extends RandomAgent {
+public class QuadAgent extends Agent {
 
 	protected QuadMemory memory;
 	

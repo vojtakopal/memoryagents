@@ -26,7 +26,7 @@ import memagents.utils.Log;
  * @author Vojta
  *
  */
-public class GNGAgent extends RandomAgent
+public class GNGAgent extends Agent
 {	
 	/**
 	 *	Memory is represented by two-dimensional array of double.

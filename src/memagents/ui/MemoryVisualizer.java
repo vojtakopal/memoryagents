@@ -143,11 +143,11 @@ public class MemoryVisualizer extends JFrame implements MouseListener {
 	}
 	
 	public int getCols() {
-		return 100;
+		return Simulation.SIZE;
 	}
 	
 	public int getRows() {
-		return 100;
+		return Simulation.SIZE;
 	}
 
 	@Override

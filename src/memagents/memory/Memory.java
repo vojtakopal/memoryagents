@@ -8,12 +8,12 @@ import memagents.Simulation;
 import memagents.agents.Agent;
 import memagents.food.FoodGenerator;
 
-abstract public class Memory implements Runnable {
+abstract public class Memory implements IMemory {
 
 	protected int numSamples = 5;
 	
 	protected int width;
-	public int getWidth() { return height; }
+	public int getWidth() { return width; }
 	
 	protected int height;
 	public int getHeight() { return height; }
@@ -29,11 +29,7 @@ abstract public class Memory implements Runnable {
 		this.numSamples = Simulation.ANSWER_SAMPLE;
 		this.agent = agent;
 	}
-	
-	abstract public HashMap<Integer, ExpectedGauss> getExpectedGausses();
-	abstract public void learn(int foodKind, ArrayList<Point> food);
-	abstract public Point[] getSample(int foodKind);	
-	
+		
 	public ExpectedGauss getExpectedGauss(int foodKind) { 
 		HashMap<Integer, ExpectedGauss> gausses = getExpectedGausses();
 		return gausses.get(foodKind);

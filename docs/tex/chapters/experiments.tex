@@ -14,10 +14,21 @@ All following experiments are run using a default setup as it is described in th
 
 Environment is set to be a square matrix with {\emph 64 x 64 dimension}. All agents start in the middle of the environment. There are {\emph six kinds of food} which are randomly positioned in the environment and which generate a piece of food each {\emph 50 steps}.
 
-Since an environment contains of six food kinds, an agent has six internal variable for each such food kind. Defaultly they are set to 0 and are increased by {\emph 0.001 each step} in simulation. When they are equal to 1, the agent dies.  
+Since an environment contains of six food kinds, an agent has six internal variables for each such food kind. By default they are set to 0 and are increased by {\emph 0.001 each step} in simulation. When they are equal to 1 (or higher), the agent dies.  
 
-\section{Homogeneus agent set comparision}
+\section{Homogeneus agent set comparision with communication}
 
-In this experiment I will compare avarage life span and efficiency of groups which contains of agents with only one type of memory. Thereby you can see which of the used memory implementation works better in homogeneus memory environment.
+In this experiment I will compare avarage life span and efficiency of groups which contains of agents with only single type of memory. Thereby you can see which of the used memory implementation works better in memory homogeneus environment.
 
-\section{}
+What I assume is the \empf{random agents} are about to expire almost immediately as they had no chance to find all the food. While the \empf{PR agents} should approach their goals easily, thereby they will stay alive. Both results of \empf{GNG agent} and \empf{grid agent} are matters of the experiment and I can only expect them not to be worse than \empf{random agent} and not to be better than \empf{PR agent}.     
+
+\subsection{Random agents}                                                   
+
+\subsection{PR agents}
+
+\subsection{GNG agents}
+
+\subsection{Grid agents}            
+
+\section{Absolute heterogeneus environment}
+

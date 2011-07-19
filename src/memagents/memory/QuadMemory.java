@@ -31,8 +31,8 @@ public class QuadMemory extends Memory {
 	public QuadMemory(int width, int height, Simulation simulation, Agent agent) {
 		super(width, height, simulation, agent);
 		
-		cols = 16;
-		rows = 16;
+		cols = 8;
+		rows = 8;
 		
 		matrices = new HashMap<Integer, Matrix<QuadNode>>();
 		
@@ -62,10 +62,10 @@ public class QuadMemory extends Memory {
 	public void learn(int foodKind, ArrayList<Point> food) {
 		Matrix<QuadNode> matrix = matrices.get(foodKind);
 		
-		Matrix<Boolean> hasInput = new Matrix<Boolean>(cols, rows);
+		Matrix<Integer> hasInput = new Matrix<Integer>(cols, rows);
 		for (int i = 0; i < cols; i++) {
 			for (int j = 0; j < rows; j++) {
-				hasInput.set(i, j, false);
+				hasInput.set(i, j, 0);
 			}
 		}
 		
@@ -74,14 +74,14 @@ public class QuadMemory extends Memory {
 			int y = point.y / 16;
 
 			if (x >= 0 && x < cols && y >= 0 && y < rows) {
-				hasInput.set(x, y, true);
+				hasInput.set(x, y, hasInput.get(x, y) + 1);
 			}
 		}
 		
 		for (int i = 0; i < cols; i++) {
 			for (int j = 0; j < rows; j++) {
 				QuadNode node = getNodeAt(matrix, i, j);
-				if (hasInput.get(i, j)) {
+				if (hasInput.get(i, j) > 0) {
 					getNodeAt(matrix, i, j).incPositive();
 				} else {
 					Point nodeCenter = new Point(i*16+8, j*16+8);
@@ -92,10 +92,10 @@ public class QuadMemory extends Memory {
 			}
 		}
 		
-		computeExpectedGauss(matrix);
+		expectedGausses.put(foodKind, computeExpectedGauss(matrix));
 	}
 	
-	protected void computeExpectedGauss(Matrix<QuadNode> matrix) {
+	protected ExpectedGauss computeExpectedGauss(Matrix<QuadNode> matrix) {
 		ExpectedGauss gauss = new ExpectedGauss();
 		gauss.x = 0;
 		gauss.y = 0;
@@ -106,28 +106,39 @@ public class QuadMemory extends Memory {
 			for (int j = 0; j < rows; j++) {
 				QuadNode node = getNodeAt(matrix, i, j);
 				
-				total += node.getPositive();
-				gauss.x += node.getPositive() * (i * 16 + 8);
-				gauss.y += node.getPositive() * (j * 16 + 8);
+				total += node.getValueOrZero();
+				gauss.x += node.getValueOrZero() * (i * 16 + 8);
+				gauss.y += node.getValueOrZero() * (j * 16 + 8);
 			}
 		}
 		
 		if (total == 0) {
-			return;
+			return null;
 		}
 		
 		gauss.x /= total;
 		gauss.y /= total;
 
+		double maxValue = 0;
+		double numNodes = 0;
 		for (int i = 0; i < cols; i++) {
 			for (int j = 0; j < rows; j++) {
 				QuadNode node = getNodeAt(matrix, i, j);
 				
 				double qDistance = agent.getQDistance(gauss, new Point((i * 16 + 8), (j * 16 + 8)));
-				gauss.var += qDistance*node.getPositive();
+				double currentValue = node.getValueOrZero();
+				gauss.var += qDistance*currentValue;
+				if (currentValue > 0) {
+					numNodes++;
+				}
+				if (currentValue > maxValue) {
+					maxValue = currentValue;
+				}
 			}
 		}
-		gauss.var /= total;
+		gauss.var /= 2*numNodes*maxValue;
+		
+		return gauss;
 	}
 
 	public QuadNode getNodeAt(Matrix<QuadNode> matrix, int x, int y) {

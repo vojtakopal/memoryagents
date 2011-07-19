@@ -11,6 +11,7 @@ import memagents.Simulation;
 import memagents.environment.Environment;
 import memagents.food.FoodGenerator;
 import memagents.memory.ExpectedGauss;
+import memagents.memory.IMemory;
 import memagents.memory.Memory;
 import memagents.utils.Log;
 import memagents.utils.Monitor;
@@ -300,11 +301,15 @@ public abstract class Agent {
 		Point[] points = getMemory().getSample(foodKind);
 		//Log.print("agent " + id + " asked about " + foodKind + " and anwsered ");
 		
-		for (Point point : points) {
-			Log.print(" " + point.x + "," + point.y);
-		}
-		
-		Log.println();
+//		if (points != null) {
+//			for (Point point : points) {
+//				if (point != null) {
+//					Log.print(" " + point.x + "," + point.y);
+//				}
+//			}
+//		}
+//		
+//		Log.println();
 		
 		return points;
 	}
@@ -424,9 +429,11 @@ public abstract class Agent {
 		if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
 			for (Agent agent : this.simulation.getAgents()) {
 				double qDistanceToAgent = getQDistance(position, agent.getPosition());
-				if (qDistanceToAgent < audition*audition) {
+				if (qDistanceToAgent < audition*audition && qDistanceToAgent < agent.audition*agent.audition) {
 					Point[] answeredPoints = agent.whereIs(mostDeservedFood);
 					for (Point point : answeredPoints) {
+						if (point == null) continue;
+						
 						// but it has to be out of my sight
 						double qDistanceToAnswer = getQDistance(point, position);
 						if (qDistanceToAnswer > sight*sight) {
@@ -457,7 +464,7 @@ public abstract class Agent {
 		return mostDeservedFood;
 	}
 
-	public abstract Memory getMemory();
+	public abstract IMemory getMemory();
 	
 	protected ArrayList<Point> availableMoves()
 	{
@@ -509,16 +516,20 @@ public abstract class Agent {
 
 		HashMap<Integer, ExpectedGauss> gausses = getMemory().getExpectedGausses();
 		
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			// draw expectations
-			ExpectedGauss gauss = gausses.get(foodKind);
-			
-			if (gauss != null) {
-				g.setColor(Color.RED);
-				g.drawOval((int)(xV*(gauss.x - gauss.var/2)), 
-						   (int)(yV*(gauss.y - gauss.var/2)), 
-						   (int)(xV*gauss.var), 
-						   (int)(yV*gauss.var));
+		if (gausses != null) {
+			for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+				if (gausses.containsKey(foodKind) == false) continue;
+				
+				// draw expectations
+				ExpectedGauss gauss = gausses.get(foodKind);
+				
+				if (gauss != null) {
+					g.setColor(simulation.getGenerator(foodKind).getColor());
+					g.drawOval((int)(xV*(gauss.x - gauss.var/2)), 
+							   (int)(yV*(gauss.y - gauss.var/2)), 
+							   (int)(xV*gauss.var), 
+							   (int)(yV*gauss.var));
+				}
 			}
 		}
 		

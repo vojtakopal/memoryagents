@@ -4,7 +4,8 @@ In previous chapter you have been familiarized with several kinds of agents, how
 
 The first subsection disserts on the implementations of agents' memory and in detail describes fundamental parts. Both the Growing Neural Gas and the Quad..blah are used as memory storages to handle spatial information about the environment with bounded resources.
 
-\section{Growing Neural Gas}
+\section{Growing Neural Gas}   
+\label{usedalgo:gng}
 
 \subsection{Topology learning}
 
@@ -74,7 +75,7 @@ end
 
 A total number of possible combinations is equal to 19712. For each such a combination I have run 10000 steps of GNG learning sequence and measured the average score. Each sequence took aproximately 108 seconds and all the experiment was computed paralelly using 30 threads.
 
-The best results which were avarage SCORE below $10^{-11}$ is shown in a table \ref{usedalgo:gngexperimentresults}.
+The best results which were avarage $SCORE < 10^{-11}$ is shown in a table \ref{usedalgo:gngexperimentresults}.
 
 \begin{table}
 \begin{center}

@@ -1,7 +1,9 @@
 package memagents;
 
 import memagents.agents.GNGAgent;
+import memagents.agents.PureReactiveAgent;
 import memagents.agents.QuadAgent;
+import memagents.agents.RandomAgent;
 import memagents.ui.MemoryVisualizer;
 import memagents.utils.Log;
 import memagents.utils.NeedsMonitor;
@@ -32,6 +34,7 @@ public class MemoryAgents
 			new MemoryVisualizer(agent, simulation);
 		}
 		
+		/*
 		for (int i = 0; i < Simulation.NUM_AGENTS; i++) {
 			QuadAgent agent = new QuadAgent(simulation);
 			agent.addMonitor(monitor);
@@ -40,6 +43,23 @@ public class MemoryAgents
 			new MemoryVisualizer(agent, simulation);
 		}
 	
-		simulation.run();
+		for (int i = 0; i < Simulation.NUM_AGENTS; i++) {
+			RandomAgent agent = new RandomAgent(simulation);
+			agent.addMonitor(monitor);
+			simulation.addAgent(agent);
+			
+			new MemoryVisualizer(agent, simulation);
+		}
+	
+		for (int i = 0; i < Simulation.NUM_AGENTS; i++) {
+			PureReactiveAgent agent = new PureReactiveAgent(simulation);
+			agent.addMonitor(monitor);
+			simulation.addAgent(agent);
+			
+			new MemoryVisualizer(agent, simulation);
+		}
+		*/
+		
+		simulation.run(10000);
 	}
 }

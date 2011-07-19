@@ -2,6 +2,7 @@ package memagents;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import sun.misc.Regexp;
@@ -9,6 +10,7 @@ import sun.misc.Regexp;
 import memagents.agents.Agent;
 import memagents.environment.Environment;
 import memagents.food.FoodGenerator;
+import memagents.memory.IMemory;
 import memagents.memory.Memory;
 import memagents.utils.Log;
 
@@ -24,13 +26,13 @@ public class Simulation
 	 *	Size of simulation stands for width and height of 2D matrix. 
 	 *
 	 */
-	public static final int SIZE = 64;
+	public static final int SIZE = 128;
 	
 	/**
 	 *	The number of agents in the simulation. 
 	 *
 	 */
-	public static final int NUM_AGENTS = 4;
+	public static final int NUM_AGENTS = 12;
 	
 	/**
 	 *	Number of food generators in the simulation. 
@@ -42,7 +44,7 @@ public class Simulation
 	 * 	Speed of simulation (sleep in ms)
 	 * 
 	 */
-	public static final int SPEED = 10; 
+	public static final int SPEED = 1; 
 	
 	/**
 	 *	Speed of food growing (number of ticks).	
@@ -69,9 +71,9 @@ public class Simulation
 	 */
 	public static final int AGENT_LEARNING_SPEED = 1;
 	
-	public static final int AGENT_SIGHT = 20;
+	public static final int AGENT_SIGHT = 40; //20;
 	
-	public static final int AGENT_AUDITION = 15;
+	public static final int AGENT_AUDITION = 30; //15;
 	
 	public static final int ANSWER_SAMPLE = 5;
 	
@@ -121,15 +123,15 @@ public class Simulation
 		agent.setAudition(AGENT_AUDITION);
 		agent.setSight(AGENT_SIGHT);
 		
-		int agentX = random.nextInt(SIZE);
-		int agentY = random.nextInt(SIZE);
+		//int agentX = random.nextInt(SIZE);
+		//int agentY = random.nextInt(SIZE);
 		
 		agents.add(agent);	
 		
 		/// Position him into environment
 		/// env.add(agentX, agentY, agent);
 		
-		Log.println("init " + (agents.size() - 1) + " " + agentX + " " + agentY);
+		//Log.println("init " + (agents.size() - 1) + " " + agentX + " " + agentY);
 		
 		//agent.setId(agents.size()-1);
 	
@@ -187,11 +189,12 @@ public class Simulation
 	/**
 	 * 
 	 */
-	public void run() 
+	public void run(int maxDays) 
 	{
 		int simulationTime = 0;
 		while (true)
 		{
+			long startTime = new Date().getTime();
 			//Log.println("nextday");
 			environment.initNextDay();
 			
@@ -203,13 +206,13 @@ public class Simulation
 				// adds 0.01 to all needs
 				for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
 					float amount = agent.getNeed(foodKind);
-					amount += 0.001;
+					amount += 0.0005; //0.0005;
 					agent.setNeed(foodKind, amount);
 				}
 				
 				agent.processMonitors();
 				
-				Memory memory = agent.getMemory();
+				IMemory memory = agent.getMemory();
 				if (memory != null) {
 					memory.run();
 				}
@@ -223,6 +226,13 @@ public class Simulation
 			}
 			
 			simulationTime++;
+			if (simulationTime > maxDays) {
+				break;
+			}
+			
+			long endTime = new Date().getTime();
+			
+			System.out.println("Cycle time: " + (endTime - startTime) + " ms");
 			
 			try {
 				Thread.sleep(SPEED);
@@ -230,6 +240,8 @@ public class Simulation
 				e.printStackTrace();
 			}
 		}
+
+		System.out.println("Simulation stopped after "+(simulationTime - 1)+" days");
 	}
 	
 	public String toString() {

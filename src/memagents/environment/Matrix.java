@@ -39,4 +39,19 @@ public class Matrix<T>
 		return this.items.get(i*M + j);
 	}
 	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < N; i++) {
+			sb.append("| ");
+			for (int j = 0; j < M; j++) {
+				sb.append(get(i, j).toString());
+				sb.append("\t\t| ");
+			}
+			sb.append("\n");
+		}
+		
+		return sb.toString();
+	}
+	
 }

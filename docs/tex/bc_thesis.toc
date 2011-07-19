@@ -16,11 +16,14 @@
 \contentsline {section}{\numberline {4.1}Simulation}{18}
 \contentsline {section}{\numberline {4.2}Environment}{18}
 \contentsline {section}{\numberline {4.3}Agent}{18}
-\contentsline {section}{\numberline {4.4}Memories}{19}
-\contentsline {chapter}{\numberline {5}Implementation}{20}
-\contentsline {chapter}{\numberline {6}Experiments}{21}
-\contentsline {section}{\numberline {6.1}Notes}{21}
-\contentsline {section}{\numberline {6.2}Experimental settings and methodology}{21}
-\contentsline {section}{\numberline {6.3}Homogeneus agent set comparision}{22}
-\contentsline {section}{\numberline {6.4}}{22}
-\contentsline {chapter}{Bibliography}{23}
+\contentsline {section}{\numberline {4.4}Communication}{19}
+\contentsline {section}{\numberline {4.5}Decision making}{20}
+\contentsline {section}{\numberline {4.6}Memories}{20}
+\contentsline {chapter}{\numberline {5}Implementation}{23}
+\contentsline {section}{\numberline {5.1}Data structures}{23}
+\contentsline {chapter}{\numberline {6}Experiments}{24}
+\contentsline {section}{\numberline {6.1}Notes}{24}
+\contentsline {section}{\numberline {6.2}Experimental settings and methodology}{24}
+\contentsline {section}{\numberline {6.3}Homogeneus agent set comparision}{25}
+\contentsline {section}{\numberline {6.4}}{25}
+\contentsline {chapter}{Bibliography}{26}

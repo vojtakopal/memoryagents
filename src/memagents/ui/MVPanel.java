@@ -27,7 +27,7 @@ public class MVPanel extends JPanel {
 			public void run() {
 				self.repaint();
 			}
-		}, 0, 10);
+		}, 0, 30);
 		
 		this._agent = agent;
 	}

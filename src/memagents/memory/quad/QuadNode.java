@@ -44,4 +44,20 @@ public class QuadNode {
 		return result;
 	}
 	
+
+	public double getValueOrZero() {
+		double result = 0;
+		
+		result = containsFood() / ALPHA;
+		
+		if (result < 0) result = 0;
+		//if (result > 16) result = 16;
+		
+		return result;
+	}
+	
+	public String toString() {
+		return "+"+positive+" -"+negative;
+	}
+	
 }
