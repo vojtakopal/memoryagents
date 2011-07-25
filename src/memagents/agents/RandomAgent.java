@@ -18,10 +18,21 @@ import memagents.utils.Log;
  */
 public class RandomAgent extends Agent 
 {
+	private ExpectedGauss expectedGauss;
+	
 	public RandomAgent(Simulation simulation) 
 	{
 		super(simulation);
+
+		expectedGauss = new ExpectedGauss();
 		
+		expectedGauss.var = Simulation.SIZE / 2;
+		expectedGauss.x = Simulation.SIZE / 2;
+		expectedGauss.y = Simulation.SIZE / 2;
+	}
+	
+	public String getName() {
+		return "random";
 	}
 		
 	public IMemory getMemory() {
@@ -33,7 +44,7 @@ public class RandomAgent extends Agent
 			
 			@Override
 			public Point[] getSample(int foodKind) {
-				return new Point[] {};
+				return null;
 			}
 
 			@Override
@@ -53,7 +64,7 @@ public class RandomAgent extends Agent
 
 			@Override
 			public ExpectedGauss getExpectedGauss(int foodKind) {
-				return new ExpectedGauss();
+				return expectedGauss;
 			}
 
 			@Override

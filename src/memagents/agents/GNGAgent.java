@@ -48,8 +48,10 @@ public class GNGAgent extends Agent
 		super(simulation);
 		
 		memory = new GNGMemory(Simulation.SIZE, Simulation.SIZE, simulation, this);
-		position.x = Simulation.SIZE / 2; //simulation.getRandom().nextInt(Simulation.SIZE);
-		position.y = Simulation.SIZE / 2; //simulation.getRandom().nextInt(Simulation.SIZE);
+	}
+	
+	public String getName() {
+		return "gng";
 	}
 		
 	public Memory getMemory() {

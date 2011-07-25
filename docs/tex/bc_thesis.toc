@@ -22,8 +22,14 @@
 \contentsline {chapter}{\numberline {5}Implementation}{23}
 \contentsline {section}{\numberline {5.1}Data structures}{23}
 \contentsline {chapter}{\numberline {6}Experiments}{24}
-\contentsline {section}{\numberline {6.1}Notes}{24}
-\contentsline {section}{\numberline {6.2}Experimental settings and methodology}{24}
-\contentsline {section}{\numberline {6.3}Homogeneus agent set comparision}{25}
-\contentsline {section}{\numberline {6.4}}{25}
-\contentsline {chapter}{Bibliography}{26}
+\contentsline {section}{\numberline {6.1}Experimental settings and methodology}{24}
+\contentsline {section}{\numberline {6.2}Homogeneus agent set comparision with communication}{24}
+\contentsline {subsection}{\numberline {6.2.1}Random agent}{25}
+\contentsline {subsection}{\numberline {6.2.2}PR agent}{25}
+\contentsline {subsection}{\numberline {6.2.3}GNG agent}{28}
+\contentsline {subsection}{\numberline {6.2.4}Grid agent}{28}
+\contentsline {section}{\numberline {6.3}Mixed environment}{28}
+\contentsline {subsection}{\numberline {6.3.1}GNG+Grid+PR+Random agents}{28}
+\contentsline {subsection}{\numberline {6.3.2}GNG+Grid+Random agents}{31}
+\contentsline {subsection}{\numberline {6.3.3}GNG+Grid agents}{32}
+\contentsline {chapter}{Bibliography}{34}

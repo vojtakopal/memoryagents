@@ -97,9 +97,14 @@ public abstract class Agent {
 	 */
 	protected Simulation simulation;
 	
+	protected boolean muted = false;
+	
 	public Agent(Simulation simulation) { 
 		this.id = getNextId(); 
 		this.simulation = simulation;
+		
+		position.x = Simulation.SIZE / 2; //simulation.getRandom().nextInt(Simulation.SIZE);
+		position.y = Simulation.SIZE / 2; //simulation.getRandom().nextInt(Simulation.SIZE);
 	}
 	
 	/**	
@@ -205,7 +210,9 @@ public abstract class Agent {
 			needs.put(foodKind, 0.0f);
 		}
 
-		if (need > 1) kill();
+		if (need >= 1) { 
+			kill(); need = 1; 
+		}
 		return need;
 	} 
 	
@@ -213,8 +220,15 @@ public abstract class Agent {
 	 * 	
 	 */
 	public void setNeed(int foodKind, float amount) {
+		if (amount >= 1) {
+			kill();
+			amount = 1;
+		}		
 		needs.put(foodKind, amount);
-		if (amount > 1) kill();
+	}
+	
+	public String getName() {
+		return "";
 	}
 	
 	/**
@@ -235,6 +249,10 @@ public abstract class Agent {
 	 */
 	public void kill() {
 		dead = true;
+	}
+	
+	public void mute() {
+		muted = true;
 	}
 	
 	/**
@@ -298,7 +316,18 @@ public abstract class Agent {
 	}
 	
 	public Point[] whereIs(int foodKind) {
-		Point[] points = getMemory().getSample(foodKind);
+		
+		Point[] points = null;
+		
+		// look around
+		points = getSeenFood(foodKind);
+		
+		// only when I do not see any 
+		if (points == null || points.length == 0) {
+			points = getMemory().getSample(foodKind);
+		}
+		
+		
 		//Log.print("agent " + id + " asked about " + foodKind + " and anwsered ");
 		
 //		if (points != null) {
@@ -312,6 +341,68 @@ public abstract class Agent {
 //		Log.println();
 		
 		return points;
+	}
+	
+	public Point[] getSeenFood(int foodKind) {
+		Point[] points = null;
+		
+		if (knownFoodLocations.containsKey(foodKind)) {
+			int size = knownFoodLocations.get(foodKind).size();
+			
+			if (size > 0) {
+			
+				ArrayList<Point> knownPoints = knownFoodLocations.get(foodKind);
+				points = new Point[Simulation.ANSWER_SAMPLE];
+				
+				for (int i = 0; i < Simulation.ANSWER_SAMPLE; i++) {
+					points[i] = knownPoints.get(simulation.getRandom().nextInt(size));
+				}
+				
+			}
+		}
+		
+		return points;
+	}
+
+	/**
+	 * 	First before each step an agent looks around and
+	 * 	learns what he sees.
+	 * 
+	 */
+	synchronized public void lookAround() {
+		if (isDead()) return;		
+
+		Environment environment = simulation.getEnvironment();
+		
+		// reset what agents sees
+		knownFoodLocations.clear();
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+			knownFoodLocations.put(foodKind, new ArrayList<Point>());
+		}
+		
+		// learn new things i see
+		for (int i = Math.max(getX() - sight, 0); i < Math.min(getX() + sight, Simulation.SIZE); i++) {
+			for (int j = Math.max(getY() - sight, 0); j < Math.min(getY() + sight, Simulation.SIZE); j++) {
+				/// can I see it?
+				///
+				double distanceSquare = ((i - getX()) * (i - getX()) + (j - getY()) * (j - getY()));				
+				if (distanceSquare < sight * sight) {
+					HashMap<Integer, Integer> location = environment.getAllFoodAt(i, j);
+					if (location == null) continue;
+					
+					for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+						if (false == location.containsKey(foodKind)) {
+							location.put(foodKind, 0);
+						}
+						
+						int amount = location.get(foodKind);
+						if (amount > 0) {
+							knownFoodLocations.get(foodKind).add(new Point(i, j));
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	synchronized public void live() {
@@ -342,6 +433,8 @@ public abstract class Agent {
 					// dont't know where to go
 					moveRandomly();
 				}
+			} else {
+				moveRandomly();
 			}
 						
 		} else {
@@ -382,7 +475,7 @@ public abstract class Agent {
 		
 		if (this.simulation.getEnvironment().eatFoodAt(getX(), getY(), foodKind)) {
 			float value = needs.get(foodKind);
-			value -= 0.5;
+			value *= 0.4;
 			if (value < 0) value = 0;
 			needs.put(foodKind, value);
 		}
@@ -391,57 +484,34 @@ public abstract class Agent {
 	private void putKnownFoodLocationsIntoMemory(int mostDeservedFood) {
 		Environment env = (Environment) this.simulation.getEnvironment();
 		boolean knowPointFor_MostDeservedFood = false;
-		
-		// reset what agents sees
-		knownFoodLocations.clear();
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			knownFoodLocations.put(foodKind, new ArrayList<Point>());
+			
+		if (knownFoodLocations.containsKey(mostDeservedFood) && knownFoodLocations.get(mostDeservedFood).size() > 0) {
+			knowPointFor_MostDeservedFood = true;
 		}
 		
-		// learn new things i see
-		for (int i = Math.max(getX() - sight, 0); i < Math.min(getX() + sight, Simulation.SIZE); i++) {
-			for (int j = Math.max(getY() - sight, 0); j < Math.min(getY() + sight, Simulation.SIZE); j++) {
-				/// can I see it?
-				///
-				double distanceSquare = ((i - getX()) * (i - getX()) + (j - getY()) * (j - getY()));				
-				if (distanceSquare < sight * sight) {
-					HashMap<Integer, Integer> location = env.getAllFoodAt(i, j);
-					if (location == null) continue;
+		if (muted == false) {
+			// do i need food and dont know any point where it is
+			if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
+				for (Agent agent : this.simulation.getAgents()) {
+					if (agent.isDead()) continue;
 					
-					for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-						if (false == location.containsKey(foodKind)) {
-							location.put(foodKind, 0);
-						}
-						
-						int amount = location.get(foodKind);
-						if (amount > 0) {
-							knownFoodLocations.get(foodKind).add(new Point(i, j));
-							if (foodKind == mostDeservedFood) {
-								knowPointFor_MostDeservedFood = true;
+					double qDistanceToAgent = getQDistance(position, agent.getPosition());
+					if (qDistanceToAgent < audition*audition && qDistanceToAgent < agent.audition*agent.audition) {
+						Point[] answeredPoints = agent.whereIs(mostDeservedFood);
+						if (answeredPoints != null) {
+							for (Point point : answeredPoints) {
+								if (point == null) continue;
+								
+								// but it has to be out of my sight
+								double qDistanceToAnswer = getQDistance(point, position);
+								if (qDistanceToAnswer > sight*sight) {
+									knownFoodLocations.get(mostDeservedFood).add(point);
+								}
 							}
 						}
 					}
-				}
+				} 
 			}
-		}
-		
-		// do i need food and dont know any point where it is
-		if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
-			for (Agent agent : this.simulation.getAgents()) {
-				double qDistanceToAgent = getQDistance(position, agent.getPosition());
-				if (qDistanceToAgent < audition*audition && qDistanceToAgent < agent.audition*agent.audition) {
-					Point[] answeredPoints = agent.whereIs(mostDeservedFood);
-					for (Point point : answeredPoints) {
-						if (point == null) continue;
-						
-						// but it has to be out of my sight
-						double qDistanceToAnswer = getQDistance(point, position);
-						if (qDistanceToAnswer > sight*sight) {
-							knownFoodLocations.get(mostDeservedFood).add(point);
-						}
-					}
-				}
-			} 
 		}
 		
 		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
@@ -452,7 +522,8 @@ public abstract class Agent {
 	private int findMostDeservedFood() {
 		int mostDeservedFood = -1;
 		double mostDeservedFoodNeed = 0;
-		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+		for (int i = 0; i < FoodGenerator.getSize(); i++) {
+			int foodKind = (id + i) % FoodGenerator.getSize();
 			double foodNeed = this.getNeed(foodKind);
 			if (simulation.getGenerator(foodKind).isOverThreshold(foodNeed)) {
 				if (foodNeed > mostDeservedFoodNeed) {
@@ -497,9 +568,9 @@ public abstract class Agent {
 		monitors.add(monitor);
 	}
 	
-	public void processMonitors() {
+	public void processMonitors(int step) {
 		for (Monitor monitor : monitors) {
-			monitor.monitor(this);
+			monitor.monitor(this, step);
 		}
 	}
 	

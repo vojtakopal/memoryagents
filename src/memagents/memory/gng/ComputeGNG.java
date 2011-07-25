@@ -93,10 +93,6 @@ public class ComputeGNG implements Runnable {
 	 */
 	protected final float RING_FACTOR = 0.4f; // Factor < 1
 	/**
-	 * The version of the Growing Neural Gas Demo.
-	 */
-	protected final String DGNG_VERSION = "v1.5";
-	/**
 	 * The current maximum number of nodes.
 	 */
 	protected int maxNodes = 100;

@@ -17,6 +17,10 @@ public class PureReactiveAgent extends Agent {
 		audition = Simulation.AGENT_AUDITION;
 	}
 	
+	public String getName() {
+		return "pr";
+	}
+	
 	public void setSight(int value) {
 		// cant do that
 	}

@@ -50,7 +50,7 @@ public class Simulation
 	 *	Speed of food growing (number of ticks).	
 	 *
 	 */
-	public static final int FOOD_SPEED = 50; 
+	public static final int FOOD_SPEED = 30; 
 	
 	/**
 	 * 
@@ -64,7 +64,7 @@ public class Simulation
 	 */
 	public static final int FOOD_MINRANGE = 8;
 	
-	public static final int FOOD_ADDITION_PER_UNIT = 1;
+	public static final int FOOD_ADDITION_PER_UNIT = 5;
 	
 	/**
 	 * 
@@ -77,12 +77,25 @@ public class Simulation
 	
 	public static final int ANSWER_SAMPLE = 5;
 	
+	public static final double HUNGER_TRESHOLD = 0.0;
+	
 	protected Environment environment;
 	protected ArrayList<Agent> agents;
 	protected ArrayList<FoodGenerator> generators;
 	protected SimulationSettings settings = new SimulationSettings();
 	protected Random random = null;
 	public Random getRandom() { return random; }
+	
+	/**
+	 * Additional information attached to current simulation.
+	 *
+	 */
+	private String comment;
+	
+	public Simulation(String comment) {
+		this();
+		this.comment = comment;
+	}
 	
 	public Simulation() 
 	{
@@ -95,7 +108,7 @@ public class Simulation
 	 */
 	private void init()
 	{
-		random = new Random(); random.setSeed(123456789);
+		random = new Random(); //random.setSeed(123456789);
 		environment = new Environment(SIZE, SIZE);
 		agents = new ArrayList<Agent>();
 		generators = new ArrayList<FoodGenerator>();
@@ -199,22 +212,35 @@ public class Simulation
 			environment.initNextDay();
 			
 			for (Agent agent : agents) {
-				// agent live
-				agent.live();
+				if (agent.isDead()) continue;
 				
-				// agent hunger
-				// adds 0.01 to all needs
-				for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-					float amount = agent.getNeed(foodKind);
-					amount += 0.0005; //0.0005;
-					agent.setNeed(foodKind, amount);
+				// learns what he sees
+				agent.lookAround();
+			}
+			
+			for (Agent agent : agents) {
+				if (!agent.isDead()) {
+				
+					// agent live
+					agent.live();
+					
+					// agent hunger
+					// adds 0.01 to all needs
+					for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+						float amount = agent.getNeed(foodKind);
+						amount += 0.001; //0.0005;
+						agent.setNeed(foodKind, amount);
+					}
+				
 				}
 				
-				agent.processMonitors();
+				agent.processMonitors(simulationTime);
 				
-				IMemory memory = agent.getMemory();
-				if (memory != null) {
-					memory.run();
+				if (!agent.isDead()) {
+					IMemory memory = agent.getMemory();
+					if (memory != null) {
+						memory.run();
+					}
 				}
 			}
 			
@@ -248,19 +274,28 @@ public class Simulation
 		String ret = null;
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("Simulation\n================\n");
-		sb.append("SIZE="); 				sb.append(Simulation.SIZE);sb.append("\n");
-		sb.append("SPEED="); 				sb.append(Simulation.SPEED);sb.append("\n");
-		sb.append("NUM_AGENTS="); 			sb.append(Simulation.NUM_AGENTS);sb.append("\n");
-		sb.append("AGENT_AUDITION"); 		sb.append(Simulation.AGENT_AUDITION);sb.append("\n");
-		sb.append("AGENT_LEARNING_SPEED="); sb.append(Simulation.AGENT_LEARNING_SPEED);sb.append("\n");
-		sb.append("AGENT_SIGHT="); 			sb.append(Simulation.AGENT_SIGHT);sb.append("\n");
-		sb.append("FOOD_ADDITION_PER_UNIT="); sb.append(Simulation.FOOD_ADDITION_PER_UNIT);sb.append("\n");
-		sb.append("FOOD_MAXRANGE="); 		sb.append(Simulation.FOOD_MAXRANGE);sb.append("\n");
-		sb.append("FOOD_MINRANGE="); 		sb.append(Simulation.FOOD_MINRANGE);sb.append("\n");
-		sb.append("FOOD_NUM=");	 			sb.append(Simulation.FOOD_NUM);sb.append("\n");
-		sb.append("FOOD_SPEED="); 			sb.append(Simulation.FOOD_SPEED);sb.append("\n");
-		sb.append("ANSWER_SAMPLE="); 		sb.append(Simulation.ANSWER_SAMPLE);sb.append("\n");
+		sb.append("#Simulation\n#================\n#");
+		sb.append(comment); sb.append("\n");
+		sb.append("#SIZE="); 				sb.append(Simulation.SIZE);sb.append("\n");
+		sb.append("#SPEED="); 				sb.append(Simulation.SPEED);sb.append("\n");
+		sb.append("#NUM_AGENTS="); 			sb.append(Simulation.NUM_AGENTS);sb.append("\n");
+		sb.append("#AGENT_AUDITION"); 		sb.append(Simulation.AGENT_AUDITION);sb.append("\n");
+		sb.append("#AGENT_LEARNING_SPEED="); sb.append(Simulation.AGENT_LEARNING_SPEED);sb.append("\n");
+		sb.append("#AGENT_SIGHT="); 			sb.append(Simulation.AGENT_SIGHT);sb.append("\n");
+		sb.append("#FOOD_ADDITION_PER_UNIT="); sb.append(Simulation.FOOD_ADDITION_PER_UNIT);sb.append("\n");
+		sb.append("#FOOD_MAXRANGE="); 		sb.append(Simulation.FOOD_MAXRANGE);sb.append("\n");
+		sb.append("#FOOD_MINRANGE="); 		sb.append(Simulation.FOOD_MINRANGE);sb.append("\n");
+		sb.append("#FOOD_NUM=");	 			sb.append(Simulation.FOOD_NUM);sb.append("\n");
+		sb.append("#FOOD_SPEED="); 			sb.append(Simulation.FOOD_SPEED);sb.append("\n");
+		sb.append("#ANSWER_SAMPLE="); 		sb.append(Simulation.ANSWER_SAMPLE);sb.append("\n");
+		sb.append("\n");
+		sb.append("id;step;kind");
+		
+		for (int i = 0; i < FoodGenerator.getSize(); i++) {
+			sb.append(";food_");
+			sb.append(String.valueOf(i));
+		}
+		
 		sb.append("\n");
 		
 		ret = sb.toString();

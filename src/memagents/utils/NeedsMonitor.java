@@ -31,15 +31,20 @@ public class NeedsMonitor implements Monitor {
 			e.printStackTrace();
 		}
 	}
-	synchronized public void monitor(Agent agent) {
+	synchronized public void monitor(Agent agent, int step) {
 		try {
+			// agent id
 			writer.append(String.valueOf(agent.getId()));
-			writer.append('#');
+			writer.append(';');
+			// simulation step
+			writer.append(String.valueOf(step));
+			writer.append(';');
+			writer.append(agent.getName());
 			
 			for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
 				float value = agent.getNeed(foodKind);
-				writer.append(String.valueOf(value));
 				writer.append(";");
+				writer.append(String.valueOf(value));				
 			}
 			
 			writer.append("\n");

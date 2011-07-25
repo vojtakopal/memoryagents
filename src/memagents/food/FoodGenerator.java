@@ -51,7 +51,7 @@ public class FoodGenerator {
 	}
 	
 	public boolean isOverThreshold(double value) {
-		if (value > 0.5) return true;
+		if (value > Simulation.HUNGER_TRESHOLD) return true;
 		else return false;
 	}
 	
