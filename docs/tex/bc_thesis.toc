@@ -1,35 +1,35 @@
 \contentsline {chapter}{\numberline {1}Introduction}{6}
-\contentsline {chapter}{\numberline {2}Related work}{7}
-\contentsline {section}{\numberline {2.1}Agents}{7}
-\contentsline {section}{\numberline {2.2}Spatial resource-bounded memory}{9}
-\contentsline {subsection}{\numberline {2.2.1}Resource-bounded reasoning}{9}
-\contentsline {subsection}{\numberline {2.2.2}Short-term and long-term memories}{9}
-\contentsline {subsection}{\numberline {2.2.3}Computational memory architectures}{10}
-\contentsline {subsection}{\numberline {2.2.4}How Place and Objects Combine?}{11}
-\contentsline {subsection}{\numberline {2.2.5}Inspirations for my work}{12}
-\contentsline {chapter}{\numberline {3}Used methods and algorithms}{13}
-\contentsline {section}{\numberline {3.1}Growing Neural Gas}{13}
-\contentsline {subsection}{\numberline {3.1.1}Topology learning}{13}
-\contentsline {subsection}{\numberline {3.1.2}Experiments on dynamic data}{15}
-\contentsline {section}{\numberline {3.2}Grid}{17}
-\contentsline {chapter}{\numberline {4}Simulation and used memory architectures}{18}
-\contentsline {section}{\numberline {4.1}Simulation}{18}
-\contentsline {section}{\numberline {4.2}Environment}{18}
-\contentsline {section}{\numberline {4.3}Agent}{18}
-\contentsline {section}{\numberline {4.4}Communication}{19}
-\contentsline {section}{\numberline {4.5}Decision making}{20}
-\contentsline {section}{\numberline {4.6}Memories}{20}
-\contentsline {chapter}{\numberline {5}Implementation}{23}
-\contentsline {section}{\numberline {5.1}Data structures}{23}
-\contentsline {chapter}{\numberline {6}Experiments}{24}
-\contentsline {section}{\numberline {6.1}Experimental settings and methodology}{24}
-\contentsline {section}{\numberline {6.2}Homogeneus agent set comparision with communication}{24}
-\contentsline {subsection}{\numberline {6.2.1}Random agent}{25}
-\contentsline {subsection}{\numberline {6.2.2}PR agent}{25}
-\contentsline {subsection}{\numberline {6.2.3}GNG agent}{28}
-\contentsline {subsection}{\numberline {6.2.4}Grid agent}{28}
-\contentsline {section}{\numberline {6.3}Mixed environment}{28}
-\contentsline {subsection}{\numberline {6.3.1}GNG+Grid+PR+Random agents}{28}
-\contentsline {subsection}{\numberline {6.3.2}GNG+Grid+Random agents}{31}
-\contentsline {subsection}{\numberline {6.3.3}GNG+Grid agents}{32}
-\contentsline {chapter}{Bibliography}{34}
+\contentsline {chapter}{\numberline {2}Related work}{8}
+\contentsline {section}{\numberline {2.1}Agents}{8}
+\contentsline {section}{\numberline {2.2}Spatial resource-bounded memory}{10}
+\contentsline {subsection}{\numberline {2.2.1}Resource-bounded reasoning}{10}
+\contentsline {subsection}{\numberline {2.2.2}Short-term and long-term memories}{10}
+\contentsline {subsection}{\numberline {2.2.3}Computational memory architectures}{11}
+\contentsline {subsection}{\numberline {2.2.4}How Place and Objects Combine?}{12}
+\contentsline {subsection}{\numberline {2.2.5}Inspirations for my work}{13}
+\contentsline {chapter}{\numberline {3}Used methods and algorithms}{14}
+\contentsline {section}{\numberline {3.1}Growing Neural Gas}{14}
+\contentsline {subsection}{\numberline {3.1.1}Topology learning}{14}
+\contentsline {subsection}{\numberline {3.1.2}Experiments on dynamic data}{16}
+\contentsline {section}{\numberline {3.2}Grid}{18}
+\contentsline {chapter}{\numberline {4}Simulation and used memory architectures}{19}
+\contentsline {section}{\numberline {4.1}Simulation}{19}
+\contentsline {section}{\numberline {4.2}Environment}{19}
+\contentsline {section}{\numberline {4.3}Agent}{19}
+\contentsline {section}{\numberline {4.4}Communication}{20}
+\contentsline {section}{\numberline {4.5}Decision making}{21}
+\contentsline {section}{\numberline {4.6}Memories}{21}
+\contentsline {chapter}{\numberline {5}Implementation}{24}
+\contentsline {section}{\numberline {5.1}Data structures}{24}
+\contentsline {chapter}{\numberline {6}Experiments}{25}
+\contentsline {section}{\numberline {6.1}Experimental settings and methodology}{25}
+\contentsline {section}{\numberline {6.2}Homogeneus agent set comparision with communication}{25}
+\contentsline {subsection}{\numberline {6.2.1}Random agent}{26}
+\contentsline {subsection}{\numberline {6.2.2}PR agent}{26}
+\contentsline {subsection}{\numberline {6.2.3}GNG agent}{29}
+\contentsline {subsection}{\numberline {6.2.4}Grid agent}{29}
+\contentsline {section}{\numberline {6.3}Mixed environment}{29}
+\contentsline {subsection}{\numberline {6.3.1}GNG+Grid+PR+Random agents}{29}
+\contentsline {subsection}{\numberline {6.3.2}GNG+Grid+Random agents}{32}
+\contentsline {subsection}{\numberline {6.3.3}GNG+Grid agents}{33}
+\contentsline {chapter}{Bibliography}{35}

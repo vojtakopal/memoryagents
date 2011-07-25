@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  25 JUL 2011 16:17
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  25 JUL 2011 17:12
 entering extended mode
 **bc_thesis.tex
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -460,13 +460,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--130
 [5]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.tex
 Chapter 1.
+
+Overfull \hbox (22.0629pt too wide) in paragraph at lines 9--10
+[]\T1/cmr/m/n/12 Is it ob-vi-ous that adding the abil-ity of com-mu-ni-ca-tion 
+im-proves the agents'chances
+ []
+
 ) [6
 
 
-]
+] [7]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.tex
 Chapter 2.
-[7
+[8
 
 
 
@@ -482,14 +488,14 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
- [8] [9]
+ [9] [10]
 File: diagrams/usedalgorithms/atkinson-memory.eps Graphic file (type eps)
 
-<diagrams/usedalgorithms/atkinson-memory.eps> [10] [11]) [12]
+<diagrams/usedalgorithms/atkinson-memory.eps> [11] [12]) [13]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.te
 x
 Chapter 3.
-[13
+[14
 
 
 
@@ -498,23 +504,23 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 File: images/gng/experimental_setup.eps Graphic file (type eps)
 
-<images/gng/experimental_setup.eps> [14] [15] [16]) [17]
+<images/gng/experimental_setup.eps> [15] [16] [17]) [18]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.tex
 Chapter 4.
-[18
+[19
 
 
 
-] [19]
+] [20]
 File: diagrams/solution/communication.eps Graphic file (type eps)
  <diagrams/solution/communication.eps>
 File: diagrams/solution/decision-flowchart.eps Graphic file (type eps)
 
-<diagrams/solution/decision-flowchart.eps> [20] [21]) [22]
+<diagrams/solution/decision-flowchart.eps> [21] [22]) [23]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.te
 x
 Chapter 5.
-) [23
+) [24
 
 
 
@@ -522,7 +528,7 @@ Chapter 5.
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.tex
 Chapter 6.
 File: diagrams/experiments/single_agent.eps Graphic file (type eps)
-<diagrams/experiments/single_agent.eps> [24
+<diagrams/experiments/single_agent.eps> [25
 
 
 
@@ -539,7 +545,7 @@ File: diagrams/experiments/pr.eps Graphic file (type eps)
  <diagrams/experiments/pr.eps>
 File: diagrams/experiments/pr_silent.eps Graphic file (type eps)
 
-<diagrams/experiments/pr_silent.eps> [25] [26] [27]
+<diagrams/experiments/pr_silent.eps> [26] [27] [28]
 File: diagrams/experiments/gng.eps Graphic file (type eps)
 
 <diagrams/experiments/gng.eps>
@@ -549,20 +555,20 @@ File: diagrams/experiments/grid.eps Graphic file (type eps)
 
 <diagrams/experiments/grid.eps>
 File: diagrams/experiments/grid_silent.eps Graphic file (type eps)
- <diagrams/experiments/grid_silent.eps> [28]
-[29] [30]
+ <diagrams/experiments/grid_silent.eps> [29]
+[30] [31]
 File: diagrams/experiments/gng-grid-pr-random.eps Graphic file (type eps)
- <diagrams/experiments/gng-grid-pr-random.eps> [31]
+ <diagrams/experiments/gng-grid-pr-random.eps> [32]
 File: diagrams/experiments/gng-grid-random.eps Graphic file (type eps)
 
 <diagrams/experiments/gng-grid-random.eps>
 File: diagrams/experiments/gng-grid.eps Graphic file (type eps)
- <diagrams/experiments/gng-grid.eps>) [32] [33] (C:\Users\Vojta\Workspace\Java\
+ <diagrams/experiments/gng-grid.eps>) [33] [34] (C:\Users\Vojta\Workspace\Java\
 memoryagents\docs\tex\bc_thesis.bbl
-[34
+[35
 
 
-]) [35] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
+]) [36] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
@@ -583,4 +589,4 @@ Here is how much of TeX's memory you used:
  715 hyphenation exceptions out of 8191
  29i,9n,44p,9024b,1193s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (35 pages, 64112 bytes).
+Output written on bc_thesis.dvi (36 pages, 64532 bytes).
