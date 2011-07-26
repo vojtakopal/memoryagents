@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  25 JUL 2011 17:12
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  27 JUL 2011 00:19
 entering extended mode
 **bc_thesis.tex
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -342,6 +342,17 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks19
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 130.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
 \c@definition=\count99
 \c@example=\count100
 
@@ -362,25 +373,19 @@ LaTeX Warning: Label `experiments:gng-silent' multiply defined.
 
 LaTeX Warning: Label `experiments:gng-grid-pr-random' multiply defined.
 
-
-LaTeX Warning: Label `experiments:gng-grid-pr-random' multiply defined.
-
-
-LaTeX Warning: Label `experiments:gng-grid-pr-random' multiply defined.
-
 ))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 \c@lstlisting=\count101
 
 *geometry* driver: auto-detecting
@@ -421,7 +426,7 @@ File: logo.eps Graphic file (type eps)
 <logo.eps> [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
@@ -438,22 +443,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 109--115
+Underfull \hbox (badness 10000) in paragraph at lines 110--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--128
+Underfull \hbox (badness 10000) in paragraph at lines 123--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
@@ -528,47 +533,103 @@ Chapter 5.
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.tex
 Chapter 6.
 File: diagrams/experiments/single_agent.eps Graphic file (type eps)
-<diagrams/experiments/single_agent.eps> [25
+<diagrams/experiments/single_agent.eps>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-]
 File: diagrams/experiments/random_silent.eps Graphic file (type eps)
-
 <diagrams/experiments/random_silent.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25
+
+
+
+] [26]
 File: diagrams/experiments/random.eps Graphic file (type eps)
  <diagrams/experiments/random.eps>
 File: diagrams/experiments/random_start.eps Graphic file (type eps)
 
 <diagrams/experiments/random_start.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[27]
 File: diagrams/experiments/pr.eps Graphic file (type eps)
  <diagrams/experiments/pr.eps>
 File: diagrams/experiments/pr_silent.eps Graphic file (type eps)
+ <diagrams/experiments/pr_silent.eps>
 
-<diagrams/experiments/pr_silent.eps> [26] [27] [28]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28]
 File: diagrams/experiments/gng.eps Graphic file (type eps)
+ <diagrams/experiments/gng.eps>
 
-<diagrams/experiments/gng.eps>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: diagrams/experiments/gng_silent.eps Graphic file (type eps)
- <diagrams/experiments/gng_silent.eps>
-File: diagrams/experiments/grid.eps Graphic file (type eps)
+<diagrams/experiments/gng_silent.eps>
 
-<diagrams/experiments/grid.eps>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29]
+File: diagrams/experiments/grid.eps Graphic file (type eps)
+ <diagrams/experiments/grid.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: diagrams/experiments/grid_silent.eps Graphic file (type eps)
- <diagrams/experiments/grid_silent.eps> [29]
+<diagrams/experiments/grid_silent.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [30] [31]
 File: diagrams/experiments/gng-grid-pr-random.eps Graphic file (type eps)
- <diagrams/experiments/gng-grid-pr-random.eps> [32]
+ <diagrams/experiments/gng-grid-pr-random.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: diagrams/experiments/gng-grid-pr-random_silent.eps Graphic file (type eps
+)
+<diagrams/experiments/gng-grid-pr-random_silent.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[32]
+
+LaTeX Warning: Text page 33 contains only floats.
+
+
+Overfull \vbox (2.98686pt too high) has occurred while \output is active []
+
+
+[33]
 File: diagrams/experiments/gng-grid-random.eps Graphic file (type eps)
+ <diagrams/experiments/gng-grid-random.eps>
+File: diagrams/experiments/gng-grid-random_silent.eps Graphic file (type eps)
 
-<diagrams/experiments/gng-grid-random.eps>
+<diagrams/experiments/gng-grid-random_silent.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[34]
 File: diagrams/experiments/gng-grid.eps Graphic file (type eps)
- <diagrams/experiments/gng-grid.eps>) [33] [34] (C:\Users\Vojta\Workspace\Java\
-memoryagents\docs\tex\bc_thesis.bbl
-[35
+ <diagrams/experiments/gng-grid.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: diagrams/experiments/gng-grid_silent.eps Graphic file (type eps)
+<diagrams/experiments/gng-grid_silent.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [35] [36] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl
+[37
 
 
-]) [36] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
+]) [38] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
@@ -581,12 +642,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3388 strings out of 494054
- 46640 string characters out of 3146208
- 129242 words of memory out of 3000000
- 6587 multiletter control sequences out of 15000+200000
+ 3582 strings out of 494054
+ 50059 string characters out of 3146208
+ 130308 words of memory out of 3000000
+ 6771 multiletter control sequences out of 15000+200000
  13234 words of font info for 32 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 29i,9n,44p,9024b,1193s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,10n,44p,9024b,1201s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (36 pages, 64532 bytes).
+Output written on bc_thesis.dvi (38 pages, 77400 bytes).

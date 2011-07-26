@@ -14,12 +14,19 @@ Environment is set to be a square matrix with \emph{64 x 64 dimension}. All agen
 
 Since an environment contains of six food kinds, an agent has six internal variables for each such food kind (see \ref{experiments:singleagent}). By default they are set to 0 and are increased by \emph{0.001 each step} in simulation. When they are equal to 1 (or higher), the agent dies.  
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/single_agent.eps}    
   \caption{An example of agent's first 1000 steps showing the needs for each kind of food.}
   \label{experiments:singleagent}
 \end{figure}
+
+\begin{figure}[h!]
+  \centering                                
+  \includegraphics[scale=0.4]{diagrams/experiments/random_silent.eps}    
+  \caption{Random agent \emph{without communication} fades out quickly.}
+  \label{experiments:random-silent}
+\end{figure} 
 
 \section{Homogeneus agent set comparision with communication}
 
@@ -31,23 +38,28 @@ What I assume is the \emph{random agents} are about to expire almost immediately
 
 As for the random agents I assumed that they will immediately pass away without communication. And as you can see in \ref{experiments:random-silent} it happened to be true. 
 
-\begin{figure}
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/random_silent.eps}    
-  \caption{Random agent \emph{without communication} fades out quickly.}
-  \label{experiments:random-silent}
-\end{figure}    
-
 On the other hand, if I allow them to communicate with each other it might happen they improve their chances. Although they will not last through the entire simulation (see \ref{experiments:gng-grid-pr-random}), the result is that they have managed to slow down [it] (see \ref{experiments:random-start}).
 
-\begin{figure}
+\begin{center}   
+  \begin{tabular}{l*{6}{c}r}
+  Agent kind        & median & mean & min & max \\
+  \hline  
+  Random agents with communication     & 1 & 0.939 & 0.55 & 1  \\
+  Random agents without communication    & 1 & 1 & 1 & 1  \\
+  \end{tabular}                  
+\end{center}
+
+%[1] "random median 1 mean 0.938866881121914 min 0.55 max 1"
+%[1] "random_silent median 1 mean 1 min 1 max 1"
+
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/random.eps}    
   \caption{Random agent with communication manages to survive several thousand steps (see \ref{experiments:random-start}).}
   \label{experiments:gng-grid-pr-random}
 \end{figure}             
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/random_start.eps}    
   \caption{A beginning of life of a random agent with communication.}
@@ -58,14 +70,26 @@ On the other hand, if I allow them to communicate with each other it might happe
 
 In case of the \emph{pure reactive agents} there is not much to compare between simulation with and without the communication, because the communication is not used since the PR agents see all the environment. So both graphs \ref{experiments:pr} and \ref{experiments:pr-silent} are the same.
 
-\begin{figure}
+\begin{center}   
+  \begin{tabular}{l*{6}{c}r}
+  Agent kind        & median & mean & min & max \\
+  \hline  
+  PR agents with communication        & 0.69 & 0.689 & 0.54 & 0.86 \\
+  PR agents without communication     & 0.69 & 0.689 & 0.54 & 0.86 \\
+  \end{tabular}                  
+\end{center}
+
+%[1] "pr median 0.69 mean 0.688658088456766 min 0.54 max 0.86"
+%[1] "pr_silent median 0.69 mean 0.688658088456766 min 0.54 max 0.86"
+
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/pr.eps}    
   \caption{PR agent with communication.}
   \label{experiments:pr}
 \end{figure} 
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/pr_silent.eps}    
   \caption{PR agent without communication.}
@@ -76,14 +100,26 @@ In case of the \emph{pure reactive agents} there is not much to compare between 
 
 GNG agents need more information to be able to learn and to survive that is why I do not expect them to deal with it well. In case of a simulation without communication they might end up similarly to random agents, they should do better if they communicate.
 
-\begin{figure}
+\begin{center}   
+  \begin{tabular}{l*{6}{c}r}
+  Agent kind        & median & mean & min & max \\
+  \hline  
+  GNG agents with communication        & 0.69 & 0.683 & 0.49 & 0.83 \\
+  GNG agents without communication        & 1 & 1 & 1 & 1 \\
+  \end{tabular}                  
+\end{center}
+
+%[1] "gng median 0.69 mean 0.683386947145215 min 0.49 max 0.83"
+%[1] "gng_silent median 1 mean 1 min 1 max 1"
+
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/gng.eps}    
   \caption{GNG agent with communication.}
   \label{experiments:gng}
 \end{figure} 
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/gng_silent.eps}    
   \caption{GNG agent without communication.}
@@ -92,9 +128,9 @@ GNG agents need more information to be able to learn and to survive that is why 
 
 \subsection{Grid agent}            
 
-I assumed they will do simirarly to GNG agent, i.e. they fail to survive without communication, which assumption ended up to be wrong. 
+I assumed they will do simirarly like GNG agent, i.e. they fail to survive without communication, which assumption ended up to be wrong. Grid agents are able to learn quickly the environment just by moving around randomly and there is the chance that a couple of them survive.
 
-I have run 20 simulations with grid agents to verify the probability of learning the environment.
+I have run 20 simulations with grid agents to verify the probability of grid agent's learning the environment. As in the standard experiments there were 12 agents and the following values shows the result of the tests:
 
 %8,8,1,9,7,6,8,1,12,3,5,3,4,2,2,4,7,5,6,12
 
@@ -102,14 +138,27 @@ I have run 20 simulations with grid agents to verify the probability of learning
   \emph{mean}=5.56, \emph{median}=5.5, \emph{min}=1, \emph{max}=12                 
 \end{center}
 
-\begin{figure}
+\begin{center}   
+  \begin{tabular}{l*{6}{c}r}
+  Agent kind        & median & mean & min & max \\
+  \hline  
+  Grid agents with communication        & 0.81 & 0.826 & 0.54 & 1 \\
+  Grid agents without communication        & 0.65 & 0.771 & 0.44 & 1 \\
+  \end{tabular}                  
+\end{center}
+
+
+%[1] "grid median 0.81 mean 0.826481608655317 min 0.54 max 1"
+%[1] "grid_silent median 0.65 mean 0.771415766075108 min 0.44 max 1"
+
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/grid.eps}    
   \caption{Grid agent with communication.}
   \label{experiments:gng}
 \end{figure} 
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/grid_silent.eps}    
   \caption{Grid agent without communication.}
@@ -117,11 +166,15 @@ I have run 20 simulations with grid agents to verify the probability of learning
 \end{figure} 
 
 \section{Mixed environment}
+                        
+Second part of the experiments are about environment where different kinds of agents are trying to fulfill their needs. I will observer whether some kind of agents prosper from a presence of other agents or if they are not that successful as they were in a homogeneous environment in previous experiments.
                                                                                 
 \subsection{GNG+Grid+PR+Random agents}
 
-Having all agent kinds together in the environment leads to a stable simulation.
-            
+First I will start with combination of all kinds of agents, whereby since there are those PR agents the others have an advantage of the perfect source of information.  
+
+Results of a simulation with communication follow:
+         
 \begin{center}   
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
@@ -133,7 +186,9 @@ Having all agent kinds together in the environment leads to a stable simulation.
   All agents        & 0.7 & 0.698 & 0.54 & 0.87  \\ 
   \end{tabular}                  
 \end{center}
- 
+       
+Results of a simulation without communication follow:
+              
 \begin{center}
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
@@ -144,7 +199,7 @@ Having all agent kinds together in the environment leads to a stable simulation.
   Random agents     & 1 & 1 & 1 & 1  \\
   All agents        & 1 & 0.824 & 0.44 & 1  \\ 
   \end{tabular}                    
-\end{center}
+\end{center} 
 
 %[1] "gng-grid-pr-random gng median 0.7 mean 0.698904096385542 min 0.57 max 0.86"
 %[1] "gng-grid-pr-random grid median 0.7 mean 0.697301204819277 min 0.54 max 0.83"
@@ -158,30 +213,36 @@ Having all agent kinds together in the environment leads to a stable simulation.
 %[1] "gng-grid-pr-random_silent random median 1 mean 1 min 1 max 1"  
 %[1] "gng-grid-pr-random_silent all median 1 mean 0.824215611860098 min 0.44 max 1"
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/gng-grid-pr-random.eps}    
   \caption{GNG, grid, PR and random agents together. Owing to PR agents and the communication they all do well.}
   \label{experiments:gng-grid-pr-random}
 \end{figure}
 
-%\begin{figure}
-%  \centering                                
-%  \includegraphics[scale=0.5]{diagrams/experiments/gng-grid-pr-random_silent.eps}    
-%  \caption{GNG, grid, PR and random agents together.}
-%  \label{experiments:gng-grid-pr-random-silent}
-%\end{figure}
+\begin{figure}[h!]
+  \centering                                
+  \includegraphics[scale=0.5]{diagrams/experiments/gng-grid-pr-random_silent.eps}    
+  \caption{GNG, grid, PR and random agents together.}
+  \label{experiments:gng-grid-pr-random-silent}
+\end{figure}
                                        
 \subsection{GNG+Grid+Random agents}
+
+In this experiment I have omitted pure reactive agents and thus left others on their own.           
              
 \begin{center}
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline
-  GNG agents        & 0.69 & 0.691 & 0.52 & 0.86  \\
-  Grid agents       & 0.7 & 0.700 & 0.55 & 0.87  \\   
-  Random agents     & 0.7 & 0.702 & 0.55 & 0.85  \\
-  All agents        & 0.7 & 0.698 & 0.52 & 0.87  \\ 
+  GNG agents        & 0.69                  & 0.691                   & 0.52                  & 0.86  \\
+                    & \color{red}{-0.01}  & \color{red}{-0.008}   & \color{red}{-0.05}  &       \\
+  Grid agents       & 0.7                   & 0.700                   & 0.55                  & 0.87   \\   
+                    &                       & \color{green}{+0.003} & \color{green}{+0.01}& \color{green}{+0.04} \\
+  Random agents     & 0.7                   & 0.702                   & 0.55                  & 0.85   \\
+                    &                       & \color{red}{-0.002}   & \color{red}{-0.02}  & \color{red}{-0.02}  \\
+  All agents        & 0.7                   & 0.698                   & 0.52                  & 0.87  \\
+                    &                       &                         & \color{red}{-0.02}  &       \\
   \end{tabular}                                
 \end{center}
 
@@ -190,9 +251,13 @@ Having all agent kinds together in the environment leads to a stable simulation.
   Agent kind        & median & mean & min & max \\
   \hline
   GNG agents        & 1 & 1 & 1 & 1  \\
-  Grid agents       & 1 & 0.747 & 0.39 & 1  \\   
-  Random agents     & 1 & 1 & 1 & 1  \\
-  All agents        & 1 & 0.916 & 0.39 & 1  \\ 
+                    &   \\
+  Grid agents       & 1                     & 0.747                 & 0.39                & 1  \\  
+                    & \color{green}{+0.39}  & \color{green}{0.026}  & \color{red}{-0.08}  \\
+  Random agents     & 1 & 1 & 1 & 1  \\         
+                    & \\
+  All agents        & 1 & 0.916                 & 0.39 & 1  \\  
+                    &   & \color{green}{+0.092}  & \color{red}{-0.05} \\
   \end{tabular}                                        
 \end{center}
 
@@ -206,11 +271,18 @@ Having all agent kinds together in the environment leads to a stable simulation.
 %[1] "gng-grid-random_silent random median 1 mean 1 min 1 max 1"           
 %[1] "gng-grid-random_silent all median 1 mean 0.915809809520367 min 0.39 max 1"
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/gng-grid-random.eps}    
   \caption{GNG, grid, PR agents together.}
-  \label{experiments:gng-grid-pr-random}
+  \label{experiments:gng-grid-random}
+\end{figure} 
+  
+\begin{figure}[h!]
+  \centering                                
+  \includegraphics[scale=0.4]{diagrams/experiments/gng-grid-random_silent.eps}    
+  \caption{GNG, grid, PR agents together.}
+  \label{experiments:gng-grid-random-silent}
 \end{figure} 
                                        
 \subsection{GNG+Grid agents}
@@ -219,10 +291,28 @@ Having all agent kinds together in the environment leads to a stable simulation.
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline
-  GNG agents        & 0.72 & 0.715 & 0.5 & 0.89  \\   
-  Grid agents       & 0.72 & 0.721 & 0.57 & 0.89  \\  
-  All agents        & 0.72 & 0.718 & 0.5 & 0.89  \\
+  GNG agents        & 0.72                  & 0.715                 & 0.5                 & 0.89  \\  
+                    & \color{green}{+0.03}  & \color{green}{+0.024} & \color{red}{-0.02}  & \color{green}{+0.03} \\
+  Grid agents       & 0.72                  & 0.721                 & 0.57                & 0.89  \\  
+                    & \color{green}{+0.02}  & \color{green}{+0.021} & \color{green}{+0.02}& \color{red}{+0.02}   \\
+  All agents        & 0.72                  & 0.718                 & 0.5                 & 0.89  \\
+                    & \color{green}{+0.02}  & \color{green}{+0.020}  & \color{red}{-0.02}  & \color{green}{+0.02} 
   \end{tabular}                       
+\end{center}
+
+\begin{center} 
+  \begin{tabular}{l*{6}{c}r}
+  Agent kind        & median & mean & min & max \\
+  \hline
+  GNG agents        & 1 & 1 & 1 & 1  \\
+                    &   \\
+  Grid agents       & 1                     & 0.747                 & 0.39                & 1  \\  
+                    & \color{green}{+0.39}  & \color{green}{0.026}  & \color{red}{-0.08}  \\
+  Random agents     & 1 & 1 & 1 & 1  \\         
+                    & \\
+  All agents        & 1 & 0.916                 & 0.39 & 1  \\  
+                    &   & \color{green}{+0.092}  & \color{red}{-0.05} \\
+  \end{tabular}                                        
 \end{center}
 
 \begin{center}
@@ -230,8 +320,11 @@ Having all agent kinds together in the environment leads to a stable simulation.
   Agent kind        & median & mean & min & max \\
   \hline
   GNG agents        & 1 & 1 & 1 & 1  \\   
-  Grid agents       & 1 & 0.755 & 0.4 & 1  \\  
-  All agents        & 1 & 0.877 & 0.4 & 1  \\
+                    & \\
+  Grid agents       & 1 & 0.755                 & 0.4 & 1  \\  
+                    &   & \color{green}{+0.008} & \color{green}{+0.01}  \\
+  All agents        & 1 & 0.877               & 0.4 & 1  \\
+                    &   & \color{red}{-0.039} & \color{green}{0.01} \\
   \end{tabular}                                 
 \end{center}
 
@@ -243,10 +336,16 @@ Having all agent kinds together in the environment leads to a stable simulation.
 %[1] "gng-grid_silent grid median 1 mean 0.755093371244066 min 0.4 max 1" 
 %[1] "gng-grid_silent all median 1 mean 0.877545210298671 min 0.4 max 1"
 
-\begin{figure}
+\begin{figure}[h!]
   \centering                                
   \includegraphics[scale=0.4]{diagrams/experiments/gng-grid.eps}    
   \caption{GNG and grid agents together.}
-  \label{experiments:gng-grid-pr-random}
+  \label{experiments:gng-grid}
 \end{figure}
 
+\begin{figure}[h!]
+  \centering                                
+  \includegraphics[scale=0.4]{diagrams/experiments/gng-grid_silent.eps}    
+  \caption{GNG and grid agents together.}
+  \label{experiments:gng-grid-silent}
+\end{figure}
