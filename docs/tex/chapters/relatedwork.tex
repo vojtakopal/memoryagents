@@ -4,7 +4,7 @@ I will use this chapter as an insight into the world of agents and spatial memor
 
 \section{Agents}
 
-There are several ways how to explain what or who the agent is. Apart from systems of agents used in philosophy or sociology, we can see a first modern use of agency and agents in economy where economists have substited the human with a simpler agent. They intended to simplify their economic models to be able to actually simulate something. Buyers and sellers are typical examples of agents used in simplified market model in microeconomics (see []). In this context agents are entities in the model which can act based on situation in the model.
+There are several ways how to explain what or who an agent is. Apart from systems of agents used in philosophy or sociology, we can see a first modern use of agency and agents in economy where economists have substited the human with a simpler agent. They intended to simplify their economic models to be able to actually simulate something. Buyers and sellers are typical examples of agents used in simplified market model in microeconomics (see []). In this context agents are entities in the model which can act based on situation in the model.
 
 For area of artificial intelligence we can use the definition of an agent which can be found in \cite{russel2003ai}. It cannot be more simple:
 
@@ -26,7 +26,7 @@ Autonomous agents are those agents which are capable of accomplishing useful tas
 
 Believable agents are personality-rich autonomous agents with the powerful properties of characters from the arts \cite{Loyall:believableagents}. Now there is just the autonomous agent left. An autonomous agent should be able to accomplish useful task or be an effective problem solver. I would like to add one more term which is going to fit the agents I use. 
 
-Belief-Desire-Intention (BDI) agency model implements the three parts agent's belief, desire and intention and use them when comes to reasoning. A BDI agent is particular part of bounded rational agent who use those three parts to separatly prepare plans which are later executed. What a BDI distinguishes from a simple reactive agent is a reactive agent creates immediate decisions based on current state of environment and inputs of his sensors. On the other hand, a BDI agent uses the three parts:
+Belief-Desire-Intention (BDI) agency model implements the three parts agent's belief, desire and intention and use them when comes to reasoning. A BDI agent is particular part of bounded rational agent who use those three parts to separatly prepare plans which are later executed. What a BDI distinguishes from a simple reactive agent [nevysvetleny pojem] is a reactive agent creates immediate decisions based on current state of environment and inputs of his sensors. On the other hand, a BDI agent uses the three parts:
 
 \begin{itemize}
 \item {\bf belief} represents the agent's informational state, for example sensory inputs and information in his memory,
@@ -36,7 +36,7 @@ Belief-Desire-Intention (BDI) agency model implements the three parts agent's be
 
 \section{Spatial resource-bounded memory}
 
-A memory is something what changes a reactive agent into an agent with ability to learn. It can be used for learing consequances of agent's acts, conditional dependencies in the agent's world (citation for bayesian networks), or spatial information about the environment. The latter one is a kind of memory I used for agents in my simulation. 
+A memory is something what changes a reactive agent into an agent with ability to learn. It can be used for learing consequances of agent's acts, conditional dependencies in the agent's world (citation for bayesian networks), or spatial information about the environment [neni zcela jasne, ze jde o dva rozlisitelne typy mezi kterymi si mas vybrat]. The latter one is a kind of memory I used for agents in my simulation. 
 
 A spatial memory is used when agent needs to navigate in usually two or three dimensional space. In short it is a component of an agent which says him where to go when he needs or want to do something. There are several different approaches and a couple of examples are going to be covered in this section. I am going to introduce several existing implementations of spatial memory. Mainly I will focus on if and how they have dealt with bounded resources - either due to implementation restrictions, or when approaching plausibility in their models. 
 
