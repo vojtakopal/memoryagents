@@ -25,11 +25,12 @@
 \contentsline {section}{\numberline {6.1}Experimental settings and methodology}{25}
 \contentsline {section}{\numberline {6.2}Homogeneus agent set comparision with communication}{25}
 \contentsline {subsection}{\numberline {6.2.1}Random agent}{27}
-\contentsline {subsection}{\numberline {6.2.2}PR agent}{27}
-\contentsline {subsection}{\numberline {6.2.3}GNG agent}{29}
-\contentsline {subsection}{\numberline {6.2.4}Grid agent}{29}
-\contentsline {section}{\numberline {6.3}Mixed environment}{31}
+\contentsline {subsection}{\numberline {6.2.2}PR agent}{29}
+\contentsline {subsection}{\numberline {6.2.3}GNG agent}{30}
+\contentsline {subsection}{\numberline {6.2.4}Grid agent}{31}
+\contentsline {section}{\numberline {6.3}Mixed environment}{32}
 \contentsline {subsection}{\numberline {6.3.1}GNG+Grid+PR+Random agents}{32}
-\contentsline {subsection}{\numberline {6.3.2}GNG+Grid+Random agents}{32}
-\contentsline {subsection}{\numberline {6.3.3}GNG+Grid agents}{34}
-\contentsline {chapter}{Bibliography}{37}
+\contentsline {subsection}{\numberline {6.3.2}GNG+Grid+Random agents}{34}
+\contentsline {subsection}{\numberline {6.3.3}GNG+Grid agents}{36}
+\contentsline {chapter}{\numberline {7}Conclusions}{38}
+\contentsline {chapter}{Bibliography}{39}

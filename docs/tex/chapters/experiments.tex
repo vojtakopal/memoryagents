@@ -21,18 +21,15 @@ Since an environment contains of six food kinds, an agent has six internal varia
   \label{experiments:singleagent}
 \end{figure}
 
-\begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/random_silent.eps}    
-  \caption{Random agent \emph{without communication} fades out quickly.}
-  \label{experiments:random-silent}
-\end{figure} 
+
 
 \section{Homogeneus agent set comparision with communication}
 
 In this experiment I will compare avarage life span and efficiency of groups which contains of agents with only single type of memory. Thereby you can see which of the used memory implementation works better in memory homogeneus environment.
 
 What I assume is the \emph{random agents} are about to expire almost immediately as they had no chance to find all the food. While the \emph{PR agents} should approach their goals easily, thereby they will stay alive. Both results of \emph{GNG agent} and \emph{grid agent} are matters of the experiment and I can only expect them not to be worse than \emph{random agent} and not to be better than \emph{PR agent}.     
+
+\clearpage
 
 \subsection{Random agent}   
 
@@ -51,13 +48,23 @@ On the other hand, if I allow them to communicate with each other it might happe
 
 %[1] "random median 1 mean 0.938866881121914 min 0.55 max 1"
 %[1] "random_silent median 1 mean 1 min 1 max 1"
-
 \begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/random.eps}    
-  \caption{Random agent with communication manages to survive several thousand steps (see \ref{experiments:random-start}).}
-  \label{experiments:gng-grid-pr-random}
-\end{figure}             
+  \centering        
+  \subfigure{                        
+    \includegraphics[scale=0.35]{diagrams/experiments/random_silent.eps}       
+    \label{experiments:random-silent}
+  }
+  \subfigure{                   
+    \includegraphics[scale=0.35]{diagrams/experiments/random.eps}                                                               
+    \label{experiments:random}      
+  }
+  \caption{Random agent \emph{without communication} fades out quickly.}
+\end{figure} 
+
+%\begin{figure}[h!]
+%  \centering                    
+%  \caption{Random agent with communication manages to survive several thousand steps (see \ref{experiments:random-start}).}
+%\end{figure}             
 
 \begin{figure}[h!]
   \centering                                
@@ -65,6 +72,8 @@ On the other hand, if I allow them to communicate with each other it might happe
   \caption{A beginning of life of a random agent with communication.}
   \label{experiments:random-start}
 \end{figure}        
+
+\clearpage
 
 \subsection{PR agent}
 
@@ -83,18 +92,19 @@ In case of the \emph{pure reactive agents} there is not much to compare between 
 %[1] "pr_silent median 0.69 mean 0.688658088456766 min 0.54 max 0.86"
 
 \begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/pr.eps}    
-  \caption{PR agent with communication.}
-  \label{experiments:pr}
+  \centering       
+  \subfigure{                         
+    \includegraphics[scale=0.35]{diagrams/experiments/pr.eps} 
+    \label{experiments:pr}  
+  }
+  \subfigure{
+    \includegraphics[scale=0.35]{diagrams/experiments/pr_silent.eps}   
+    \label{experiments:pr-silent} 
+  }
+  \caption{PR agent with and without communication.}
 \end{figure} 
 
-\begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/pr_silent.eps}    
-  \caption{PR agent without communication.}
-  \label{experiments:pr-silent}
-\end{figure} 
+\clearpage
 
 \subsection{GNG agent}
 
@@ -113,18 +123,19 @@ GNG agents need more information to be able to learn and to survive that is why 
 %[1] "gng_silent median 1 mean 1 min 1 max 1"
 
 \begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/gng.eps}    
-  \caption{GNG agent with communication.}
-  \label{experiments:gng}
+  \centering      
+  \subfigure{                          
+    \includegraphics[scale=0.35]{diagrams/experiments/gng.eps}     
+    \label{experiments:gng}        
+  }      
+  \subfigure{                                        
+    \includegraphics[scale=0.35]{diagrams/experiments/gng_silent.eps}    
+    \label{experiments:gng-silent}
+  }
+  \caption{GNG agent with and without communication.}
 \end{figure} 
 
-\begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/gng_silent.eps}    
-  \caption{GNG agent without communication.}
-  \label{experiments:gng-silent}
-\end{figure} 
+\clearpage
 
 \subsection{Grid agent}            
 
@@ -152,18 +163,19 @@ I have run 20 simulations with grid agents to verify the probability of grid age
 %[1] "grid_silent median 0.65 mean 0.771415766075108 min 0.44 max 1"
 
 \begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/grid.eps}    
-  \caption{Grid agent with communication.}
-  \label{experiments:gng}
+  \centering        
+  \subfigure{                        
+    \includegraphics[scale=0.35]{diagrams/experiments/grid.eps}   
+    \label{experiments:gng}  
+  }
+  \subfigure{                                          
+    \includegraphics[scale=0.35]{diagrams/experiments/grid_silent.eps}   
+    \label{experiments:gng-silent}
+  }                                
+  \caption{Grid agent with and without communication.}
 \end{figure} 
 
-\begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/grid_silent.eps}    
-  \caption{Grid agent without communication.}
-  \label{experiments:gng-silent}
-\end{figure} 
+\clearpage
 
 \section{Mixed environment}
                         
@@ -214,19 +226,20 @@ Results of a simulation without communication follow:
 %[1] "gng-grid-pr-random_silent all median 1 mean 0.824215611860098 min 0.44 max 1"
 
 \begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/gng-grid-pr-random.eps}    
+  \centering        
+  \subfigure{                        
+    \includegraphics[scale=0.35]{diagrams/experiments/gng-grid-pr-random.eps}    
+    \label{experiments:gng-grid-pr-random}
+  }     
+  \subfigure{
+    \includegraphics[scale=0.35]{diagrams/experiments/gng-grid-pr-random_silent.eps}    
+    \label{experiments:gng-grid-pr-random-silent}
+  }                                                       
   \caption{GNG, grid, PR and random agents together. Owing to PR agents and the communication they all do well.}
-  \label{experiments:gng-grid-pr-random}
 \end{figure}
-
-\begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.5]{diagrams/experiments/gng-grid-pr-random_silent.eps}    
-  \caption{GNG, grid, PR and random agents together.}
-  \label{experiments:gng-grid-pr-random-silent}
-\end{figure}
-                                       
+       
+\clearpage
+                                
 \subsection{GNG+Grid+Random agents}
 
 In this experiment I have omitted pure reactive agents and thus left others on their own.           
@@ -272,18 +285,19 @@ In this experiment I have omitted pure reactive agents and thus left others on t
 %[1] "gng-grid-random_silent all median 1 mean 0.915809809520367 min 0.39 max 1"
 
 \begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/gng-grid-random.eps}    
+  \centering      
+  \subfigure{                          
+    \includegraphics[scale=0.35]{diagrams/experiments/gng-grid-random.eps}    
+    \label{experiments:gng-grid-random}
+  }                                                                              
+  \subfigure{                                                  
+    \includegraphics[scale=0.35]{diagrams/experiments/gng-grid-random_silent.eps}      
+    \label{experiments:gng-grid-random-silent}                                     
+  }
   \caption{GNG, grid, PR agents together.}
-  \label{experiments:gng-grid-random}
 \end{figure} 
-  
-\begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/gng-grid-random_silent.eps}    
-  \caption{GNG, grid, PR agents together.}
-  \label{experiments:gng-grid-random-silent}
-\end{figure} 
+              
+\clearpage
                                        
 \subsection{GNG+Grid agents}
 
@@ -337,15 +351,14 @@ In this experiment I have omitted pure reactive agents and thus left others on t
 %[1] "gng-grid_silent all median 1 mean 0.877545210298671 min 0.4 max 1"
 
 \begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/gng-grid.eps}    
+  \centering          
+  \subfigure{                      
+    \includegraphics[scale=0.35]{diagrams/experiments/gng-grid.eps}
+    \label{experiments:gng-grid}
+  }
+  \subfigure{                                              
+    \includegraphics[scale=0.35]{diagrams/experiments/gng-grid_silent.eps} 
+    \label{experiments:gng-grid-silent}  
+  }
   \caption{GNG and grid agents together.}
-  \label{experiments:gng-grid}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering                                
-  \includegraphics[scale=0.4]{diagrams/experiments/gng-grid_silent.eps}    
-  \caption{GNG and grid agents together.}
-  \label{experiments:gng-grid-silent}
 \end{figure}
