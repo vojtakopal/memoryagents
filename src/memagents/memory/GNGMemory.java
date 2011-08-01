@@ -41,7 +41,8 @@ public class GNGMemory extends Memory {
 	}
 	
 	public void learn(int foodKind, ArrayList<Point> food) {
-		gngEngines.get(foodKind).setDescreteSignals(food);
+		MAComputeGNG gngEngine = gngEngines.get(foodKind);
+		gngEngine.setDescreteSignals(food);
 	}
 	
 	public Point[] getSample(int foodKind) {

@@ -20,17 +20,21 @@
 \contentsline {section}{\numberline {4.5}Decision making}{21}
 \contentsline {section}{\numberline {4.6}Memories}{21}
 \contentsline {chapter}{\numberline {5}Implementation}{24}
-\contentsline {section}{\numberline {5.1}Data structures}{24}
-\contentsline {chapter}{\numberline {6}Experiments}{25}
-\contentsline {section}{\numberline {6.1}Experimental settings and methodology}{25}
-\contentsline {section}{\numberline {6.2}Homogeneus agent set comparision with communication}{25}
-\contentsline {subsection}{\numberline {6.2.1}Random agent}{27}
-\contentsline {subsection}{\numberline {6.2.2}PR agent}{29}
-\contentsline {subsection}{\numberline {6.2.3}GNG agent}{30}
-\contentsline {subsection}{\numberline {6.2.4}Grid agent}{31}
-\contentsline {section}{\numberline {6.3}Mixed environment}{32}
-\contentsline {subsection}{\numberline {6.3.1}GNG+Grid+PR+Random agents}{32}
-\contentsline {subsection}{\numberline {6.3.2}GNG+Grid+Random agents}{34}
-\contentsline {subsection}{\numberline {6.3.3}GNG+Grid agents}{36}
-\contentsline {chapter}{\numberline {7}Conclusions}{38}
-\contentsline {chapter}{Bibliography}{39}
+\contentsline {section}{\numberline {5.1}Simulator}{24}
+\contentsline {section}{\numberline {5.2}Memories}{24}
+\contentsline {section}{\numberline {5.3}Growing neural gas as a memory}{25}
+\contentsline {section}{\numberline {5.4}Grid as a memory}{25}
+\contentsline {chapter}{\numberline {6}Experiments}{27}
+\contentsline {section}{\numberline {6.1}Experimental settings and methodology}{27}
+\contentsline {section}{\numberline {6.2}Homogeneus agent set comparision with communication}{27}
+\contentsline {subsection}{\numberline {6.2.1}Random agent}{29}
+\contentsline {subsection}{\numberline {6.2.2}PR agent}{31}
+\contentsline {subsection}{\numberline {6.2.3}GNG agent}{32}
+\contentsline {subsection}{\numberline {6.2.4}Grid agent}{33}
+\contentsline {section}{\numberline {6.3}Mixed environment}{34}
+\contentsline {subsection}{\numberline {6.3.1}GNG+Grid+PR+Random agents}{34}
+\contentsline {subsection}{\numberline {6.3.2}GNG+Grid+Random agents}{36}
+\contentsline {subsection}{\numberline {6.3.3}GNG+Grid agents}{38}
+\contentsline {chapter}{\numberline {7}Discussion}{39}
+\contentsline {chapter}{\numberline {8}Conclusions}{41}
+\contentsline {chapter}{Bibliography}{42}

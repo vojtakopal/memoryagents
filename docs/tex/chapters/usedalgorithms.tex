@@ -96,14 +96,15 @@ $alpha$ & $beta$ & $epsilon_{winner}$ & $epsilon_{neighbour}$ & $numNodes$ & $SC
 \end{table}
 
 \section{Grid}
+\label{sec:grid}
 
 The idea for this data structure representing resource-bounded memory is based on \cite{Brom:placeandobjects}. What differs in my work from their observed environment is agents in my simulation act in a homogeneous space which cannot be differentiated in a way the mentioned simulation does. To solve this issue I have simply differentiated the environment into grid 4x4, where each cell works as the place in \cite{Brom:placeandobjects}. 
 
 Each cell is given two variables {\emph positive} and {\emph negative} both of which are set to zero and increased throughout the simulation. When an agent sees at least half of that area determined by the cell, if he sees any food, he increase the {\emph positive} variable. If the agent search for food and he cannot see any, he increase the {\emph negative} variable.
 
-When the grid is later asked whether there is food at specific cell, it answers according to this method with parametr {\emph a} to be found:
+When the grid is later asked whether there is food at specific cell, it answers according to this method with parametr $\alpha$ to be found:
 
-\begin{equation} ANSWER = a.positive - negative 
+\begin{equation} ANSWER = \alpha\times positive - negative 
 \end{equation}
  
 Similary I will use this structure to keep spatial information about the environment in the simulation.

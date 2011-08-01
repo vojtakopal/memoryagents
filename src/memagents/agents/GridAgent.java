@@ -8,7 +8,7 @@ import memagents.environment.Matrix;
 import memagents.food.FoodGenerator;
 import memagents.memory.Memory;
 import memagents.memory.GridMemory;
-import memagents.memory.quad.QuadNode;
+import memagents.memory.quad.GridCell;
 
 public class GridAgent extends Agent {
 
@@ -37,7 +37,7 @@ public class GridAgent extends Agent {
 		double yV = height / (double)getMemory().getHeight();
 		
 		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			Matrix<QuadNode> matrix = memory.getMatrix(foodKind); 
+			Matrix<GridCell> matrix = memory.getMatrix(foodKind); 
 			int deltaX = 0; // 0 - 4
 			int deltaY = 0; // 0 - 4
 			float maxAlpha = 0.5f;
@@ -48,7 +48,7 @@ public class GridAgent extends Agent {
 			
 			for (int i = 0; i < memory.getCols(); i++) {
 				for (int j = 0; j < memory.getRows(); j++) {
-					long containsFood = memory.getNodeAt(matrix, i, j).containsFood();
+					long containsFood = memory.getCellAt(matrix, i, j).containsFood();
 					if (containsFood > 0) {
 						Color color = simulation.getGenerator(foodKind).getColor();
 						int alpha = (int)(containsFood*maxAlpha);

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  29 JUL 2011 12:51
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  1 AUG 2011 16:17
 entering extended mode
 **bc_thesis.tex
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -373,8 +373,77 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfig@top=\skip47
 \subfig@bottom=\skip48
 )
-\c@definition=\count103
-\c@example=\count104
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks20
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks21
+\ex@=\dimen119
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen120
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count103
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count104
+\leftroot@=\count105
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count106
+\DOTSCASE@=\count107
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen121
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count108
+\c@MaxMatrixCols=\count109
+\dotsspace@=\muskip10
+\c@parentequation=\count110
+\dspbrk@lvl=\count111
+\tag@help=\toks22
+\row@=\count112
+\column@=\count113
+\maxfields@=\count114
+\andhelp@=\toks23
+\eqnshift@=\dimen122
+\alignsep@=\dimen123
+\tagshift@=\dimen124
+\tagwidth@=\dimen125
+\totwidth@=\dimen126
+\lineht@=\dimen127
+\@envbody=\toks24
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+\c@definition=\count115
+\c@example=\count116
 
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
@@ -387,31 +456,21 @@ x)
 
 LaTeX Warning: Label `experiments:gng' multiply defined.
 
-
-LaTeX Warning: Label `sub@experiments:gng' multiply defined.
-
-
-LaTeX Warning: Label `experiments:gng-silent' multiply defined.
-
-
-LaTeX Warning: Label `sub@experiments:gng-silent' multiply defined.
-
-) (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/conclusions.aux
-))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-\c@lstlisting=\count105
-
+) (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/discussion.aux)
+(C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/conclusions.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+\c@lstlisting=\count117
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
@@ -450,39 +509,41 @@ File: logo.eps Graphic file (type eps)
 <logo.eps> [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 [2] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
- [3
+LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+) [3
 
 ])
 \tf@toc=\write3
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 111--117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 112--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--130
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 125--131
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
@@ -549,11 +610,11 @@ File: diagrams/solution/decision-flowchart.eps Graphic file (type eps)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.te
 x
 Chapter 5.
-) [24
+[24
 
 
 
-]
+] [25]) [26]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.tex
 Chapter 6.
 File: diagrams/experiments/single_agent.eps Graphic file (type eps)
@@ -561,11 +622,11 @@ File: diagrams/experiments/single_agent.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[25
+[27
 
 
 
-] [26]
+] [28]
 File: diagrams/experiments/random_silent.eps Graphic file (type eps)
  <diagrams/experiments/random_silent.eps>
 File: diagrams/experiments/random.eps Graphic file (type eps)
@@ -576,28 +637,28 @@ File: diagrams/experiments/random_start.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27
+[29
 
-] [28]
+] [30]
 File: diagrams/experiments/pr.eps Graphic file (type eps)
  <diagrams/experiments/pr.eps>
 File: diagrams/experiments/pr_silent.eps Graphic file (type eps)
  <diagrams/experiments/pr_silent.eps>
-[29
+[31
 
 ]
 File: diagrams/experiments/gng.eps Graphic file (type eps)
  <diagrams/experiments/gng.eps>
 File: diagrams/experiments/gng_silent.eps Graphic file (type eps)
  <diagrams/experiments/gng_silent.eps>
-[30
+[32
 
 ]
 File: diagrams/experiments/grid.eps Graphic file (type eps)
  <diagrams/experiments/grid.eps>
 File: diagrams/experiments/grid_silent.eps Graphic file (type eps)
  <diagrams/experiments/grid_silent.eps>
-[31
+[33
 
 ]
 File: diagrams/experiments/gng-grid-pr-random.eps Graphic file (type eps)
@@ -609,9 +670,9 @@ File: diagrams/experiments/gng-grid-pr-random_silent.eps Graphic file (type eps
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[32
+[34
 
-] [33]
+] [35]
 File: diagrams/experiments/gng-grid-random.eps Graphic file (type eps)
  <diagrams/experiments/gng-grid-random.eps>
 File: diagrams/experiments/gng-grid-random_silent.eps Graphic file (type eps)
@@ -620,31 +681,40 @@ File: diagrams/experiments/gng-grid-random_silent.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[34
+[36
 
-] [35]
+] [37]
 File: diagrams/experiments/gng-grid.eps Graphic file (type eps)
  <diagrams/experiments/gng-grid.eps>
 File: diagrams/experiments/gng-grid_silent.eps Graphic file (type eps)
 
-<diagrams/experiments/gng-grid_silent.eps>
+<diagrams/experiments/gng-grid_silent.eps>) [38
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [36
-
-] [37]
-(C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/conclusions.tex
+]
+(C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/discussion.tex
 Chapter 7.
-) [38
+
+Overfull \hbox (49.67578pt too wide) in paragraph at lines 17--18
+[]\T1/cmr/m/n/12 Since there are pure re-ac-tive agents in the first ex-per-i-m
+ent (GNG+Grid+PR+Random)
+ []
+
+[39
+
+
+
+]) [40]
+(C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/conclusions.tex
+Chapter 8.
+) [41
 
 
 
 ] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.bbl
-[39
+[42
 
 
-]) [40] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
+]) [43] (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.aux
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/usedalgorithms.au
@@ -652,18 +722,19 @@ x) (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/implementation.au
 x)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/experiments.aux)
+(C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/discussion.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/conclusions.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3762 strings out of 494054
- 53171 string characters out of 3146208
- 132685 words of memory out of 3000000
- 6938 multiletter control sequences out of 15000+200000
- 13234 words of font info for 32 fonts, out of 3000000 for 9000
+ 4677 strings out of 494054
+ 63838 string characters out of 3146208
+ 143982 words of memory out of 3000000
+ 7811 multiletter control sequences out of 15000+200000
+ 15143 words of font info for 41 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 29i,10n,44p,9024b,1201s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,14n,44p,9024b,1584s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (40 pages, 78408 bytes).
+Output written on bc_thesis.dvi (43 pages, 88912 bytes).

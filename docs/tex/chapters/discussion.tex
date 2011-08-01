@@ -1,0 +1,30 @@
+\chapter{Discussion}
+
+In previous chapter you have seen experimental runs of the simulation where I have compared the level of overall hunger of agents throughout the simulation's steps. Now I am going to sum up those results and discuss possible outcomes.
+
+%[single-kind environment]
+
+Simulation settings (size of the environment, number and distribution of resources) allowed random agents to survive few steps when they could communicate with each others. Thereby the communication was strong tool for agents how to improve their results.
+
+The communication was not always an improvement as you can see in \ref{experiments:gng} where the grid agents were less efficient when they were allowed to share information about the environment. The communication brings more income information and thus increases the ration between positive and negative variables (see \ref{sec:grid}) and disorients agents. Owing to communicatio it is hard to decide which of gng and grid agent was better.
+
+As I have already clarified the grid agent has perfect results without using communication as soon as he survives first thousand steps. On the other hand, he obviously fails to use communication as an improving factor. That is something where the gng agents win.
+
+%[mixed environment]
+
+Second part of experiments is about comparing simulation with more kinds of agents at once. Thereby I could observe how they compete against each others. So I have observed GNG+Grid+PR+Random, GNG+Grid+Random and GNG+Grid. Apart experiments with communication, I have also run simulation whereby the agents were not able to communication, although in such conditions the result could not be different from single-kind setups.
+
+Since there are pure reactive agents in the first experiment (GNG+Grid+PR+Random) the agents have a perfect source of information and thus easily succeeded. Having omitted PR agents I could have observed that gng agents have bettered and, on the other hand, the grid agent become worse. Furthermore, when you look at results of GNG+Grid simulation where the random agents are missing, you can see that both grid and gng agents become worse, although the random agents should be much helpfull. 
+
+What is different between random agents and memory agents is the random agent answers only correct positions, when he is asked, and the memory agent usually answers using his believes.
+
+%[problems]
+
+There were minor problems I had to deal with, summary of which follows.
+
+First I had to setup variables for the GNG algorithm. What I have learnt from that is the algorithm is expected to slowly converge to the learnt topology. On the other hand, I have used it for unncertain dynamicly changing data which were mostly based on other agents' believes. That is probably why much simpler memory structure used for grid agents has better results.
+
+...
+
+ 
+

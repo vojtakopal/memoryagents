@@ -10,7 +10,7 @@ import memagents.agents.Agent;
 import memagents.environment.Matrix;
 import memagents.food.FoodGenerator;
 import memagents.memory.gng.NodeGNG;
-import memagents.memory.quad.QuadNode;
+import memagents.memory.quad.GridCell;
 
 public class GridMemory extends Memory {
 
@@ -24,7 +24,7 @@ public class GridMemory extends Memory {
 	
 	protected int rows = 0;
 	
-	protected HashMap<Integer, Matrix<QuadNode>> matrices;
+	protected HashMap<Integer, Matrix<GridCell>> matrices;
 	
 	protected HashMap<Integer, ExpectedGauss> expectedGausses;
 	
@@ -34,10 +34,10 @@ public class GridMemory extends Memory {
 		cols = 8;
 		rows = 8;
 		
-		matrices = new HashMap<Integer, Matrix<QuadNode>>();
+		matrices = new HashMap<Integer, Matrix<GridCell>>();
 		
 		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-			matrices.put(foodKind, new Matrix<QuadNode>(cols, rows));
+			matrices.put(foodKind, new Matrix<GridCell>(cols, rows));
 		}
 		
 		expectedGausses = new HashMap<Integer, ExpectedGauss>();
@@ -51,7 +51,7 @@ public class GridMemory extends Memory {
 		return rows;
 	}
 
-	public Matrix<QuadNode> getMatrix(int foodKind) {
+	public Matrix<GridCell> getMatrix(int foodKind) {
 		return matrices.get(foodKind);
 	}
 	
@@ -60,7 +60,7 @@ public class GridMemory extends Memory {
 	}
 
 	public void learn(int foodKind, ArrayList<Point> food) {
-		Matrix<QuadNode> matrix = matrices.get(foodKind);
+		Matrix<GridCell> grid = matrices.get(foodKind);
 		
 		Matrix<Integer> hasInput = new Matrix<Integer>(cols, rows);
 		for (int i = 0; i < cols; i++) {
@@ -80,22 +80,22 @@ public class GridMemory extends Memory {
 		
 		for (int i = 0; i < cols; i++) {
 			for (int j = 0; j < rows; j++) {
-				QuadNode node = getNodeAt(matrix, i, j);
+				GridCell node = getCellAt(grid, i, j);
 				if (hasInput.get(i, j) > 0) {
-					getNodeAt(matrix, i, j).incPositive();
+					node.incPositive();
 				} else {
 					Point nodeCenter = new Point(i*16+8, j*16+8);
 					if (agent.getQDistance(agent.getPosition(), nodeCenter) < agent.getSight()*agent.getSight()) {
-						getNodeAt(matrix, i, j).incNegative();
+						node.incNegative();
 					}
 				}
 			}
 		}
 		
-		expectedGausses.put(foodKind, computeExpectedGauss(matrix));
+		expectedGausses.put(foodKind, computeExpectedGauss(grid));
 	}
 	
-	protected ExpectedGauss computeExpectedGauss(Matrix<QuadNode> matrix) {
+	protected ExpectedGauss computeExpectedGauss(Matrix<GridCell> matrix) {
 		ExpectedGauss gauss = new ExpectedGauss();
 		gauss.x = 0;
 		gauss.y = 0;
@@ -104,11 +104,11 @@ public class GridMemory extends Memory {
 		long total = 0;
 		for (int i = 0; i < cols; i++) {
 			for (int j = 0; j < rows; j++) {
-				QuadNode node = getNodeAt(matrix, i, j);
+				GridCell cell = getCellAt(matrix, i, j);
 				
-				total += node.getValueOrZero();
-				gauss.x += node.getValueOrZero() * (i * 16 + 8);
-				gauss.y += node.getValueOrZero() * (j * 16 + 8);
+				total += cell.getValueOrZero();
+				gauss.x += cell.getValueOrZero() * (i * 16 + 8);
+				gauss.y += cell.getValueOrZero() * (j * 16 + 8);
 			}
 		}
 		
@@ -123,7 +123,7 @@ public class GridMemory extends Memory {
 		double numNodes = 0;
 		for (int i = 0; i < cols; i++) {
 			for (int j = 0; j < rows; j++) {
-				QuadNode node = getNodeAt(matrix, i, j);
+				GridCell node = getCellAt(matrix, i, j);
 				
 				double qDistance = agent.getQDistance(gauss, new Point((i * 16 + 8), (j * 16 + 8)));
 				double currentValue = node.getValueOrZero();
@@ -141,10 +141,10 @@ public class GridMemory extends Memory {
 		return gauss;
 	}
 
-	public QuadNode getNodeAt(Matrix<QuadNode> matrix, int x, int y) {
-		QuadNode node = matrix.get(x, y);
+	public GridCell getCellAt(Matrix<GridCell> matrix, int x, int y) {
+		GridCell node = matrix.get(x, y);
 		if (node == null) {
-			node = new QuadNode();
+			node = new GridCell();
 			matrix.set(x, y, node);
 		}
 		return node;
@@ -152,7 +152,7 @@ public class GridMemory extends Memory {
 	
 	public Point[] getSample(int foodKind) {
 		Point[] sample = new Point[Simulation.ANSWER_SAMPLE];
-		Matrix<QuadNode> matrix = matrices.get(foodKind);
+		Matrix<GridCell> matrix = matrices.get(foodKind);
 		ExpectedGauss gauss = expectedGausses.get(foodKind);
 		
 		Random random = simulation.getRandom(); 

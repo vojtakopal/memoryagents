@@ -166,13 +166,12 @@ I have run 20 simulations with grid agents to verify the probability of grid age
   \centering        
   \subfigure{                        
     \includegraphics[scale=0.35]{diagrams/experiments/grid.eps}   
-    \label{experiments:gng}  
   }
   \subfigure{                                          
     \includegraphics[scale=0.35]{diagrams/experiments/grid_silent.eps}   
-    \label{experiments:gng-silent}
   }                                
-  \caption{Grid agent with and without communication.}
+  \caption{Grid agent with and without communication.}           
+  \label{experiments:gng}  
 \end{figure} 
 
 \clearpage
@@ -312,21 +311,6 @@ In this experiment I have omitted pure reactive agents and thus left others on t
   All agents        & 0.72                  & 0.718                 & 0.5                 & 0.89  \\
                     & \color{green}{+0.02}  & \color{green}{+0.020}  & \color{red}{-0.02}  & \color{green}{+0.02} 
   \end{tabular}                       
-\end{center}
-
-\begin{center} 
-  \begin{tabular}{l*{6}{c}r}
-  Agent kind        & median & mean & min & max \\
-  \hline
-  GNG agents        & 1 & 1 & 1 & 1  \\
-                    &   \\
-  Grid agents       & 1                     & 0.747                 & 0.39                & 1  \\  
-                    & \color{green}{+0.39}  & \color{green}{0.026}  & \color{red}{-0.08}  \\
-  Random agents     & 1 & 1 & 1 & 1  \\         
-                    & \\
-  All agents        & 1 & 0.916                 & 0.39 & 1  \\  
-                    &   & \color{green}{+0.092}  & \color{red}{-0.05} \\
-  \end{tabular}                                        
 \end{center}
 
 \begin{center}
