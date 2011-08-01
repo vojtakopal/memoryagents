@@ -2,7 +2,7 @@
 
 In previous chapter I have introduced you to several kinds of agents, how they can be used and also what a spatial memory is. I have briefly prepaired you for the next chapters, where I will explain my contribution to this area. This chapter is going to cover the used algorithms and computational methods I have studied and implemented in my work. 
 
-The first subsection disserts on the implementations of agents' memory and in detail describes fundamental parts. Both the Growing Neural Gas and the Quad..blah are used as memory storages to handle spatial information about the environment with bounded resources.
+The first subsection disserts on the implementations of agents' memory and in detail describes fundamental parts. Both the Growing Neural Gas and the Quad..blah [tohle asi neni idealni] are used as memory storages to handle spatial information about the environment with bounded resources.
 
 \section{Growing Neural Gas}   
 \label{usedalgo:gng}
@@ -60,7 +60,7 @@ end
 \end{center}                          
 \label{usedalgo:gngexperimentscreen}
 \end{figure}
-
+[proc zrovna takhle ten algoritmus, jak z toho poznam, ze tohle score je takhle ok?]
 \begin{figure}          
 \begin{itemize}
 \item $alpha \in \{0.0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0\}$
@@ -73,7 +73,7 @@ end
 \label{usedalgo:gngexperimentdomains}
 \end{figure}
 
-A total number of possible combinations is equal to 19712. For each such a combination I have run 10000 steps of GNG learning sequence and measured the average score. Each sequence took aproximately 108 seconds and all the experiment was computed paralelly using 30 threads.
+A total number of possible combinations is equal to 19712. For each such a combination I have run 10000 steps of GNG learning sequence and measured the average score. Each sequence took aproximately 108 seconds [to je jak brambor, kdyz tu neni konfigurace] and all the experiment was computed paralelly using 30 threads.
 
 The best results which were avarage $SCORE < 10^{-11}$ is shown in a table \ref{usedalgo:gngexperimentresults}.
 
