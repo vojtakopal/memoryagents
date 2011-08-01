@@ -10,13 +10,13 @@ It can also contains a couple of monitors which observe the environment or agent
 
 \section{Environment}
 
-The environemt si a two-dimensional space which contains agents and food. Agents can move around and eat the food which is randomly distributed using the food generators. 
+The environemt is a two-dimensional space which contains agents and food. Agents can move around and eat the food which is randomly distributed using the food generators. 
 
 \section{Agent}                                                      
 
 As I mentioned previously an agent is an entity in the environment which moves and interact with the world around. The interaction is done through eating food which is a part of the environment and through communication with other agents. The latter one actually changes agents' believes about the environment.
 
-Agent has his needs which influences his desicions as fulfilling his needs keeps him alive. When his internal variables of needs is higher than    
+Agent has his needs which influences his desicions as fulfilling his needs keeps him alive. When his internal variables of needs is higher than .....?
 
 There are four types of agents each of which is different in the way they decide about next step. If one is hungry and sees a food (i.e. there is a piece of food in the sight distance) then they choose to go after this food. If there is no desired food around they go searching for it and that is when differs the agents' actions.
 
@@ -33,7 +33,7 @@ Apart from what agent sees, there is another way how the agents gather informati
 
 Moreover, although all agents have a kind of knowledge about the environment they are not able to answer easily, when they are asked about a specific food location. Since the food appears in environment according to given normal distribution, it is not clear what should be an answer for such question. A couple of possible kinds of answers follows. 
 
-First and the most simple answer might be saying exact X,Y coordinates of the food location as it is stored in agent's mind. Additionaly, there would be a noise added to such an answer, having in mind that the answer should not be perfect and there is always a distortion and inperfection in our answers based on how a person is certain about his answer.
+First and the most simple answer might be saying exact X,Y coordinates of the food location as it is stored in agent's mind. Additionaly, there would be a noise added to such an answer, having in mind that the answer should not be perfect and there is always a distortion and imperfection in our answers based on how a person is certain about his answer.
                                               
 Another way and possibly more plausible one might be answering by a direction (an angle) with an approximate distance. What both the first suggested XY answer and this one have in common is the answers are hard to combine with the learning method used in GNG memory. GNG works with samples of data which sequently influence the neural network. Both kinds of answers could be used if agents would ask more often or the agent's answer would be a sample of points rightaway.
 
