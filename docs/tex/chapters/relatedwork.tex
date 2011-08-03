@@ -1,24 +1,26 @@
 \chapter{Related work}
 
-I will use this chapter as an insight into the world of agents and spatial memory. I hope that you will not be disappointed, since there is no 007 in following lines. [bullshit]
+I will use this chapter to provide an insight into the world of \emph{agents} and spatial memory. I hope you will not be disappointed as you will not find \textit{007} in the following lines.
 
 \section{Agents}
 
-There are several ways how to explain what or who an agent is. Apart from systems of agents used in philosophy or sociology, we can see a first modern use of agency and agents in economy where economists have substited the human with a simpler agent. They intended to simplify their economic models to be able to actually simulate something. Buyers and sellers are typical examples of agents used in simplified market model in microeconomics (see []). In this context agents are entities in the model which can act based on situation in the model.
+There are several ways to explain what or who an \emph{agent} is. Apart from systems of agents used in philosophy or sociology, we can see a first modern use of agency and agents in economy where economists have substituted a human with a simpler agent. They intended to simplify their economic models in order to carry out general simulations. Buyers and sellers are typical examples of agents used in simplified market model in microeconomics. In this context, agents are entities in the model which can react to a given context.
 
-For area of artificial intelligence we can use the definition of an agent which can be found in \cite{russel2003ai}. It cannot be more simple:
+In the case of artificial intelligence, we can use the definition of an agent found in \cite{russel2003ai}. It could not be simpler:
 
 \begin{definition}{\bf Agent} is just something that acts.
 \end{definition} 
 
-Of course it is as general as it could be and for my purposes it is too simple, so I will use another definition which meets better the context of my work.
+Of course it is as general as it could be and for our purposes this is too simple, so we will use another definition which meets better the context of this work.
 
 \begin{definition}{\bf Agent} is something that senses the environment and affects it using its actuators.
 \end{definition} 
 
-Having that defined we continue to specific kinds of agent. In this thesis I use several slightly varying terms about agents: \emph{rational, autonomous, plausible and believable}. 
+As a further source on the topic of intelligent agents see \ref{Wooldridge:intelligentagents}.
 
-A rational agent refers back to economics where we can find a definition of rational behaviour. Even though it is rather a hypothetical model, as people are usually irrational in their decisions from the economics perspective, their is yet nice definition whereby a rational agent acts as if balancing costs against benefits to arrive at action that maximizes personal advantage (Milton Friedman (1953), Essays in Positive Economics). So simply he does what is or perhaps might be best for him based on his current knowledge of the world.
+Having defined an agent, we can now begin to distinguish specific kinds of agents. In this thesis I will use several slightly different terms in order to refer to agents: \emph{rational, autonomous, plausible and believable}. 
+
+A \emph{rational agent} refers back to economics where we can find a definition of rational behaviour. Even though it is rather a hypothetical model, as people are usually irrational in their decisions from the economics perspective, their is yet nice definition whereby a rational agent acts as if balancing costs against benefits to arrive at action that maximizes personal advantage (Milton Friedman (1953), Essays in Positive Economics). So simply he does what is or perhaps might be best for him based on his current knowledge of the world.
  
 On the other hand, the rational behaviour might be understood in a completely different way. Plausible agents are such agents, where the basic approach is to implement human-like internal processes. One of the well-known example is neural networks, although they are usually used in quite simplified way. Since it is really difficult to implement completely plausible agent, one can see research teams focusing on a specific part of the complex human being. 
 
@@ -26,7 +28,7 @@ Autonomous agents are those agents which are capable of accomplishing useful tas
 
 Believable agents are personality-rich autonomous agents with the powerful properties of characters from the arts \cite{Loyall:believableagents}. Now there is just the autonomous agent left. An autonomous agent should be able to accomplish useful task or be an effective problem solver. I would like to add one more term which is going to fit the agents I use. 
 
-Belief-Desire-Intention (BDI) agency model implements the three parts agent's belief, desire and intention and use them when comes to reasoning. A BDI agent is particular part of bounded rational agent who use those three parts to separatly prepare plans which are later executed. What a BDI distinguishes from a simple reactive agent [nevysvetleny pojem] is a reactive agent creates immediate decisions based on current state of environment and inputs of his sensors. On the other hand, a BDI agent uses the three parts:
+Belief-Desire-Intention (BDI) agency model (see \ref[Wooldridge:intelligentagents]) implements the three parts agent's belief, desire and intention and use them when comes to reasoning. A BDI agent is particular part of bounded rational agent who use those three parts to separatly prepare plans which are later executed. What a BDI distinguishes from a simple reactive agent [nevysvetleny pojem] is a reactive agent creates immediate decisions based on current state of environment and inputs of his sensors. On the other hand, a BDI agent uses the three parts:
 
 \begin{itemize}
 \item {\bf belief} represents the agent's informational state, for example sensory inputs and information in his memory,

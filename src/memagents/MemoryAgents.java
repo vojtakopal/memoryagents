@@ -30,9 +30,9 @@ public class MemoryAgents
 		
 		boolean visualMode = true;
 		
-		boolean silentMode = true;
+		boolean silentMode = false;
 		
-		String[] agentTypes = {"grid"};//args[]
+		String[] agentTypes = {"gng"};//args[]
 		
 		if (args.length > 0) {
 			agentTypes = args[0].split(",");

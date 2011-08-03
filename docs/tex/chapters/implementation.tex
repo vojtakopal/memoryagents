@@ -1,8 +1,8 @@
 \chapter{Implementation}
 
-\section{Simulator}
+\section{Simulation application}
 
-Here goes description of simulator.
+Simulation was implemented as a Java application using JDK 1.6. 
 
 \section{Memories}
 
@@ -22,6 +22,14 @@ The expected Gaussian distribution is not calculated every time the \emph{GetExp
 
 \section{Growing neural gas as a memory}
 
+\begin{figure}      
+\begin{center}
+\includegraphics{images/app/gng_screenshot.eps}    
+\caption{A visualization of an GNG agent's memory and the situation in the environment. Connected coloured circles represent growing neural gas for each food kind.}
+\end{center}                          
+\label{app:gngscreenshot}
+\end{figure}
+
 Growing neural gas has been explained previously in \ref{usedalgo:gng}. In this section I will explain how that algorithm was used to learn positions of food sources. For this purpose the GNG uses five nodes.
 
 For each kind of food there is a separate GNG engine which learns the believed location of such food. 
@@ -38,6 +46,14 @@ end
 When the memory is asked about expected Gauss distribution, it uses the five nodes in the GNG to compute it.
 
 \section{Grid as a memory}
+
+\begin{figure}      
+\begin{center}
+\includegraphics{images/app/grid_screenshot.eps}    
+\caption{A visualization of an grid agent's memory and the situation in the environment. The coloured bars on the left side show current levels of agent's hunger. Coloured squares display grid cell values.}
+\end{center}                          
+\label{app:gridscreenshot}
+\end{figure}
 
 As in GNG memory implementation, the grid memory uses \emph{Learn method} to update current state. 
 
