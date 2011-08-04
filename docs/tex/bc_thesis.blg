@@ -9,19 +9,10 @@ A level-1 auxiliary file: chapters/discussion.aux
 A level-1 auxiliary file: chapters/conclusions.aux
 The style file: plain.bst
 Database file #1: bc_thesis.bib
-I was expecting a `,' or a `}'---line 136 of file bc_thesis.bib
- :     
- :     author = {Loyall, Aaron B.},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Name 1 in "Varian, Hal R.," has a comma at the end for entry Varian:micro
 while executing---line 1049 of file plain.bst
-Warning--to sort, need author or key in Loyall:believableagents
-Warning--empty author in Loyall:believableagents
-Warning--empty title in Loyall:believableagents
-Warning--empty school in Loyall:believableagents
-Warning--empty year in Loyall:believableagents
+Warning--empty booktitle in Loyall:believableagents
 Warning--empty publisher in Martinetz:ng
 Name 1 in "Varian, Hal R.," has a comma at the end for entry Varian:micro
 while executing---line 1090 of file plain.bst
-(There were 3 error messages)
+(There were 2 error messages)

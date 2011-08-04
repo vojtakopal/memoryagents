@@ -1,8 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Loyall:believableagents}
-PhD thesis.
-
 \bibitem{Atkinson:humanmemory}
 R.~C. Atkinson and R.~M. Shiffrin.
 \newblock Human memory: A proposed system and its control processes.
@@ -33,6 +30,11 @@ Cyril Brom, Tom\'{a}\v{s} Korenko, and Ji\v{r}\'{\i} Lukavsk\'{y}.
   Intelligent Virtual Agents}, IVA '09, pages 42--48, Berlin, Heidelberg, 2009.
   Springer-Verlag.
 
+\bibitem{Milton:positiveeconomics}
+{Milton} Friedman.
+\newblock {\em Essays in positive economics}.
+\newblock Univ. of Chicago Press, Chicago, Ill. [u.a.], 1953.
+
 \bibitem{Fritzke:gng}
 Bernd Fritzke.
 \newblock A growing neural gas network learns topologies.
@@ -44,6 +46,11 @@ Wan~Ching Ho, Kerstin Dautenhahn, and Chrystopher~L. Nehaniv.
 \newblock Computational memory architectures for autobiographic agents
   interacting in a complex virtual environment: a working model.
 \newblock {\em Connect. Sci}, 20:21--65, March 2008.
+
+\bibitem{Loyall:believableagents}
+Aaron~B. Loyall.
+\newblock {Believable agents: building interactive personalities}.
+\newblock 1997.
 
 \bibitem{Martinetz:ng}
 T.~M. Martinetz and K.~J. Shulten.

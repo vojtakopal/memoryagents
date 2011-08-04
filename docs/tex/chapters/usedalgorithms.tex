@@ -1,6 +1,6 @@
-\chapter{Used methods and algorithms}
+\chapter{Used Methods and Algorithms}
 
-In previous chapter I have introduced several kinds of agents, how they can be used and also what a spatial memory is. I have briefly prepaired you for the next chapters, where I will explain my contribution to this area. This chapter is going to cover the used algorithms and computational methods I have studied and implemented in my work. 
+In previous chapter we have introduced several kinds of agents, how they can be used and also what a spatial memory is. This chapter is going to cover the used algorithms and computational methods I have studied and implemented in my work. 
 
 The first subsection dissects the implementations of agents' memory and in detail describes its fundamental parts. Both the Growing Neural Gas and the Grid are used as memory storage to handle spatial information about the environment with bounded resources.
 
@@ -9,7 +9,7 @@ The first subsection dissects the implementations of agents' memory and in detai
 
 A learning process is something what we have been experiencing every day since we were born. In this process we usually know whether we have mastered a new skill by trying it and being rewarded. Either at school, or at work. Such a procedure, whereby someone is rewarded or punished after he does something, is called a \emph{reinforcement learning} and it expects someone - a supervisor - who gives the rewards. On the other hand, sometimes we need to be able to learn without that supervisor. Growing Neural Gas (GNG) is an example of an unsupervised learning method. GNG is a self-organizing map used to find a simpler data structure representation of its origin.
 
-\subsection{Topology learning}
+\subsection{Topology Learning}
 
 Processing an enormous amount of spatial data about an environment is computationally demanding when, for example, we want to navigate in such environment. A topology learning or recognition can help us create a representation such as a topological map, which can be viewed as a graph and which makes reasoning in the environment much easier. Rather complex understanding of topology in an indoor space using Bayesian programming has been shown. \cite{Tapus:topologylearning}  
 
@@ -32,7 +32,7 @@ Fritzke described an algorithm that uses a set of nodes and edges that connects 
 
 For the purpose of this work I want to use this algorithm to learn a topology of data which dynamically changes through time. We have to set-up the variables for this algorithm $alpha$, $beta$, $epsilon_{winner}$, $epsilon_{neighbour}$ and maximal number of nodes. In the following section, I am going to introduce you to the experiments carried out with this algorithm..
 
-\subsection{Experiments on dynamic data}
+\subsection{Experiments on Dynamic Data}
 
 As I mentioned previously, I had to set-up the variables so as to be able to use Growing Neural Gas method properly. To achieve this, I have made a Java program which tests various combinations of variables' values and finds the best one. It has subsequently run the algorithm for a given number of steps and measured the \emph{score} (see \ref{usedalgo:scoremethod} ). Throughout the experimental simulation there are randomly generated GNG inputs following a Gaussian distribution. The value of \emph{score} measures the difference between the genuin distribution and the estimated distribution which is computed based on the GNG data. The result is a combination of the distance between the distributions' centers and ratio of variances.
 
@@ -61,7 +61,6 @@ end
 \end{center}                          
 \label{usedalgo:gngexperimentscreen}
 \end{figure}
-\textbf{[\ref{usedalgo:gngexperimentscreen} proc zrovna takhle ten algoritmus, jak z toho poznam, ze tohle score je takhle ok?]}
 
 \begin{figure}          
 \begin{itemize}
@@ -98,14 +97,18 @@ $alpha$ & $beta$ & $epsilon_{winner}$ & $epsilon_{neighbour}$ & $numNodes$ & $SC
 \end{center}
 \end{table}
 
-The conclusion is that the values we have been given from this experiment and which are presented in \ref{usedalgo:gngexperimentresults} were proved to be quite unsuccessful in the main simulation. The values could not have been used, because of the bad results the GNG agents had. Therefore we have been slowly altering the values to see the immediate result in the simulation and through this way we come up with following values which works quite well.
+The conclusion is that the values we have been given from this experiment and which are presented in \ref{usedalgo:gngexperimentresults} were proved to be quite unsuccessful in the main simulation. The values could not have been used, because of the bad results the GNG agents had. Therefore we have been slowly altering the values to see the immediate result in the simulation and through this way we come up with values \ref{usedalgo:finalsettingforexperiments} which works quite well.
 
-\begin{equation} \alpha = 0.8f \\ 
-\beta = 1.0E-5f \\ 
-\emph{epsilon} = 5.0E-4f \\
-\emph{$epsilon_2$} = 6.0E-4f \\
-\emph{numNodes} = 5
-\end{equation}
+\begin{figure}
+	\begin{align*} \alpha &= 0.8f \\ 
+	\beta &= 1.0E-5f \\ 
+	\emph{epsilon} &= 5.0E-4f \\
+	\emph{$epsilon_{neighbour}$} &= 6.0E-4f \\
+	\emph{numNodes} &= 5
+	\end{align*}
+	\caption{Variable values with best average SCOREs}
+	\label{usedalgo:finalsettingforexperiments}
+\end{figure}
 
 \section{Grid}
 \label{sec:grid}

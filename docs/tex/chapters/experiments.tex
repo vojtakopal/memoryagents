@@ -6,13 +6,15 @@
 
 %Too much communication might lead to disorientation of an agent which is subsequently followed by agent's death.
 
-\section{Experimental settings and methodology}
+\section{Experimental Settings and Methodology}
 
 All following experiments are run using a default setup as it is described in this section. Each of the experiments is run on a quadcore \emph{Intel Core i5 with 2,4 GHz and 6 GB RAM}. 
                                                    
-Environment is set to be a square matrix with \emph{64 x 64 dimension}. All agents start in the middle of the environment. There are \emph{six kinds of food} which are randomly positioned in the environment and which generate a piece of food each \emph{50 steps}.
+Environment is set to be a square matrix with \emph{128 x 128 dimension}. All agents start in the middle of the environment. There are \emph{six kinds of food} which are randomly positioned in the environment and which generate a piece of food each \emph{50 steps}.
 
-Since an environment contains of six food kinds, an agent has six internal variables for each such food kind (see \ref{experiments:singleagent}). By default they are set to 0 and are increased by \emph{0.001 each step} in simulation. When they are equal to 1 (or higher), the agent dies.  
+Since an environment contains six food kinds, an agent has six internal variables for each such food kind (see \ref{experiments:singleagent}). By default they are set to 0 and are increased by \emph{0.001 each step} in simulation. When they are equal to 1 (or higher), the agent dies.  
+
+\textit{The statistical values (mean, median, min and max) in the tables for each experiment are calculated from dataset without first 17000 simulation steps. This is because we wanted to have values describing the overall trend without being distracted by the first initial steps.}
 
 \begin{figure}[h!]
   \centering                                
@@ -21,9 +23,7 @@ Since an environment contains of six food kinds, an agent has six internal varia
   \label{experiments:singleagent}
 \end{figure}
 
-
-
-\section{Homogeneus agent set comparision with communication}
+\section{Homogeneus Agent Set Comparision with Communication}
 
 In this experiment I will compare avarage life span and efficiency of groups which contains of agents with only single type of memory. Thereby you can see which of the used memory implementation works better in memory homogeneus environment.
 
@@ -33,9 +33,9 @@ What I assume is the \emph{random agents} are about to expire almost immediately
 
 \subsection{Random agent}   
 
-As for the random agents I assumed that they will immediately pass away without communication. And as you can see in \ref{experiments:random-silent} it happened to be true. 
+The first experiment is a simulation in which there are only random agents. I have added random agents into this work so as to see a worst-case example. They should not survive without communication and even with the communication they should pass away quickly.
 
-On the other hand, if I allow them to communicate with each other it might happen they improve their chances. Although they will not last through the entire simulation (see \ref{experiments:gng-grid-pr-random}), the result is that they have managed to slow down [it] (see \ref{experiments:random-start}).
+As we assumed, the random agents were not able to survive without communication (see \ref{experiments:random-silent} ). On the other hand, when I allowed them to communicate with each others, they improved their chances. Although they will not last through the entire simulation (see \ref{experiments:gng-grid-pr-random}), the result was surprising. See \ref{experiments:random-start} for detail of an agent's start.
 
 \begin{center}   
   \begin{tabular}{l*{6}{c}r}
@@ -59,7 +59,7 @@ On the other hand, if I allow them to communicate with each other it might happe
     \includegraphics[scale=0.35]{diagrams/experiments/random_silent.eps}       
     \label{experiments:random-silent}
   }
-  \caption{Random agent \emph{without communication} fades out quickly.}
+  \caption{Compare random agents with and without communication. When they were allowed to communicat, they managed to survive several thousands step. On the other hand, they died immediately without the communication, as we assumed. The graphs show the mean of hunger for each of 12 agents in the simulation.}
 \end{figure} 
 
 %\begin{figure}[h!]
@@ -76,9 +76,11 @@ On the other hand, if I allow them to communicate with each other it might happe
 
 \clearpage
 
-\subsection{PR agent}
+\subsection{PR Agent}
 
-In case of the \emph{pure reactive agents} there is not much to compare between simulation with and without the communication, because the communication is not used since the PR agents see all the environment. So both graphs \ref{experiments:pr} and \ref{experiments:pr-silent} are the same.
+This experiment serves as a contrast to the previous one. A pure reactive agent has a complete perception of the environment and thus he should be one hundred percent successful no matter if he communicates or not. PR agents are added to this work as a best-case example.
+
+The result is, as we can see in \ref{experiments:pr} and \ref{experiments:pr-silent}, that the results are the same. Actally it could have ended differently as a PR agent does not even try to communicate. He knows everything.
 
 \begin{center}   
   \begin{tabular}{l*{6}{c}r}
@@ -102,20 +104,22 @@ In case of the \emph{pure reactive agents} there is not much to compare between 
     \includegraphics[scale=0.35]{diagrams/experiments/pr_silent.eps}   
     \label{experiments:pr-silent} 
   }
-  \caption{PR agent with and without communication.}
+  \caption{Compare pure reactive agents with and without communication. There is no difference between the simulations with and without communication. The graphs show the mean of hunger for each of 12 agents in the simulation.}
 \end{figure} 
 
 \clearpage
 
-\subsection{GNG agent}
+\subsection{GNG Agent}
 
 GNG agents need more information to be able to learn and to survive that is why I do not expect them to deal with it well. In case of a simulation without communication they might end up similarly to random agents, they should do better if they communicate.
+
+The results have shown that GNG agents were not successful when they could not communicate and they ended up simirarly to random agents. This shows that the implemented memory using GNG was not able to learn that quickly. On the other hand, when GNG agents communication there is a strange improvement when we compare the result with PR agents. To understand this, look at the progress of the two simulations and especially on the waves. We can see that in case of GNG agents the waves are more synchronized and in case of PR agents they complement each other. Our assumption is that the perfection of PR agents also brings a little drawback as they eat all food and thus they have to travel farther.
 
 \begin{center}   
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline  
-  GNG agents with communication        & 0.507 & 0.508 & 0.353 & 0.676W \\
+  GNG agents with communication        & 0.507 & 0.508 & 0.353 & 0.676 \\
   GNG agents without communication        & 1 & 1 & 1 & 1 \\
   \end{tabular}                  
 \end{center}
@@ -133,22 +137,20 @@ GNG agents need more information to be able to learn and to survive that is why 
     \includegraphics[scale=0.35]{diagrams/experiments/gng_silent.eps}    
     \label{experiments:gng-silent}
   }
-  \caption{GNG agent with and without communication.}
+  \caption{Compare GNG agents with and without communication. They have not managed to survive without communication just like random agents, on the other hand they had slightly better results than PR agents. The graphs show the mean of hunger for each of 12 agents in the simulation.}
 \end{figure} 
 
 \clearpage
 
-\subsection{Grid agent}            
+\subsection{Grid Agent}            
 
-I assumed they will do simirarly like GNG agent, i.e. they fail to survive without communication, which assumption ended up to be wrong. Grid agents are able to learn quickly the environment just by moving around randomly and there is the chance that a couple of them survive.
+I assumed grid agents will be similar to GNG agents, i.e. they fail to survive without communication. Grid agents are able to learn quickly the environment just by moving around randomly and there is the chance that a couple of them survive. They also should do well when they communicate. 
 
-I have run 20 simulations with grid agents to verify the probability of grid agent's learning the environment. As in the standard experiments there were 12 agents and the following values shows the result of the tests:
+The results are that grid agents learn quickly and thus they were able to survive without communication. It is not clear what the probability is as there were only few of them. I have run 20 simulations with grid agents to verify the probability of grid agent's learning the environment. Like in the standard experiments there were 12 agents and the following values shows the result of the tests: \emph{mean}=5.56, \emph{median}=5.5, \emph{min}=1, \emph{max}=12. 
+
+Unexpectedly in the simulation with communication the grid agents were not much better than without communication. The range of measured values is larger and there also were agents that did not survive. All this might be because of the overload of information that comes with the communication. Grid agents have set the $\alpha$ value to balance the importance between \emph{positive} and \emph{negative} variables and thus it also balances whether the learnt positions of food are of higher importance or the learning empty grid cells (see \ref{sec:gridasmemory} ). With too much positive information a grid agent becomes perplexed.
 
 %8,8,1,9,7,6,8,1,12,3,5,3,4,2,2,4,7,5,6,12
-
-\begin{center}   
-  \emph{mean}=5.56, \emph{median}=5.5, \emph{min}=1, \emph{max}=12                 
-\end{center}
 
 \begin{center}   
   \begin{tabular}{l*{6}{c}r}
@@ -171,22 +173,24 @@ I have run 20 simulations with grid agents to verify the probability of grid age
   \subfigure{                                          
     \includegraphics[scale=0.35]{diagrams/experiments/grid_silent.eps}   
   }                                
-  \caption{Grid agent with and without communication.}           
+  \caption{Compare grid agents with and without communication. They managed to survive without communication, although when communicating they became perplexed and some of them died. The graphs show the mean of hunger for each of 12 agents in the simulation.}           
   \label{experiments:gng}  
 \end{figure} 
 
 \clearpage
 
-\section{Mixed environment}
+\section{Mixed Environment}
                         
 Second part of the experiments are about environment where different kinds of agents are trying to fulfill their needs. I will observer whether some kind of agents prosper from a presence of other agents or if they are not that successful as they were in a homogeneous environment in previous experiments.
                                                                                 
-\subsection{GNG+Grid+PR+Random agents}
+\subsection{GNG+Grid+PR+Random Agents}
 
-First I will start with combination of all kinds of agents, whereby since there are those PR agents the others have an advantage of the perfect source of information.  
+First I will start with combination of all kinds of agents, whereby since there are those PR agents the others have an advantage of the perfect source of information. So I do not expect them to fail. Without communication the result should not differ from those results of simulations with single kind of agent, although since there are different agents around the environment, those agents which were worse than others should be now even much worse.
+
+The results show that all agents survived in this environment when they were allowed to communicate. What is more, the grid agents improved their statistics possibly owing to the various company. On the other hand, without communication again only grid and PR agents survived. 
 
 Results of a simulation with communication follow:
-         
+
 \begin{center}   
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
@@ -235,15 +239,19 @@ Results of a simulation without communication follow:
     \includegraphics[scale=0.35]{diagrams/experiments/gng-grid-pr-random_silent.eps}    
     \label{experiments:gng-grid-pr-random-silent}
   }                                                       
-  \caption{GNG, grid, PR and random agents together. Owing to PR agents and the communication they all do well.}
+  \caption{Compare the results of GNG, grid, PR and random agents all together with and without communication. With communication they managed successfully surived, on the other hand, without communication only grid agent stayed alive. The graphs show the mean of hunger in four separate boxes each of which contains results of one agents' kind.}
 \end{figure}
        
 \clearpage
                                 
-\subsection{GNG+Grid+Random agents}
+\subsection{GNG+Grid+Random Agents}
 
-In this experiment I have omitted pure reactive agents and thus left others on their own. For better comparision I have added the difference between values in the current experiment and the previous one (GNG+Grid+PR+Random). I used red colour for a decrease and green colour for an increase, although it is an improvement if they values are lower.         
+In this experiment I have omitted pure reactive agents and thus left others on their own. For better comparision I have added the difference between values in the current experiment and the previous one (GNG+Grid+PR+Random). I used red colour for a decrease and green colour for an increase, although it is an improvement if they values are lower. We expect them to generally be worse than in the previous experiment, since the PR agents are missing.
+
+As we can see in the table below the only agent that is worse than before is the grid agent. Both GNG and random agent have improved their performance. Without communication the only one to survive was again the grid agent.    
             
+Results of a simulation with communication follow:
+
 \begin{center}
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
@@ -259,6 +267,8 @@ In this experiment I have omitted pure reactive agents and thus left others on t
   \end{tabular}                                
 \end{center}
 
+Results of a simulation without communication follow:
+
 \begin{center} 
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
@@ -266,7 +276,7 @@ In this experiment I have omitted pure reactive agents and thus left others on t
   GNG agents        & 1 & 1 & 1 & 1  \\
                     &   \\
   Grid agents       & 1                     & 0.684                 & 0.284                & 1  \\  
-                    & \color{green}{+0.542}  & \color{green}{0.062}  & \color{red}{-0.045}  \\
+                    & \color{green}{+0.542}  & \color{green}{+0.062}  & \color{red}{-0.045}  \\
   Random agents     & 1 & 1 & 1 & 1  \\         
                     & \\
   All agents        & 1 & 0.895                 & 0.284 & 1  \\  
@@ -294,15 +304,18 @@ In this experiment I have omitted pure reactive agents and thus left others on t
     \includegraphics[scale=0.35]{diagrams/experiments/gng-grid-random_silent.eps}      
     \label{experiments:gng-grid-random-silent}                                     
   }
-  \caption{GNG, grid, PR agents together with and without the communication.}
+  \caption{Compare the results of GNG, grid and random agents all together with and without communication. They managed to survive without communication, although when communicating they became perplexed and some of them died. The graphs show the mean of hunger in three separate boxes each of which contains results of one agents' kind}
 \end{figure} 
               
 \clearpage
                                        
-\subsection{GNG+Grid agents}
+\subsection{GNG+Grid Agents}
 
-In this experiment I have observed a simulation with just memory agents in it. Again you can see highlighted differences between new values from this experiment and the values from the previous one (GNG+Grid+Random).
+This experiment compare tho memory agents together in a simulation. We will see whether such companionship is an improvement or just disadvantage. Again you can see highlighted differences between new values from this experiment and the values from the previous one (GNG+Grid+Random).
 
+The results of simulation without communication should not be any surprise, there is again a group of grid agents survived. As for the simulation with communication, we can compare the values with the results of single-kind simulations and then we see that this environment improved the grif agent' performance, on the other hand, it worsen the results of GNG agents.
+
+Results of a simulation with communication follow:
 
 \begin{center} 
   \begin{tabular}{l*{6}{c}r}
@@ -316,6 +329,8 @@ In this experiment I have observed a simulation with just memory agents in it. A
                     & \color{green}{+0.016}  & \color{green}{+0.015}  & \color{red}{+0.003}  & \color{red}{-0.004} 
   \end{tabular}                       
 \end{center}
+
+Results of a simulation without communication follow:
 
 \begin{center}
   \begin{tabular}{l*{6}{c}r}
@@ -349,5 +364,5 @@ In this experiment I have observed a simulation with just memory agents in it. A
     \includegraphics[scale=0.35]{diagrams/experiments/gng-grid_silent.eps} 
     \label{experiments:gng-grid-silent}  
   }
-  \caption{GNG and grid agents together.}
+  \caption{Compare the results of GNG and grid agents together in simulations with and without communication. With communication the grid agent improved his results, but the results were worse for GNG agent compared to the single-kind simulations. The graphs show the mean of hunger in two separate boxes each of which contains results of one agents' kind.}
 \end{figure}

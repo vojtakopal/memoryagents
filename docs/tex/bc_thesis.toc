@@ -1,39 +1,38 @@
-\contentsline {chapter}{\numberline {1}Related work}{7}{chapter.1}
-\contentsline {section}{\numberline {1.1}Agents}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Spatial resource-bounded memory}{8}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Resource-bounded reasoning}{9}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Short-term and long-term memories}{9}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Computational memory architectures}{10}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}How Place and Objects Combine?}{11}{subsection.1.2.4}
-\contentsline {subsection}{\numberline {1.2.5}Inspirations for my work}{12}{subsection.1.2.5}
-\contentsline {chapter}{\numberline {2}Used methods and algorithms}{13}{chapter.2}
-\contentsline {section}{\numberline {2.1}Growing Neural Gas}{13}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Topology learning}{13}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Experiments on dynamic data}{15}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Grid}{17}{section.2.2}
-\contentsline {chapter}{\numberline {3}Simulation and used memory architectures}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Simulation}{19}{section.3.1}
-\contentsline {section}{\numberline {3.2}Environment}{19}{section.3.2}
-\contentsline {section}{\numberline {3.3}Agent}{19}{section.3.3}
-\contentsline {section}{\numberline {3.4}Communication}{20}{section.3.4}
-\contentsline {section}{\numberline {3.5}Decision making}{21}{section.3.5}
-\contentsline {section}{\numberline {3.6}Memories}{21}{section.3.6}
-\contentsline {chapter}{\numberline {4}Implementation}{24}{chapter.4}
-\contentsline {section}{\numberline {4.1}Simulation application}{24}{section.4.1}
-\contentsline {section}{\numberline {4.2}Memories}{24}{section.4.2}
-\contentsline {section}{\numberline {4.3}Growing neural gas as a memory}{24}{section.4.3}
-\contentsline {section}{\numberline {4.4}Grid as a memory}{25}{section.4.4}
-\contentsline {chapter}{\numberline {5}Experiments}{28}{chapter.5}
-\contentsline {section}{\numberline {5.1}Experimental settings and methodology}{28}{section.5.1}
-\contentsline {section}{\numberline {5.2}Homogeneus agent set comparision with communication}{28}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Random agent}{30}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}PR agent}{32}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}GNG agent}{33}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Grid agent}{34}{subsection.5.2.4}
-\contentsline {section}{\numberline {5.3}Mixed environment}{35}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}GNG+Grid+PR+Random agents}{35}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}GNG+Grid+Random agents}{37}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}GNG+Grid agents}{39}{subsection.5.3.3}
-\contentsline {chapter}{\numberline {6}Discussion}{40}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusions}{42}{chapter.7}
-\contentsline {chapter}{Bibliography}{43}{chapter.7}
+\contentsline {chapter}{\numberline {1}Related Work}{8}{chapter.1}
+\contentsline {section}{\numberline {1.1}Agents}{8}{section.1.1}
+\contentsline {section}{\numberline {1.2}Spatial Resource-bounded Memory}{9}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Resource-bounded Reasoning}{10}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Short-term and Long-term Memories}{10}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Computational Memory Architectures}{11}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}How Place and Objects Combine?}{12}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Inspirations for Our Work}{13}{subsection.1.2.5}
+\contentsline {chapter}{\numberline {2}Used Methods and Algorithms}{14}{chapter.2}
+\contentsline {section}{\numberline {2.1}Growing Neural Gas}{14}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Topology Learning}{14}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Experiments on Dynamic Data}{16}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Grid}{19}{section.2.2}
+\contentsline {chapter}{\numberline {3}Simulation and Used Memory Architectures}{20}{chapter.3}
+\contentsline {section}{\numberline {3.1}Simulation}{20}{section.3.1}
+\contentsline {section}{\numberline {3.2}Environment}{21}{section.3.2}
+\contentsline {section}{\numberline {3.3}Agent}{21}{section.3.3}
+\contentsline {section}{\numberline {3.4}Communication}{21}{section.3.4}
+\contentsline {section}{\numberline {3.5}Decision Making}{22}{section.3.5}
+\contentsline {section}{\numberline {3.6}Memories}{23}{section.3.6}
+\contentsline {chapter}{\numberline {4}Implementation}{26}{chapter.4}
+\contentsline {section}{\numberline {4.1}Memories}{26}{section.4.1}
+\contentsline {section}{\numberline {4.2}Growing Neural Gas as a Memory}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Grid as a Memory}{27}{section.4.3}
+\contentsline {chapter}{\numberline {5}Experiments}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Experimental Settings and Methodology}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Homogeneus Agent Set Comparision with Communication}{29}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Random agent}{31}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}PR Agent}{33}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}GNG Agent}{34}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Grid Agent}{35}{subsection.5.2.4}
+\contentsline {section}{\numberline {5.3}Mixed Environment}{37}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}GNG+Grid+PR+Random Agents}{37}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}GNG+Grid+Random Agents}{39}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}GNG+Grid Agents}{41}{subsection.5.3.3}
+\contentsline {chapter}{\numberline {6}Discussion}{43}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusions}{45}{chapter.7}
+\contentsline {chapter}{Bibliography}{46}{chapter.7}

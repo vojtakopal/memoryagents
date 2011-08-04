@@ -1,21 +1,23 @@
-\chapter{Simulation and used memory architectures}
+\chapter{Simulation and Used Memory Architectures}
 
-In this chapter I will describe the simulation, environment and agent's reasoning and communication how it is used in later experiments. 
+In this chapter we will describe the simulation, environment and agent's reasoning and communication how it is used in later experiments. 
 
 \section{Simulation}
 
-The \emph{simulation} consists of a set of agents, a set of generators and a set of pieces of food. According to given settings it subsequently processes a number of steps, each of which invokes agents' life step and eventually generating new food.
+The \emph{simulation} consists of a set of agents, a set of generators and a set of pieces of food. According to given settings it subsequently processes a number of steps, each of which invokes agents' life step and eventually generating new food. There are six kinds of food, each of which has its food generator at given position in the environment. The food generator regurarly drops new piece of food randomly using Gaussian distribution around the generator's position. An agent task is to search for the food, as he is getting more hungry every step of the simulation. There is a separate need for each food, i.e. the agent has to find all six food resources. 
 
-The simulation can also contain a couple of monitors which observe the environment or agents.
+Each agent is able to percieve the environment, but they had limited perception restricted by their sight, except for the pure reactive agent which sees all the enviroment. Agents also can communicate with each others and there two kinds of agents which has a spatial memory - GNG agent and grid agent.
+
+The simulation can also contain a couple of monitors which observe the environment or agents. Their purpose is to write the current state of the simulation into the file so as to be able to create graphs and compute statistical values. Other kind of environment observer is the visualiser, which allows us to see what each agent sees and believes.
 
 \section{Environment}
 
 The environment is a two-dimensional space which contains agents and food. Agents can move around and eat the food which is randomly distributed using the food generators. 
 
 \section{Agent}                                                      
-As mentioned previously, an agent is an entity in the environment which moves and interact with the world around. The interaction is done through eating food which is a part of the environment and through communication with other agents. The latter one actually changes agents' beliefs about the environment.
+As mentioned previously, an agent is an entity in the environment which moves and interact with the world around. The interaction is done through eating food which is a part of the environment and through communication with other agents. The latter one actually changes agents' beliefs about the environment. He moves discretely each step of simulation. There is an order in which the agents are sequently processed; we did not want to handicap anyone, so we tried to emulate parallel processing by spliting agents' step phases into groups such as percieving the environment, actions and dying.
 
-Each agent has his needs which influence his decisions as fulfilling his needs keeps him alive. When his internal variables of needs is higher than \textbf{.....?}
+Each agent has his needs which influence his decisions as fulfilling his needs keeps him alive. When his internal variables of needs is higher than a treshold he starts searching for the appropriate food resource. He uses his sight which allows him to percieve the space around him in the set distance. If he does not see anything and is allowed to communicate, he can ask the agents around him, but again only in the distance of audition.
 
 There are four types of agents each of which is different in the way they decide about next step. If one is hungry and sees food (i.e. there is a piece of food in the sight distance) then they choose to go after this food. If there is no desired food around they go searching for it and that is when the agents' actions differ.
 
@@ -45,13 +47,13 @@ So I have implemented a communication model (see \ref{solution:decision}) whereb
   \label{solution:communication}
 \end{figure}
 
-\section{Decision making}
+\section{Decision Making}
 
 While searching for food, each type of the agent makes the decision where to go next. This process is either done randomly or following one's knowledge of the environment. A simple diagram of decision making follows.
 
 \begin{figure}
   \centering                                
-  \includegraphics[scale=0.7]{diagrams/solution/decision-flowchart.eps}    
+  \includegraphics[scale=0.5]{diagrams/solution/decision-flowchart.eps}    
   \caption{How the agent decides what to do next}
   \label{solution:decision}
 \end{figure}
@@ -66,10 +68,22 @@ The output of this process is a group of possible locations from which he choose
 
 There are two types of memory which should allow agents to improve their lifespan compared to a random agent. Those are memories based on a growing neural gas and a spatial grid.     
 
-The \emph{GNG memory} uses a self-teaching neural network which has been described in \ref{usedalgo:gng}. The neural network allows the agent to learn the approximate location where the food is distributed. Each kind of food is given a single neural network which tries to learn the distribution reflecting the data inputs..
+\begin{figure}      
+\begin{center}
+\includegraphics{images/app/grid_screenshot.eps}    
+\caption{A visualization of an grid agent's memory and the situation in the environment. The coloured bars on the left side show current levels of agent's hunger. Coloured squares display grid cell values.}
+\end{center}                          
+\label{app:gridscreenshot}
+\end{figure}
 
-The \emph{grid memory} divides the environment into a grid in order to simplify the space and to restrict the total size of the data structure used to describe the space.
+The \emph{GNG memory} uses a self-teaching neural network which has been described in \ref{usedalgo:gng}. The neural network allows the agent to learn the approximate location where the food is distributed. Each kind of food is given a single neural network which tries to learn the distribution reflecting the data inputs.
 
+\begin{figure}      
+\begin{center}
+\includegraphics{images/app/gng_screenshot.eps}    
+\caption{A visualization of an GNG agent's memory and the situation in the environment. Connected coloured circles represent growing neural gas for each food kind.}
+\end{center}                          
+\label{app:gngscreenshot}
+\end{figure}
 
-
-
+The \emph{grid memory} divides the environment into a grid in order to simplify the space and to restrict the total size of the data structure used to describe the space. There are 16 cells, each of which has six \emph{positive/negative} pairs of variables as there are six kinds of food. When an agent moves around the environment and sees the food the \emph{positive} value of an appropriate cell is increased, it is the same when an agent recieve information about the food position. On the other hand, when an agent reaches the cell and sees there is no food, the \emph{negative} value is increased.
