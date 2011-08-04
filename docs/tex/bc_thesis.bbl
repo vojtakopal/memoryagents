@@ -90,4 +90,10 @@ Hal~R. Varian.
   Varian}.
 \newblock W.W. Norton, New York :, 1987.
 
+\bibitem{Wooldridge:intelligentagents}
+M.~Wooldridge.
+\newblock Intelligent agents.
+\newblock In G.~Weiss, editor, {\em Multiagent Systems A Modern Approach to
+  Distributed Artificial Intelligence}, pages 27--77. MIT Press, 2000.
+
 \end{thebibliography}

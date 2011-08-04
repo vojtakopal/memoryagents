@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  4 AUG 2011 07:12
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  4 AUG 2011 08:16
 entering extended mode
 **bc_thesis.tex
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -555,10 +555,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--133
 ] [7]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.tex
 Chapter 1.
-
-LaTeX Warning: Reference `Wooldridge:intelligentagents' on page 8 undefined on 
-input line 9.
-
 [8
 
 
@@ -720,19 +716,16 @@ x)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/discussion.aux)
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/conclusions.aux))
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  4701 strings out of 494054
  64220 string characters out of 3146208
- 141115 words of memory out of 3000000
+ 141083 words of memory out of 3000000
  7826 multiletter control sequences out of 15000+200000
  18691 words of font info for 48 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  29i,14n,44p,11608b,1588s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (45 pages, 95048 bytes).
+Output written on bc_thesis.dvi (45 pages, 95332 bytes).
