@@ -34,7 +34,7 @@ For the purpose of this work I want to use this algorithm to learn a topology of
 
 \subsection{Experiments on dynamic data}
 
-As I mentioned previously, I had to set-up the variables so as to be able to use Growing Neural Gas method properly. To achieve this, I have made a Java program which tests various combinations of variables' values and finds the best one. It has subsequently run the algorithm for a given number of steps and measured the \emph{score} (see \ref{usedalgo:scoremethod}). Throughout the experimental simulation there are randomly generated GNG inputs following a Gaussian distribution. The value of \emph{score} measures the difference between the genuin distribution and the estimated distribution which is computed based on the GNG data. The result is a combination of the distance between the distributions' centers and ratio of variances.
+As I mentioned previously, I had to set-up the variables so as to be able to use Growing Neural Gas method properly. To achieve this, I have made a Java program which tests various combinations of variables' values and finds the best one. It has subsequently run the algorithm for a given number of steps and measured the \emph{score} (see \ref{usedalgo:scoremethod} ). Throughout the experimental simulation there are randomly generated GNG inputs following a Gaussian distribution. The value of \emph{score} measures the difference between the genuin distribution and the estimated distribution which is computed based on the GNG data. The result is a combination of the distance between the distributions' centers and ratio of variances.
 
 \begin{figure}
 \begin{lstlisting}[language=Pascal]

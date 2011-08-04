@@ -5,9 +5,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\documentclass[12pt,notitlepage]{report}
+%\documentclass[12pt,notitlepage]{report}
 %\pagestyle{headings}
 \pagestyle{plain}
+
+\documentclass[12pt,a4paper]{report}
+\setlength\textwidth{145mm}
+\setlength\textheight{247mm}
+\setlength\oddsidemargin{15mm}
+\setlength\evensidemargin{15mm}
+\setlength\topmargin{0mm}
+\setlength\headsep{0mm}
+\setlength\headheight{0mm}
+% \openright zařídí, aby následující text začínal na pravé straně knihy
+\let\openright=\clearpage
 
 %\frenchspacing % aktivuje použití některých českých typografických pravidel
 
@@ -25,6 +36,9 @@
 \usepackage{amssymb,amsmath}
 
 %\newindex{default}{idx}{ind}{Rejstřík} % zavádí rejstřík v případě použití balíku index
+\usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
+\hypersetup{pdftitle=Komunikace a paměť pro plausibilní agenty}
+\hypersetup{pdfauthor=Vojtěch Kopal}
 
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
@@ -104,6 +118,7 @@ Faculty of Mathematics and Physics\\
 %%%   Výtisk pak na tomto míste nezapomeňte PODEPSAT!
 %%%                                         *********
 
+\setcounter{tocdepth}{1}
 \tableofcontents % vkládá automaticky generovaný obsah dokumentu
 
 \newpage % přechod na novou stránku

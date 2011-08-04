@@ -56,7 +56,11 @@ While searching for food, each type of the agent makes the decision where to go 
   \label{solution:decision}
 \end{figure}
 
-The diagram \ref{solution:decision} shows how an agents decides what to do. In fact it is common for all types of agents described in this thesis, although the first step "Put known food location into memory" is omitted in case of \emph{random} and \emph{PR agents}.
+The diagram \ref{solution:decision} shows how an agents decides what to do. In fact it is common for all types of agents described in this thesis, although the first step "Put known food location into memory" is omitted in case of \emph{random} and \emph{PR agents}. 
+
+First an agent puts into his memory known food locations. These are locations which he either sees, or remembers from the last simulation step. After that he checks his internal variables to see whether he is hungry or not. If he is hungry, he tries to decide where his desired food resource is. He uses his memory, sight and eventually communication with other agents. 
+
+The output of this process is a group of possible locations from which he chooses the closest one and head towards it. If he occures at the position where the desired food also is, he eats it. Throught the decision flow there are two moments, when the agent does not know what to do and then he moves randomly: when he does not need to eat anything and when he cannot find the the path to the food resource.
 
 \section{Memories}
 
