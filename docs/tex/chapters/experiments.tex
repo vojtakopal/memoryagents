@@ -41,13 +41,14 @@ On the other hand, if I allow them to communicate with each other it might happe
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline  
-  Random agents with communication     & 1 & 0.939 & 0.55 & 1  \\
+  Random agents with communication     & 1 & 0.875 & 0.406 & 1  \\
   Random agents without communication    & 1 & 1 & 1 & 1  \\
   \end{tabular}                  
 \end{center}
 
-%[1] "random median 1 mean 0.938866881121914 min 0.55 max 1"
+%[1] "random median 1 mean 0.874769898839592 min 0.405711205 max 1"
 %[1] "random_silent median 1 mean 1 min 1 max 1"
+
 \begin{figure}[h!]
   \centering      
   \subfigure{                   
@@ -83,13 +84,13 @@ In case of the \emph{pure reactive agents} there is not much to compare between 
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline  
-  PR agents with communication        & 0.69 & 0.689 & 0.54 & 0.86 \\
-  PR agents without communication     & 0.69 & 0.689 & 0.54 & 0.86 \\
+  PR agents with communication        & 0.510 & 0.512 & 0.382 & 0.695 \\
+  PR agents without communication     & 0.510 & 0.512 & 0.382 & 0.695 \\
   \end{tabular}                  
 \end{center}
 
-%[1] "pr median 0.69 mean 0.688658088456766 min 0.54 max 0.86"
-%[1] "pr_silent median 0.69 mean 0.688658088456766 min 0.54 max 0.86"
+%[1] "pr median 0.510078733 mean 0.512463510944543 min 0.381653335 max 0.694602152"  
+%[1] "pr_silent median 0.510078733 mean 0.512463510944543 min 0.381653335 max 0.694602152"
 
 \begin{figure}[h!]
   \centering       
@@ -114,12 +115,12 @@ GNG agents need more information to be able to learn and to survive that is why 
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline  
-  GNG agents with communication        & 0.69 & 0.683 & 0.49 & 0.83 \\
+  GNG agents with communication        & 0.507 & 0.508 & 0.353 & 0.676W \\
   GNG agents without communication        & 1 & 1 & 1 & 1 \\
   \end{tabular}                  
 \end{center}
 
-%[1] "gng median 0.69 mean 0.683386947145215 min 0.49 max 0.83"
+%[1] "gng median 0.507271498 mean 0.508665935250539 min 0.352669558 max 0.675723953"
 %[1] "gng_silent median 1 mean 1 min 1 max 1"
 
 \begin{figure}[h!]
@@ -153,14 +154,14 @@ I have run 20 simulations with grid agents to verify the probability of grid age
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline  
-  Grid agents with communication        & 0.81 & 0.826 & 0.54 & 1 \\
-  Grid agents without communication        & 0.65 & 0.771 & 0.44 & 1 \\
+  Grid agents with communication        & 0.610 & 0.663 & 0.393 & 1 \\
+  Grid agents without communication        & 0.495 & 0.680 & 0.338 & 1 \\
   \end{tabular}                  
 \end{center}
 
 
-%[1] "grid median 0.81 mean 0.826481608655317 min 0.54 max 1"
-%[1] "grid_silent median 0.65 mean 0.771415766075108 min 0.44 max 1"
+%[1] "grid median 0.609527062 mean 0.663087118565114 min 0.393369938 max 1"
+%[1] "grid_silent median 0.494878372 mean 0.680498955781991 min 0.337940342 max 1"  
 
 \begin{figure}[h!]
   \centering        
@@ -190,11 +191,11 @@ Results of a simulation with communication follow:
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline
-  GNG agents        & 0.7 & 0.699 & 0.57 & 0.86  \\
-  Grid agents       & 0.7 & 0.697 & 0.54 & 0.83  \\   
-  PR agents         & 0.69 & 0.689 & 0.55 & 0.81 \\  
-  Random agents     & 0.7 & 0.704 & 0.57 & 0.87  \\
-  All agents        & 0.7 & 0.698 & 0.54 & 0.87  \\ 
+  GNG agents        & 0.517 & 0.520 & 0.402 & 0.705  \\
+  Grid agents       & 0.517 & 0.519 & 0.376 & 0.664  \\   
+  PR agents         & 0.513 & 0.513 & 0.380 & 0.644 \\  
+  Random agents     & 0.522 & 0.525 & 0.407 & 0.683  \\
+  All agents        & 0.517 & 0.519 & 0.376 & 0.705  \\ 
   \end{tabular}                  
 \end{center}
        
@@ -205,24 +206,24 @@ Results of a simulation without communication follow:
   Agent kind        & median & mean & min & max \\
   \hline
   GNG agents        & 1 & 1 & 1 & 1  \\
-  Grid agents       & 0.61 & 0.721 & 0.47 & 1  \\   
-  PR agents         & 0.58 & 0.576 & 0.44 & 0.68 \\  
+  Grid agents       & 0.458 & 0.622 & 0.329 & 1  \\   
+  PR agents         & 0.427 & 0.428 & 0.320 & 0.545 \\  
   Random agents     & 1 & 1 & 1 & 1  \\
-  All agents        & 1 & 0.824 & 0.44 & 1  \\ 
+  All agents        & 1 & 0.762 & 0.320 & 1  \\ 
   \end{tabular}                    
 \end{center} 
 
-%[1] "gng-grid-pr-random gng median 0.7 mean 0.698904096385542 min 0.57 max 0.86"
-%[1] "gng-grid-pr-random grid median 0.7 mean 0.697301204819277 min 0.54 max 0.83"
-%[1] "gng-grid-pr-random pr median 0.69 mean 0.68933734939759 min 0.55 max 0.81"
-%[1] "gng-grid-pr-random random median 0.7 mean 0.704657124957833 min 0.57 max 0.87" 
-%[1] "gng-grid-pr-random all median 0.7 mean 0.697550029517717 min 0.54 max 0.87"
+%[1] "gng-grid-pr-random gng median 0.517498824 mean 0.520457882330892 min 0.401810208 max 0.705358268"
+%[1] "gng-grid-pr-random grid median 0.517397617 mean 0.518959058923229 min 0.375598372 max 0.663586088"
+%[1] "gng-grid-pr-random pr median 0.51293467 mean 0.51317722590212 min 0.380455353 max 0.644423782"
+%[1] "gng-grid-pr-random random median 0.522044497 mean 0.524666185266445 min 0.40689119 max 0.68311006"
+%[1] "gng-grid-pr-random all median 0.517392405 mean 0.519315152575945 min 0.375598372 max 0.705358268"
 
 %[1] "gng-grid-pr-random_silent gng median 1 mean 1 min 1 max 1"
-%[1] "gng-grid-pr-random_silent grid median 0.61 mean 0.721167710843373 min 0.47 max 1"
-%[1] "gng-grid-pr-random_silent pr median 0.58 mean 0.575706712929497 min 0.44 max 0.68"
-%[1] "gng-grid-pr-random_silent random median 1 mean 1 min 1 max 1"  
-%[1] "gng-grid-pr-random_silent all median 1 mean 0.824215611860098 min 0.44 max 1"
+%[1] "gng-grid-pr-random_silent grid median 0.45767045 mean 0.621676191740916 min 0.329381465 max 1"
+%[1] "gng-grid-pr-random_silent pr median 0.42709512 mean 0.427902891426919 min 0.31951149 max 0.545068625
+%[1] "gng-grid-pr-random_silent random median 1 mean 1 min 1 max 1"
+%[1] "gng-grid-pr-random_silent all median 1 mean 0.76239074081787 min 0.31951149 max 1"
 
 \begin{figure}[h!]
   \centering        
@@ -242,19 +243,19 @@ Results of a simulation without communication follow:
 \subsection{GNG+Grid+Random agents}
 
 In this experiment I have omitted pure reactive agents and thus left others on their own. For better comparision I have added the difference between values in the current experiment and the previous one (GNG+Grid+PR+Random). I used red colour for a decrease and green colour for an increase, although it is an improvement if they values are lower.         
-             
+            
 \begin{center}
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline
-  GNG agents        & 0.69                  & 0.691                   & 0.52                  & 0.86  \\
-                    & \color{red}{-0.01}  & \color{red}{-0.008}   & \color{red}{-0.05}  &       \\
-  Grid agents       & 0.7                   & 0.700                   & 0.55                  & 0.87   \\   
-                    &                       & \color{green}{+0.003} & \color{green}{+0.01}& \color{green}{+0.04} \\
-  Random agents     & 0.7                   & 0.702                   & 0.55                  & 0.85   \\
-                    &                       & \color{red}{-0.002}   & \color{red}{-0.02}  & \color{red}{-0.02}  \\
-  All agents        & 0.7                   & 0.698                   & 0.52                  & 0.87  \\
-                    &                       &                         & \color{red}{-0.02}  &       \\
+  GNG agents        & 0.514                   & 0.515                   & 0.367                  & 0.681  \\
+                    & \color{red}{-0.003}     & \color{red}{-0.005}     & \color{red}{-0.035}    & \color{red}{-0.024}      \\
+  Grid agents       & 0.519                   & 0.521                   & 0.380                  & 0.703   \\   
+                    & \color{green}{+0.002}   & \color{green}{+0.003}   & \color{green}{+0.004}  & \color{green}{+0.037} \\
+  Random agents     & 0.521                   & 0.523                   & 0.399                  & 0.690   \\
+                    & \color{red}{-0.001}     & \color{red}{-0.002}  	& \color{red}{-0.008}    & \color{red}{-0.007}  \\
+  All agents        & 0.518                   & 0.520                   & 0.366                  & 0.703  \\
+                    & \color{green}{+0.001}   & \color{green}{+0.001}   & \color{red}{-0.001}  &   \color{red}{-0.002}    \\
   \end{tabular}                                
 \end{center}
 
@@ -264,24 +265,24 @@ In this experiment I have omitted pure reactive agents and thus left others on t
   \hline
   GNG agents        & 1 & 1 & 1 & 1  \\
                     &   \\
-  Grid agents       & 1                     & 0.747                 & 0.39                & 1  \\  
-                    & \color{green}{+0.39}  & \color{green}{0.026}  & \color{red}{-0.08}  \\
+  Grid agents       & 1                     & 0.684                 & 0.284                & 1  \\  
+                    & \color{green}{+0.542}  & \color{green}{0.062}  & \color{red}{-0.045}  \\
   Random agents     & 1 & 1 & 1 & 1  \\         
                     & \\
-  All agents        & 1 & 0.916                 & 0.39 & 1  \\  
-                    &   & \color{green}{+0.092}  & \color{red}{-0.05} \\
+  All agents        & 1 & 0.895                 & 0.284 & 1  \\  
+                    &   & \color{green}{+0.133}  & \color{red}{-0.036} \\
   \end{tabular}                                        
 \end{center}
 
-%[1] "gng-grid-random gng median 0.69 mean 0.69148588571222 min 0.52 max 0.86"
-%[1] "gng-grid-random grid median 0.7 mean 0.699864820905772 min 0.55 max 0.87"
-%[1] "gng-grid-random random median 0.7 mean 0.702296598836159 min 0.55 max 0.85"  
-%[1] "gng-grid-random all median 0.7 mean 0.697882435151384 min 0.52 max 0.87"
+%[1] "gng-grid-random gng median 0.513585545 mean 0.515161254947844 min 0.366747508 max 0.68104115"
+%[1] "gng-grid-random grid median 0.519329297 mean 0.521224015765316 min 0.379762677 max 0.70251225"
+%[1] "gng-grid-random random median 0.521283782 mean 0.523338505970543 min 0.399325375 max 0.690103117"
+%[1] "gng-grid-random all median 0.518339753 mean 0.519907925561234 min 0.366747508 max 0.70251225"
 
 %[1] "gng-grid-random_silent gng median 1 mean 1 min 1 max 1"
-%[1] "gng-grid-random_silent grid median 1 mean 0.747429428561102 min 0.39 max 1"
-%[1] "gng-grid-random_silent random median 1 mean 1 min 1 max 1"           
-%[1] "gng-grid-random_silent all median 1 mean 0.915809809520367 min 0.39 max 1"
+%[1] "gng-grid-random_silent grid median 1 mean 0.684049964170167 min 0.283994157 max 1"
+%[1] "gng-grid-random_silent random median 1 mean 1 min 1 max 1"
+%[1] "gng-grid-random_silent all median 1 mean 0.894683321390056 min 0.283994157 max 1"
 
 \begin{figure}[h!]
   \centering      
@@ -302,16 +303,17 @@ In this experiment I have omitted pure reactive agents and thus left others on t
 
 In this experiment I have observed a simulation with just memory agents in it. Again you can see highlighted differences between new values from this experiment and the values from the previous one (GNG+Grid+Random).
 
+
 \begin{center} 
   \begin{tabular}{l*{6}{c}r}
   Agent kind        & median & mean & min & max \\
   \hline
-  GNG agents        & 0.72                  & 0.715                 & 0.5                 & 0.89  \\  
-                    & \color{green}{+0.03}  & \color{green}{+0.024} & \color{red}{-0.02}  & \color{green}{+0.03} \\
-  Grid agents       & 0.72                  & 0.721                 & 0.57                & 0.89  \\  
-                    & \color{green}{+0.02}  & \color{green}{+0.021} & \color{green}{+0.02}& \color{red}{+0.02}   \\
-  All agents        & 0.72                  & 0.718                 & 0.5                 & 0.89  \\
-                    & \color{green}{+0.02}  & \color{green}{+0.020}  & \color{red}{-0.02}  & \color{green}{+0.02} 
+  GNG agents        & 0.531                  & 0.533                 & 0.369                 & 0.699  \\  
+                    & \color{green}{+0.017}  & \color{green}{+0.018} & \color{green}{+0.002}  & \color{green}{+0.018} \\
+  Grid agents       & 0.537                  & 0.538                 & 0.392                & 0.698  \\  
+                    & \color{green}{+0.018}  & \color{green}{+0.017} & \color{green}{+0.012}& \color{red}{-0.005}   \\
+  All agents        & 0.534                  & 0.535                 & 0.369                 & 0.699  \\
+                    & \color{green}{+0.016}  & \color{green}{+0.015}  & \color{red}{+0.003}  & \color{red}{-0.004} 
   \end{tabular}                       
 \end{center}
 
@@ -321,20 +323,21 @@ In this experiment I have observed a simulation with just memory agents in it. A
   \hline
   GNG agents        & 1 & 1 & 1 & 1  \\   
                     & \\
-  Grid agents       & 1 & 0.755                 & 0.4 & 1  \\  
-                    &   & \color{green}{+0.008} & \color{green}{+0.01}  \\
-  All agents        & 1 & 0.877               & 0.4 & 1  \\
-                    &   & \color{red}{-0.039} & \color{green}{0.01} \\
+  Grid agents       & 1 & 0.690                 & 0.282 & 1  \\  
+                    &   & \color{green}{+0.006} & \color{red}{-0.002}  \\
+  All agents        & 1 & 0.845               & 0.282 & 1  \\
+                    &   & \color{red}{-0.05} & \color{red}{-0.002} \\
   \end{tabular}                                 
 \end{center}
 
-%[1] "gng-grid gng median 0.72 mean 0.714870602409639 min 0.5 max 0.89"
-%[1] "gng-grid grid median 0.72 mean 0.721010337100311 min 0.57 max 0.89" 
-%[1] "gng-grid all median 0.72 mean 0.717940506740883 min 0.5 max 0.89"
+%[1] "gng-grid gng median 0.530844869 mean 0.532577119282145 min 0.369194478 max 0.699483242"
+%[1] "gng-grid grid median 0.537313482 mean 0.53826222964025 min 0.392363958 max 0.698047095"
+%[1] "gng-grid all median 0.534081045 mean 0.535419708708437 min 0.369194478 max 0.699483242"
 
 %[1] "gng-grid_silent gng median 1 mean 1 min 1 max 1"
-%[1] "gng-grid_silent grid median 1 mean 0.755093371244066 min 0.4 max 1" 
-%[1] "gng-grid_silent all median 1 mean 0.877545210298671 min 0.4 max 1"
+%[1] "gng-grid_silent grid median 1 mean 0.689744413969736 min 0.281647983 max 1"
+%[1] "gng-grid_silent all median 1 mean 0.844870337997831 min 0.281647983 max 1"
+
 
 \begin{figure}[h!]
   \centering          
