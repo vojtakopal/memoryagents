@@ -4,13 +4,13 @@
 \contentsline {subsection}{\numberline {1.2.1}Resource-bounded reasoning}{10}
 \contentsline {subsection}{\numberline {1.2.2}Short-term and long-term memories}{10}
 \contentsline {subsection}{\numberline {1.2.3}Computational memory architectures}{11}
-\contentsline {subsection}{\numberline {1.2.4}How Place and Objects Combine?}{12}
+\contentsline {subsection}{\numberline {1.2.4}How Place and Objects Combine?}{13}
 \contentsline {subsection}{\numberline {1.2.5}Inspirations for my work}{13}
 \contentsline {chapter}{\numberline {2}Used methods and algorithms}{14}
 \contentsline {section}{\numberline {2.1}Growing Neural Gas}{14}
-\contentsline {subsection}{\numberline {2.1.1}Topology learning}{14}
+\contentsline {subsection}{\numberline {2.1.1}Topology learning}{15}
 \contentsline {subsection}{\numberline {2.1.2}Experiments on dynamic data}{16}
-\contentsline {section}{\numberline {2.2}Grid}{16}
+\contentsline {section}{\numberline {2.2}Grid}{19}
 \contentsline {chapter}{\numberline {3}Simulation and used memory architectures}{20}
 \contentsline {section}{\numberline {3.1}Simulation}{20}
 \contentsline {section}{\numberline {3.2}Environment}{20}

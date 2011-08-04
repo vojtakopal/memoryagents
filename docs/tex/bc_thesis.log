@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  3 AUG 2011 13:43
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2011.5.10)  4 AUG 2011 07:12
 entering extended mode
 **bc_thesis.tex
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\bc_thesis.tex
@@ -547,39 +547,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
-[5] [6]
-(C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.tex
-Overfull \hbox (22.0629pt too wide) in paragraph at lines 9--10
-[]\T1/cmr/m/n/12 Is it ob-vi-ous that adding the abil-ity of com-mu-ni-ca-tion 
-im-proves the agents'chances
- []
-
-) [7
+[5]
+(C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/introduction.tex)
+[6
 
 
-]
+] [7]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/relatedwork.tex
 Chapter 1.
 
 LaTeX Warning: Reference `Wooldridge:intelligentagents' on page 8 undefined on 
-input line 19.
+input line 9.
 
 [8
 
 
 
 ]
-
-LaTeX Warning: Reference `[' on page 9 undefined on input line 31.
-
-
-Overfull \hbox (19.3248pt too wide) in paragraph at lines 31--32
-[]\T1/cmr/m/n/12 Belief-Desire-Intention (BDI) agency model (see []Wooldridge:i
-ntelligentagents])
- []
-
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 34.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
@@ -595,12 +581,11 @@ Chapter 2.
 
 
 
-] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+] [15] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 File: images/gng/experimental_setup.eps Graphic file (type eps)
-
-<images/gng/experimental_setup.eps> [15] [16] [17] [18]) [19]
+<images/gng/experimental_setup.eps> [16] [17] [18]) [19]
 (C:\Users\Vojta\Workspace\Java\memoryagents\docs\tex\chapters/solution.tex
 Chapter 3.
 [20
@@ -637,13 +622,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 ] [30]
-File: diagrams/experiments/random_silent.eps Graphic file (type eps)
- <diagrams/experiments/random_silent.eps>
 File: diagrams/experiments/random.eps Graphic file (type eps)
+ <diagrams/experiments/random.eps>
+File: diagrams/experiments/random_silent.eps Graphic file (type eps)
 
-<diagrams/experiments/random.eps>
+<diagrams/experiments/random_silent.eps>
 File: diagrams/experiments/random_start.eps Graphic file (type eps)
- <diagrams/experiments/random_start.eps>
+
+<diagrams/experiments/random_start.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -741,12 +727,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4686 strings out of 494054
- 64017 string characters out of 3146208
- 144040 words of memory out of 3000000
- 7817 multiletter control sequences out of 15000+200000
- 15143 words of font info for 41 fonts, out of 3000000 for 9000
+ 4701 strings out of 494054
+ 64220 string characters out of 3146208
+ 141115 words of memory out of 3000000
+ 7826 multiletter control sequences out of 15000+200000
+ 18691 words of font info for 48 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 29i,14n,44p,9024b,1588s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,14n,44p,11608b,1588s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bc_thesis.dvi (45 pages, 91600 bytes).
+Output written on bc_thesis.dvi (45 pages, 95048 bytes).

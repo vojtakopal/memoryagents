@@ -15,6 +15,11 @@ Richard~C Atkinson and Richard~M Shiffrin.
 \newblock The control of short-term memory.
 \newblock {\em Scientific American}, 225(2), 1971.
 
+\bibitem{Black:groupdecisionmaking}
+Duncan Black.
+\newblock {On the Rationale of Group Decision-making}.
+\newblock {\em Journal of Political Economy}, 56(1):23--34, 1948.
+
 \bibitem{Bratman:practicalreasoning}
 Michael~E. Bratman, David~J. Israel, and Martha~E. Pollack.
 \newblock {Plans and resource-bounded practical reasoning}.
@@ -53,6 +58,13 @@ Thomas Martinetz.
 \newblock In Stan Gielen and Bert Kappen, editors, {\em Proc. ICANN'93, Int.
   Conf. on Artificial Neural Networks}, pages 427--434, London, UK, 1993.
   Springer.
+
+\bibitem{Pearl:bayesian}
+Judea Pearl.
+\newblock {Bayesian networks: A model of self-activated memory for evidential
+  reasoning}.
+\newblock In {\em Proceedings of the 7th Conference of the Cognitive Science
+  Society, University of California, Irvine}, pages 329--334, August 1985.
 
 \bibitem{russel2003ai}
 Stuart Russell and Peter Norvig.
