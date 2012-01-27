@@ -1,5 +1,8 @@
 package memagents;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import memagents.agents.Agent;
 import memagents.agents.GNGAgent;
 import memagents.agents.GridAgent;
@@ -26,14 +29,19 @@ public class MemoryAgents
 	public static void main(String[] args) {
 		//Log.intoFile("log.log");
 		
+		// A label added to output file.
 		String simulationComment = "";
 		
+		// A flag whether to show a memory visualisation or not.
 		boolean visualMode = true;
 		
-		boolean silentMode = false;
+		// A flag whether the agents are allowed to communicate.
+		boolean silentMode = true;
 		
-		String[] agentTypes = {"gng"};//args[]
+		// What kinds of agent are about to be in the simulation.
+		String[] agentTypes = {"random"};//args[]
 		
+		// Load arguments,
 		if (args.length > 0) {
 			agentTypes = args[0].split(",");
 			simulationComment = args[0];

@@ -32,7 +32,7 @@ public class Simulation
 	 *	The number of agents in the simulation. 
 	 *
 	 */
-	public static final int NUM_AGENTS = 12;
+	public static final int NUM_AGENTS = 6;
 	
 	/**
 	 *	Number of food generators in the simulation. 
@@ -44,7 +44,7 @@ public class Simulation
 	 * 	Speed of simulation (sleep in ms)
 	 * 
 	 */
-	public static final int SPEED = 1; 
+	public static final int SPEED = 10; 
 	
 	/**
 	 *	Speed of food growing (number of ticks).	
@@ -53,37 +53,57 @@ public class Simulation
 	public static final int FOOD_SPEED = 30; 
 	
 	/**
-	 * 
+	 *  Maximum food range used for food distribution.
 	 * 
 	 */
 	public static final int FOOD_MAXRANGE = 12;
 	
 	/**
-	 * 
+	 *  Minimum food range used for food distribution.
 	 * 
 	 */
 	public static final int FOOD_MINRANGE = 8;
 	
+	/**
+	 * 	How many food pieces is added per simulation step.
+	 * 
+	 */
 	public static final int FOOD_ADDITION_PER_UNIT = 5;
 	
 	/**
+	 * 	Distance in which an agent can see food around him in the environmnent.
 	 * 
 	 */
-	public static final int AGENT_LEARNING_SPEED = 1;
-	
 	public static final int AGENT_SIGHT = 40; //20;
 	
+	/**
+	 * 	Distance in which an agent can hear other agents and communicate with them.
+	 *
+	 */
 	public static final int AGENT_AUDITION = 30; //15;
 	
+	/**
+	 * 	How many food locations is answer in the communication.
+	 * 
+	 */
 	public static final int ANSWER_SAMPLE = 5;
 	
+	/**
+	 * 	The level of hunger when an agent starts to search for the food.
+	 * 
+	 */
 	public static final double HUNGER_TRESHOLD = 0.0;
 	
 	protected Environment environment;
 	protected ArrayList<Agent> agents;
 	protected ArrayList<FoodGenerator> generators;
-	protected SimulationSettings settings = new SimulationSettings();
 	protected Random random = null;
+	
+	/**
+	 * We use a single instance of Random class to be able to resimulate.
+	 * 
+	 * @return
+	 */
 	public Random getRandom() { return random; }
 	
 	/**
@@ -97,8 +117,7 @@ public class Simulation
 		this.comment = comment;
 	}
 	
-	public Simulation() 
-	{
+	public Simulation() {
 		System.out.println("Simulation starts.");
 		init();
 	}
@@ -106,8 +125,7 @@ public class Simulation
 	/**
 	 * Initialization of environment, agents and their random positions.
 	 */
-	private void init()
-	{
+	private void init() {
 		random = new Random(); //random.setSeed(123456789);
 		environment = new Environment(SIZE, SIZE);
 		agents = new ArrayList<Agent>();
@@ -129,29 +147,23 @@ public class Simulation
 	}
 	
 	/**
-	 * 
+	 * 	Adds new agent to the simulation and sets his audition and sight 
+	 * 	to the default values.
+	 * 	
 	 */
 	public Agent addAgent(final Agent agent) {
 		
 		agent.setAudition(AGENT_AUDITION);
 		agent.setSight(AGENT_SIGHT);
-		
-		//int agentX = random.nextInt(SIZE);
-		//int agentY = random.nextInt(SIZE);
-		
+				
 		agents.add(agent);	
 		
-		/// Position him into environment
-		/// env.add(agentX, agentY, agent);
-		
-		//Log.println("init " + (agents.size() - 1) + " " + agentX + " " + agentY);
-		
-		//agent.setId(agents.size()-1);
-	
 		return agent;
 	}
 	
 	/**
+	 * 	Adds new agent to the simulation and sets its position
+	 * 	to given coordinates.
 	 * 
 	 */
 	public Agent addAgent(Agent agent, int x, int y) {
@@ -164,6 +176,10 @@ public class Simulation
 		return agent;
 	}
 	
+	/**
+	 * 	Gets agents.
+	 * 
+	 */
 	public ArrayList<Agent> getAgents() {
 		return agents;
 	}
@@ -191,16 +207,9 @@ public class Simulation
 		return null;
 	}
 	
-	public SimulationSettings getSettings() {
-		return settings;
-	}
-	
-	
 	/**
-	 * Runs the entire simulation. 
-	 */
-	/**
-	 * 
+	 * Runs the entire simulation.
+	 *  
 	 */
 	public void run(int maxDays) 
 	{
@@ -258,7 +267,7 @@ public class Simulation
 			
 			long endTime = new Date().getTime();
 			
-			System.out.println("Cycle time: " + (endTime - startTime) + " ms");
+			//System.out.println("Cycle time: " + (endTime - startTime) + " ms");
 			
 			try {
 				Thread.sleep(SPEED);
@@ -270,6 +279,10 @@ public class Simulation
 		System.out.println("Simulation stopped after "+(simulationTime - 1)+" days");
 	}
 	
+	/**
+	 * 	Log output
+	 * 
+	 */
 	public String toString() {
 		String ret = null;
 		StringBuilder sb = new StringBuilder();
@@ -280,7 +293,6 @@ public class Simulation
 		sb.append("#SPEED="); 				sb.append(Simulation.SPEED);sb.append("\n");
 		sb.append("#NUM_AGENTS="); 			sb.append(Simulation.NUM_AGENTS);sb.append("\n");
 		sb.append("#AGENT_AUDITION"); 		sb.append(Simulation.AGENT_AUDITION);sb.append("\n");
-		sb.append("#AGENT_LEARNING_SPEED="); sb.append(Simulation.AGENT_LEARNING_SPEED);sb.append("\n");
 		sb.append("#AGENT_SIGHT="); 			sb.append(Simulation.AGENT_SIGHT);sb.append("\n");
 		sb.append("#FOOD_ADDITION_PER_UNIT="); sb.append(Simulation.FOOD_ADDITION_PER_UNIT);sb.append("\n");
 		sb.append("#FOOD_MAXRANGE="); 		sb.append(Simulation.FOOD_MAXRANGE);sb.append("\n");

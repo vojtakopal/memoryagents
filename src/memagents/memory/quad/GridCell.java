@@ -34,12 +34,6 @@ public class GridCell {
 		long result = 0;
 		
 		result = (long)(ALPHA * getPositive() - getNegative());
-		
-//		if (getPositive() > 0 && getNegative() < getPositive()) {
-//			long p = getPositive();
-//			if (p > 255) p = 255;
-//			return p;
-//		}
 
 		return result;
 	}
@@ -51,7 +45,6 @@ public class GridCell {
 		result = containsFood() / ALPHA;
 		
 		if (result < 0) result = 0;
-		//if (result > 16) result = 16;
 		
 		return result;
 	}

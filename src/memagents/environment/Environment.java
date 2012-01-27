@@ -17,9 +17,7 @@ public class Environment
 	protected int width;
 	
 	protected int height;
-			
-//	protected Matrix<ArrayList<Agent>> agents;
-	
+				
 	protected Matrix<HashMap<Integer, Integer>> food;
 	
 	public Environment(int width, int height)
@@ -27,76 +25,15 @@ public class Environment
 		this.width = width;
 		this.height = height;
 		
-//		agents = new Matrix<ArrayList<Agent>>(width, height);
 		food = new Matrix<HashMap<Integer,Integer>>(width, height);
 		
 		for (int i = 0; i < this.width; i++)
-			for (int j = 0; j < this.height; j++)
-			{
-//				agents.set(i, j, new ArrayList<Agent>());
+			for (int j = 0; j < this.height; j++) {
 				food.set(i, j, new HashMap<Integer,Integer>());
 			}
 		
 	}
-	
 		
-//	/**
-//	 * Returns a list of object at the given position.
-//	 * 
-//	 * @param x position
-//	 * @param y position
-//	 * @return ArrayList<EnvironmentObject>
-//	 */
-//	public ArrayList<Agent> getAgents(int i, int j)
-//	{
-//		return agents.get(i, j);
-//	}
-//	
-//	
-//	/**
-//	 * Add an object to the given position.
-//	 * 
-//	 * @param x position
-//	 * @param y position
-//	 * @param new object
-//	 */
-//	public void addAgent(int i, int j, Agent agent)
-//	{		
-//		agents.get(i, j).add(agent);
-//	}
-//	
-//	
-//	/**
-//	 * Remove an object from the list at the given position.
-//	 * 
-//	 * @param x position
-//	 * @param y position
-//	 * @param object to be removed
-//	 */
-//	public void removeAgent(int i, int j, Agent agent)
-//	{
-//		ArrayList<Agent> list = agents.get(i, j);
-//		
-//		if (list == null) return;
-//		
-//		list.remove(list.indexOf(agent));
-//	} 
-//	
-//	public void removeAll(int i, int j) {
-//		agents.get(i, j).clear();
-//	}
-//	
-//	/**
-//	 * It provides a list of object at the given position.
-//	 * 
-//	 * @param position
-//	 * @return ArrayList<EnvironmentObject>
-//	 */
-//	public ArrayList<Agent> getNeighbours(Point position)
-//	{
-//		return agents.get(position.x, position.y);
-//	}
-	
 	/**
 	 * Adds food at specified position in environment.
 	 * 
@@ -146,8 +83,7 @@ public class Environment
 	 * @param moves
 	 * @return ArrayList<int[]>
 	 */
-	public ArrayList<Point> filterMoves(Point position, ArrayList<Point> moves)
-	{
+	public ArrayList<Point> filterMoves(Point position, ArrayList<Point> moves) {
 		ArrayList<Point> filtered = new ArrayList<Point>();
 		
 		for (Point move : moves)
@@ -170,7 +106,6 @@ public class Environment
 		return x < 0 || x >= width || y < 0 || y >= height;
 	}
 	
-	public void initNextDay()
-	{		
+	public void initNextDay() {		
 	}
 }

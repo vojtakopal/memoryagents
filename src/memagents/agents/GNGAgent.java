@@ -58,6 +58,11 @@ public class GNGAgent extends Agent
 		return memory;
 	}
 	
+	/**
+	 * 	Draws current agent's perception of the environment into the graphic canvas. 
+	 * 	Also it draws the state of agent's memory.
+	 * 
+	 */
 	synchronized public void draw(Graphics g, int width, int height) {
 		
 		double xV = width / (double)getMemory().getWidth();

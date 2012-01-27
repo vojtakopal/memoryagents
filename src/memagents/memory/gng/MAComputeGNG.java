@@ -1,15 +1,10 @@
 package memagents.memory.gng;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Random;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import memagents.memory.GNGMemory;
 
@@ -83,9 +78,6 @@ public class MAComputeGNG extends ComputeGNG {
 	public void start(int maxSteps) {
 		this.maxSteps = maxSteps;
 
-//	    relaxer = new Thread(this, "ComputeGNG #"+(++idCounter));
-//	    relaxer.start();
-	    
 	    threadCounter++;
 	}
 	
@@ -162,7 +154,7 @@ public class MAComputeGNG extends ComputeGNG {
 	}
 	
 	public void computeExpectedDistribution() {		
-		expectedValueX = 0; // stredni hodnota
+		expectedValueX = 0;
 		expectedValueY = 0;
 		
 		for (int i = 0; i < nnodes; i++) {
@@ -181,16 +173,7 @@ public class MAComputeGNG extends ComputeGNG {
 				expectedVariance += sqDistance / nnodes;
 			}
 		}
-		
-//		double distance2 = (expectedValueX - getRealValueX())*(expectedValueX - getRealValueX()) + (expectedValueY - getRealValueY())*(expectedValueY - getRealValueY());
-//		double pomer = 1; //getVariance() / expectedVariance;
-		
-//		if (expectedVariance > getVariance()) pomer = getVariance() / expectedVariance;
-//		else pomer = expectedVariance / getVariance();
-		
-//		score = distance2 / ((getVariance() + expectedVariance)*(getVariance() + expectedVariance));
-		
-		//System.out.println("Score: "+score);
+
 	}
 	
 }

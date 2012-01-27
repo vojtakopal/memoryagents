@@ -34,10 +34,7 @@ public class GNGMemory extends Memory {
 			// gngEngine.setParams(0.5f, 1.0f, 0.0f, 1.0E-4f, 600, 88, 8);
 			gngEngines.put(foodKind, gngEngine);
 		}
-		
 
-//		thread = new Thread(this, "GNGMemory");
-//		thread.start();
 	}
 	
 	public void learn(int foodKind, ArrayList<Point> food) {
@@ -96,39 +93,15 @@ public class GNGMemory extends Memory {
 		return lines;
 	}
 	
-//	public HashMap<Integer, Point> getExpectedCenters() {
-//		HashMap<Integer, Point> centers = new HashMap<Integer, Point>();
-//		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-//			centers.put(foodKind, new Point((int)gngEngines.get(foodKind).getExpectedValueX(), (int)gngEngines.get(foodKind).getExpectedValueY()));
-//		}
-//		return centers;
-//	}
-//	
-//	public HashMap<Integer, Double> getExpectedVariances() {
-//		HashMap<Integer, Double> centers = new HashMap<Integer, Double>();
-//		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-//			centers.put(foodKind, gngEngines.get(foodKind).getExpectedVariance());
-//		}
-//		return centers;		
-//	}
-	
 	public Point getExpectedCenter(int foodKind) {
 		gngEngines.get(foodKind).computeExpectedDistribution();
 		return new Point((int)gngEngines.get(foodKind).getExpectedValueX(), (int)gngEngines.get(foodKind).getExpectedValueY());
 	}
 	
 	public void run() {
-//		while (true) {
-			for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
-				gngEngines.get(foodKind).learn();
-			}
-			
-//			try {
-//				Thread.sleep(10);
-//			} catch (InterruptedException e) {
-//				
-//			}
-//		}
+		for (int foodKind = 0; foodKind < FoodGenerator.getSize(); foodKind++) {
+			gngEngines.get(foodKind).learn();
+		}
 	}
 
 	public HashMap<Integer, ExpectedGauss> getExpectedGausses() {
