@@ -1,6 +1,7 @@
 package memagents.food;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Random;
 
 import memagents.Simulation;
@@ -19,6 +20,8 @@ public class FoodGenerator {
 	
 	protected int range = 10;
 	
+	protected ArrayList<Peak> peaks;
+	
 	protected Simulation simulation = null;
 	
 	/**
@@ -27,15 +30,14 @@ public class FoodGenerator {
 	 */
 	protected int deltaAmount = 1;
 	
-	public FoodGenerator(int centerX, int centerY, Simulation simulation) {
+	public FoodGenerator(Simulation simulation) {
 		this.id = idCounter++;
-		this.x = centerX;
-		this.y = centerY;
+		this.peaks = new ArrayList<Peak>();
 		this.simulation = simulation;
 	}
 	
-	public void setRange(int value) {
-		this.range = value;
+	public void addPeak(int x, int y, int range) {
+		this.peaks.add(new Peak(x, y, range));
 	}
 		
 	public void seed(Environment environment) {		
@@ -44,8 +46,10 @@ public class FoodGenerator {
 		
 		Random rand = simulation.getRandom();
 
-		newX = (int)(x + range*rand.nextGaussian());
-		newY = (int)(y + range*rand.nextGaussian());
+		Peak peak = peaks.get(rand.nextInt(peaks.size()));
+		
+		newX = (int)(peak.x + peak.range*rand.nextGaussian());
+		newY = (int)(peak.y + peak.range*rand.nextGaussian());
 		
 		environment.seedFood(newX, newY, id, deltaAmount);
 	}
@@ -68,4 +72,12 @@ public class FoodGenerator {
 		default: return Color.DARK_GRAY;
 		}
 	}
+}
+
+
+class Peak {
+	int x; 
+	int y;
+	int range;
+	public Peak(int x, int y, int range) { this.x = x; this.y = y; this.range = range; }
 }

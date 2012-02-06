@@ -114,14 +114,30 @@ public class Simulation
 		generators = new ArrayList<FoodGenerator>();
 		
 		for (int i = 0; i < FOOD_NUM; i++) {
-			int range = FOOD_MINRANGE;
+			int range;
+			int x;
+			int y;
+			
+			FoodGenerator generator = new FoodGenerator(this);
+
+			range = FOOD_MINRANGE;
 			if (FOOD_MAXRANGE > FOOD_MINRANGE) {
 				range += random.nextInt(FOOD_MAXRANGE - FOOD_MINRANGE);
 			}
-			int x = random.nextInt(SIZE - range*2) + range;
-			int y = random.nextInt(SIZE - range*2) + range;
-			FoodGenerator generator = new FoodGenerator(x, y, this);
-			generator.setRange(range);
+			x = random.nextInt(SIZE - range*2) + range;
+			y = random.nextInt(SIZE - range*2) + range;
+			
+			generator.addPeak(x, y, range);
+			
+			range = FOOD_MINRANGE;
+			if (FOOD_MAXRANGE > FOOD_MINRANGE) {
+				range += random.nextInt(FOOD_MAXRANGE - FOOD_MINRANGE);
+			}
+			x = random.nextInt(SIZE - range*2) + range;
+			y = random.nextInt(SIZE - range*2) + range;
+			
+			generator.addPeak(x, y, range);
+			
 			generators.add(generator);
 		}
 		
