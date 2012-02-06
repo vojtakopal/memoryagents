@@ -509,6 +509,7 @@ public abstract class Agent {
 			if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
 				for (Agent agent : this.simulation.getAgents()) {
 					if (agent.isDead()) continue;
+					if (agent.muted) continue;
 					
 					double qDistanceToAgent = getQDistance(position, agent.getPosition());
 					if (qDistanceToAgent < audition*audition && qDistanceToAgent < agent.audition*agent.audition) {

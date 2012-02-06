@@ -1,7 +1,13 @@
 package memagents;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.ini4j.Ini;
+import org.ini4j.InvalidFileFormatException;
+import org.ini4j.Wini;
 
 import memagents.agents.Agent;
 import memagents.agents.GNGAgent;
@@ -29,6 +35,18 @@ public class MemoryAgents
 	public static void main(String[] args) {
 		//Log.intoFile("log.log");
 		
+		Wini ini = null;
+		try {
+			ini = new Wini(new File("cfg/config.ini"));
+		} catch (InvalidFileFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Ini.Section agentsIni = ini.get("agents");
+				
 		// A label added to output file.
 		String simulationComment = "";
 		
@@ -36,35 +54,36 @@ public class MemoryAgents
 		boolean visualMode = true;
 		
 		// A flag whether the agents are allowed to communicate.
-		boolean silentMode = true;
+		// boolean silentMode = true;
 		
 		// What kinds of agent are about to be in the simulation.
-		String[] agentTypes = {"random"};//args[]
+		// String[] agentTypes = {"graph"};//args[]
 		
 		// Load arguments,
-		if (args.length > 0) {
-			agentTypes = args[0].split(",");
-			simulationComment = args[0];
-		}
-		
-		if (args.length > 1) {
-			if (args[1].compareTo("silent") == 0) {
-				silentMode = true;
-			}
-			if (args[1].compareTo("novisual") == 0) {
-				visualMode = false;
-			}
-		}
-		
-		if (args.length > 2) {
-			if (args[2].compareTo("silent") == 0) {
-				silentMode = true;
-			}
-			if (args[2].compareTo("novisual") == 0) {
-				visualMode = false;
-			}
-		}
+//		if (args.length > 0) {
+//			agentTypes = args[0].split(",");
+//			simulationComment = args[0];
+//		}
+//		
+//		if (args.length > 1) {
+//			if (args[1].compareTo("silent") == 0) {
+//				silentMode = true;
+//			}
+//			if (args[1].compareTo("novisual") == 0) {
+//				visualMode = false;
+//			}
+//		}
+//		
+//		if (args.length > 2) {
+//			if (args[2].compareTo("silent") == 0) {
+//				silentMode = true;
+//			}
+//			if (args[2].compareTo("novisual") == 0) {
+//				visualMode = false;
+//			}
+//		}
 				
+		
 		// Simulation instance.
 		Simulation simulation = new Simulation(simulationComment);
 		
@@ -72,30 +91,32 @@ public class MemoryAgents
 		// and store data about their current needs.
 		NeedsMonitor monitor = new NeedsMonitor(simulation);
 		
-		for (int i = 0; i < Simulation.NUM_AGENTS; i++) {
-			int indexType = i % agentTypes.length;
-			String type = agentTypes[indexType];
-			Agent agent = null;
-			
-			if (type.compareTo("gng") == 0) {
-				agent = new GNGAgent(simulation);
-			} else if (type.compareTo("grid") == 0) {
-				agent = new GridAgent(simulation);
-			} else if (type.compareTo("random") == 0) {
-				agent = new RandomAgent(simulation);
-			} else if (type.compareTo("pr") == 0) {
-				agent = new PureReactiveAgent(simulation);
-			}
-			
-			if (agent != null) {
-				agent.addMonitor(monitor);
-				simulation.addAgent(agent);
-
-				if (silentMode) {
-					agent.mute();
-				}
-				if (visualMode) {
-					new MemoryVisualizer(agent, simulation);
+		int numAgents = agentsIni.get("numTypes", int.class);
+		for (int i = 0; i < numAgents; i++) {
+			for (int j = 0; j < agentsIni.get("num" + i, int.class); j++) {
+				String type = agentsIni.get("type" + i, String.class);
+				Agent agent = null;
+				
+				if (type.compareTo("gng") == 0) {
+					agent = new GNGAgent(simulation);
+				} else if (type.compareTo("grid") == 0) {
+					agent = new GridAgent(simulation);
+				} else if (type.compareTo("random") == 0) {
+					agent = new RandomAgent(simulation);
+				} else if (type.compareTo("pr") == 0) {
+					agent = new PureReactiveAgent(simulation);
+				} 
+				
+				if (agent != null) {
+					agent.addMonitor(monitor);
+					simulation.addAgent(agent);
+		
+					if (agentsIni.get("silent" + i, boolean.class)) {
+						agent.mute();
+					}
+					if (visualMode) {
+						new MemoryVisualizer(agent, simulation);
+					}
 				}
 			}
 		}
