@@ -822,12 +822,7 @@ public class ComputeGNG implements Runnable {
 	}
 
 	/**
-	 * Do the learning. An input signal is generated for the given distribution
-	 * and forwarded to the switched algorithm. Available Algorithms (abbrev,
-	 * case): Growing Neural Gas (GNG, 0), Hard Competitive Learning (HCL, 1),
-	 * Neural Gas (NG, 2), Neural Gas with Competitive Hebbian Learning (NGwCHL,
-	 * 3) and Competitive Hebbian Learning (CHL, 4). LBG (LBG, 5: but not in the
-	 * switch). Growing Grid (GG, 6). Self-Organizing Map (SOM, 7).
+	 * Do the learning. 
 	 * 
 	 */
 	protected synchronized void learn() {

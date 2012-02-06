@@ -57,6 +57,16 @@ public abstract class Agent {
 	protected final Point position = new Point();
 
 	/**
+	 * 
+	 */
+	protected boolean walkingRandomly = false;
+	
+	/**
+	 * 
+	 */
+	protected Point randomWalkDestionation = new Point();
+	
+	/**
 	 * 	Agent's needs. The key is foodKind and value is float [0, 1]
 	 * 
 	 */
@@ -251,8 +261,10 @@ public abstract class Agent {
 		dead = true;
 	}
 	
-	public void mute() {
+	public Agent mute() {
 		muted = true;
+		
+		return this;
 	}
 	
 	/**
@@ -405,9 +417,14 @@ public abstract class Agent {
 		}
 	}
 	
+	/**
+	 * 	Agents live method which is called each step of the simulation.
+	 * 
+	 */
 	synchronized public void live() {
 		if (isDead()) return;
 		
+		boolean hasMoved = false;
 		Environment environment = simulation.getEnvironment();
 		
 		int mostDeservedFood = findMostDeservedFood();
@@ -429,17 +446,16 @@ public abstract class Agent {
 				
 				if (bestMove != null) {
 					move(bestMove);
-				} else {
-					// dont't know where to go
-					moveRandomly();
-				}
-			} else {
-				moveRandomly();
-			}
+					walkingRandomly = false;
+					hasMoved = true;
+				} 
+			} 
 						
-		} else {
-			// random, no needs
+		}
+		
+		if (hasMoved == false) {
 			moveRandomly();
+			walkingRandomly = true;
 		}
 		
 		// 
@@ -532,6 +548,7 @@ public abstract class Agent {
 		if (muted == false) {
 			// do i need food and dont know any point where it is
 			if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
+<<<<<<< HEAD
 				
 				ArrayList<Agent> reachableAgents = getReachableAgents();
 				for (Agent agent : reachableAgents) {
@@ -543,6 +560,24 @@ public abstract class Agent {
 							// but it has to be out of my sight
 							if (false == iCanSeeIt(point)) {
 								knownFoodLocations.get(mostDeservedFood).add(point);
+=======
+				for (Agent agent : this.simulation.getAgents()) {
+					if (agent.isDead()) continue;
+					if (agent.muted) continue;
+					
+					double qDistanceToAgent = getQDistance(position, agent.getPosition());
+					if (qDistanceToAgent < audition*audition && qDistanceToAgent < agent.audition*agent.audition) {
+						Point[] answeredPoints = agent.whereIs(mostDeservedFood);
+						if (answeredPoints != null) {
+							for (Point point : answeredPoints) {
+								if (point == null) continue;
+								
+								// but it has to be out of my sight
+								double qDistanceToAnswer = getQDistance(point, position);
+								if (qDistanceToAnswer > sight*sight) {
+									knownFoodLocations.get(mostDeservedFood).add(point);
+								}
+>>>>>>> b41635e80fcae91151a7ea3f80bc58787f6b875f
 							}
 						}
 					}
@@ -591,17 +626,30 @@ public abstract class Agent {
 	}
 	
 	protected void moveRandomly() {
+		
+		if (walkingRandomly == false) {
+			// reset random destination
+			randomWalkDestionation = new Point(simulation.getRandom().nextInt(simulation.getSize()), simulation.getRandom().nextInt(simulation.getSize()));
+		}
+
+		if (randomWalkDestionation.x == position.x && randomWalkDestionation.y == position.y) {
+			randomWalkDestionation = new Point(simulation.getRandom().nextInt(simulation.getSize()), simulation.getRandom().nextInt(simulation.getSize()));
+		}
+		
 		Environment environment = simulation.getEnvironment();
 		ArrayList<Point> randomMoves = environment.filterMoves(position, availableMoves());
-		int rand = (int)(randomMoves.size() * simulation.getRandom().nextDouble());
+		//int rand = (int)(randomMoves.size() * simulation.getRandom().nextDouble());
 		
 		if (randomMoves.size() > 0) {
-			move(randomMoves.get(rand));
+			Point nextPosition = getNearestPoint(new Point(randomWalkDestionation.x - position.x, randomWalkDestionation.y - position.y), randomMoves);
+			move(nextPosition);
 		}		
 	}
 		
-	public void addMonitor(Monitor monitor) {
+	public Agent addMonitor(Monitor monitor) {
 		monitors.add(monitor);
+		
+		return this;
 	}
 	
 	public void processMonitors(int step) {
@@ -610,6 +658,10 @@ public abstract class Agent {
 		}
 	}
 	
+	/**
+	 * 	Draws current agent's perception of the environment into the graphic canvas. 
+	 * 
+	 */
 	synchronized public void draw(Graphics g, int width, int height) {
 		
 		if (isDead()) {

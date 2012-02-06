@@ -29,7 +29,12 @@ public class GridAgent extends Agent {
 	public Memory getMemory() {
 		return memory;
 	}
-	
+
+	/**
+	 * 	Draws current agent's perception of the environment into the graphic canvas. 
+	 * 	Also it draws the state of agent's memory.
+	 * 
+	 */
 	synchronized public void draw(Graphics g, int width, int height) {
 		// draw memory representation
 		int cellSize = 16;
