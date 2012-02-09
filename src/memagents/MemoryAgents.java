@@ -1,6 +1,7 @@
 package memagents;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +26,14 @@ import memagents.utils.NeedsMonitor;
  *	observer what is going on.
  *
  */
-public class MemoryAgents 
-{	
+public class MemoryAgents {
+	/**
+	 * The name of the default configuration file.
+	 */
+	public static final String DEFAULT_CONFIG_FILE_NAME = "cfg/config.ini";
+	
+	public static final int EXIT_CODE_INVALID_CONFIG_FILE = 1;
+	
 	/**
 	 * 	Main method which start the whole process of simulation. 
 	 * 
@@ -35,15 +42,23 @@ public class MemoryAgents
 	public static void main(String[] args) {
 		//Log.intoFile("log.log");
 		
+		String configFileName = DEFAULT_CONFIG_FILE_NAME;
+		if (args.length > 0) {
+			configFileName = args[0];
+		}
+		
 		Wini ini = null;
 		try {
-			ini = new Wini(new File("cfg/config.ini"));
+			ini = new Wini(new File(configFileName));
 		} catch (InvalidFileFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(EXIT_CODE_INVALID_CONFIG_FILE);
+		} catch (FileNotFoundException e) {
+			System.err.printf("The ini file '%s' was not found.\n", configFileName);
+			System.exit(EXIT_CODE_INVALID_CONFIG_FILE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(EXIT_CODE_INVALID_CONFIG_FILE);
 		}
 		Ini.Section agentsIni = ini.get("agents");
 				
