@@ -27,6 +27,8 @@ import memagents.utils.NeedsMonitor;
  *
  */
 public class MemoryAgents {
+	private static final String INI_VALUE_STEP_PERIOD = "step_period";
+
 	/**
 	 * The name of the default configuration file.
 	 */
@@ -97,10 +99,18 @@ public class MemoryAgents {
 //				visualMode = false;
 //			}
 //		}
-				
+		
+		Ini.Section simulationIni = ini.get("simulation");
+		if (simulationIni != null) {
+			simulationComment = simulationIni.get("comment", "");
+		}
 		
 		// Simulation instance.
 		Simulation simulation = new Simulation(simulationComment);
+		if (simulationIni != null && simulationIni.containsKey(INI_VALUE_STEP_PERIOD)) {
+			int simulationStepPeriod = simulationIni.get(INI_VALUE_STEP_PERIOD, int.class);
+			simulation.setStepPeriod(simulationStepPeriod);
+		}
 		
 		// Monitor observes the agent inside the simulation
 		// and store data about their current needs.
