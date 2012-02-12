@@ -1,6 +1,7 @@
 package memagents;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +26,16 @@ import memagents.utils.NeedsMonitor;
  *	observer what is going on.
  *
  */
-public class MemoryAgents 
-{	
+public class MemoryAgents {
+	private static final String INI_VALUE_STEP_PERIOD = "step_period";
+
+	/**
+	 * The name of the default configuration file.
+	 */
+	public static final String DEFAULT_CONFIG_FILE_NAME = "cfg/config.ini";
+	
+	public static final int EXIT_CODE_INVALID_CONFIG_FILE = 1;
+	
 	/**
 	 * 	Main method which start the whole process of simulation. 
 	 * 
@@ -35,15 +44,23 @@ public class MemoryAgents
 	public static void main(String[] args) {
 		//Log.intoFile("log.log");
 		
+		String configFileName = DEFAULT_CONFIG_FILE_NAME;
+		if (args.length > 0) {
+			configFileName = args[0];
+		}
+		
 		Wini ini = null;
 		try {
-			ini = new Wini(new File("cfg/config.ini"));
+			ini = new Wini(new File(configFileName));
 		} catch (InvalidFileFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(EXIT_CODE_INVALID_CONFIG_FILE);
+		} catch (FileNotFoundException e) {
+			System.err.printf("The ini file '%s' was not found.\n", configFileName);
+			System.exit(EXIT_CODE_INVALID_CONFIG_FILE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(EXIT_CODE_INVALID_CONFIG_FILE);
 		}
 		Ini.Section agentsIni = ini.get("agents");
 				
@@ -82,10 +99,18 @@ public class MemoryAgents
 //				visualMode = false;
 //			}
 //		}
-				
+		
+		Ini.Section simulationIni = ini.get("simulation");
+		if (simulationIni != null) {
+			simulationComment = simulationIni.get("comment", "");
+		}
 		
 		// Simulation instance.
 		Simulation simulation = new Simulation(simulationComment);
+		if (simulationIni != null && simulationIni.containsKey(INI_VALUE_STEP_PERIOD)) {
+			int simulationStepPeriod = simulationIni.get(INI_VALUE_STEP_PERIOD, int.class);
+			simulation.setStepPeriod(simulationStepPeriod);
+		}
 		
 		// Monitor observes the agent inside the simulation
 		// and store data about their current needs.

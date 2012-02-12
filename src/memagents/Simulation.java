@@ -44,7 +44,7 @@ public class Simulation
 	 * 	Speed of simulation (sleep in ms)
 	 * 
 	 */
-	public static final int SPEED = 10; 
+	public static final int DEFAULT_STEP_PERIOD = 10; 
 	
 	/**
 	 *	Speed of food growing (number of ticks).	
@@ -100,6 +100,12 @@ public class Simulation
 	protected Random random = null;
 	
 	/**
+	 * The delay between two steps of the simulation (in milliseconds).
+	 * If set to 0, the simulation runs at maximum speed.
+	 */
+	protected int stepPeriod = DEFAULT_STEP_PERIOD;
+	
+	/**
 	 * We use a single instance of Random class to be able to resimulate.
 	 * 
 	 * @return
@@ -120,6 +126,14 @@ public class Simulation
 	public Simulation() {
 		System.out.println("Simulation starts.");
 		init();
+	}
+	
+	public int getStepPeriod() {
+		return stepPeriod;
+	}
+	
+	public void setStepPeriod(int stepPeriod) {
+		this.stepPeriod = stepPeriod;
 	}
 	
 	/**
@@ -225,7 +239,7 @@ public class Simulation
 	
 	/**
 	 * Runs the entire simulation.
-	 *  
+	 *  @param maxDays the maximal number of steps of the simulation.
 	 */
 	public void run(int maxDays) 
 	{
@@ -285,10 +299,12 @@ public class Simulation
 			
 			//System.out.println("Cycle time: " + (endTime - startTime) + " ms");
 			
-			try {
-				Thread.sleep(SPEED);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			if (stepPeriod > 0) {
+				try {
+					Thread.sleep(stepPeriod);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 
@@ -306,7 +322,7 @@ public class Simulation
 		sb.append("#Simulation\n#================\n#");
 		sb.append(comment); sb.append("\n");
 		sb.append("#SIZE="); 				sb.append(Simulation.SIZE);sb.append("\n");
-		sb.append("#SPEED="); 				sb.append(Simulation.SPEED);sb.append("\n");
+		sb.append("#SPEED="); 				sb.append(this.stepPeriod);sb.append("\n");
 		sb.append("#NUM_AGENTS="); 			sb.append(Simulation.NUM_AGENTS);sb.append("\n");
 		sb.append("#AGENT_AUDITION"); 		sb.append(Simulation.AGENT_AUDITION);sb.append("\n");
 		sb.append("#AGENT_SIGHT="); 			sb.append(Simulation.AGENT_SIGHT);sb.append("\n");
