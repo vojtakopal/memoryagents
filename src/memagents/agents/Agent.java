@@ -497,6 +497,47 @@ public abstract class Agent {
 		}
 	}
 	
+	/**
+	 * Return a list of agents which mutually reachable by communication, e.g. in their audition.
+	 * 
+	 * @return list of reachable agents
+	 */
+	private ArrayList<Agent> getReachableAgents() {
+		ArrayList<Agent> agents = new ArrayList<Agent>();
+		
+		for (Agent agent : this.simulation.getAgents()) {
+			if (agent.isDead()) continue;
+			
+			if (areMutuallyReachable(agent)) {
+				agents.add(agent);
+			}
+		} 
+		
+		return agents; 
+	}
+	
+	private boolean areMutuallyReachable(Agent agent) {
+		boolean result = false;
+		
+		double qDistanceToAgent = getQDistance(position, agent.getPosition());
+		if (qDistanceToAgent < audition*audition && qDistanceToAgent < agent.audition*agent.audition) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
+	private boolean iCanSeeIt(Point point) {
+		boolean result = false;
+
+		double qDistanceToAnswer = getQDistance(point, position);
+		if (qDistanceToAnswer < sight*sight) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
 	private void putKnownFoodLocationsIntoMemory(int mostDeservedFood) {
 		boolean knowPointFor_MostDeservedFood = false;
 			
@@ -507,6 +548,19 @@ public abstract class Agent {
 		if (muted == false) {
 			// do i need food and dont know any point where it is
 			if (mostDeservedFood != -1 && !knowPointFor_MostDeservedFood) {
+<<<<<<< HEAD
+				
+				ArrayList<Agent> reachableAgents = getReachableAgents();
+				for (Agent agent : reachableAgents) {
+					Point[] answeredPoints = agent.whereIs(mostDeservedFood);
+					if (answeredPoints != null) {
+						for (Point point : answeredPoints) {
+							if (point == null) continue;
+							
+							// but it has to be out of my sight
+							if (false == iCanSeeIt(point)) {
+								knownFoodLocations.get(mostDeservedFood).add(point);
+=======
 				for (Agent agent : this.simulation.getAgents()) {
 					if (agent.isDead()) continue;
 					if (agent.muted) continue;
@@ -523,6 +577,7 @@ public abstract class Agent {
 								if (qDistanceToAnswer > sight*sight) {
 									knownFoodLocations.get(mostDeservedFood).add(point);
 								}
+>>>>>>> b41635e80fcae91151a7ea3f80bc58787f6b875f
 							}
 						}
 					}
